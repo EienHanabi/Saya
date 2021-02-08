@@ -1,4 +1,5 @@
 tweepy==3.10.0
 discord.py==1.6.0
 pyyaml==5.4.1
+aiosqlite==0.16.1
 https://files.pythonhosted.org/packages/ce/7e/0c71ba865ff6a3c38830afc25910a5e00345e054d836c92964f12f88d02c/Arc_api-1.1.tar.gz

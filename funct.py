@@ -1,5 +1,6 @@
 import time
 import discord
+import aiosqlite
 from Arcapi import AsyncApi
 from operator import itemgetter
 from datetime import datetime, timedelta
@@ -48,17 +49,28 @@ async def register(message):
             code = "".join(message.content.split(" ")[1:])
 
     if code:
-        with open("players.txt", "a", encoding="UTF-8") as f:
-            f.write(f"{message.author.id}: {code}\n")
-            await message.channel.send("> INFO: Code ajouté a la base de données")
-            return
+        async with aiosqlite.connect(f"players.db") as db:
+            async with db.execute(f"SELECT * FROM players WHERE discord_id = {message.author.id}") as c:
+                if len(await c.fetchall()) == 0:
+                    async with db.execute(f"INSERT INTO players (discord_id, arc_id) VALUES "
+                                          f"('{message.author.id}', '{code}')"):
+                        await db.commit()
+                    await message.channel.send("> INFO: Code ajouté a la base de données")
+                    return
+                else:
+                    async with db.execute(f"UPDATE players SET arc_id = '{code}' "
+                                          f"WHERE discord_id = '{message.author.id}'"):
+                        await db.commit()
+                    await message.channel.send("> INFO: Code mis à jour la base de données")
+                    return
+
     else:
         await message.channel.send("> ERREUR: Le format du code est incorrect")
         return
 
 
 async def recent(message):
-    code = check_id(str(message.author.id))
+    code = await check_id(message.author.id)
     if not code:
         await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
@@ -85,13 +97,13 @@ async def recent(message):
                       value=f'> **{format_score(recent["score"])}** [{clr[recent["best_clear_type"]]}] '
                             f'(Rating: {round(recent["rating"], 3)})\n'
                             f'> Pure: {recent["perfect_count"]} ({recent["shiny_perfect_count"]}) \n'
-                            f'> Near: {recent["near_count"]}\n'
+                            f'> Far: {recent["near_count"]}\n'
                             f'> Miss: {recent["miss_count"]}')
     await message.channel.send(embed=msg_emb)
 
 
 async def best(message):
-    code = check_id(str(message.author.id))
+    code = await (message.author.id)
     if not code:
         await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
@@ -124,14 +136,14 @@ async def best(message):
                           value=f'> **{format_score(elm["score"])}** [{clr[elm["best_clear_type"]]}] '
                                 f'(Rating: {round(elm["rating"], 3)})\n'
                                 f'> Pure: {elm["perfect_count"]} ({elm["shiny_perfect_count"]}) \n'
-                                f'> Near: {elm["near_count"]}\n'
+                                f'> Far: {elm["near_count"]}\n'
                                 f'> Miss: {elm["miss_count"]}')
         count += 1
     await message.channel.send(embed=msg_emb)
 
 
 async def profile(message):
-    code = check_id(str(message.author.id))
+    code = await check_id(message.author.id)
     if not code:
         await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
@@ -168,16 +180,14 @@ async def get_help(message):
                                "> !register: Links a user code to a Discord account")
 
 
-def check_id(id):
-    with open("players.txt", "r+", encoding="UTF-8") as f:
-        players = f.readlines()
-
-    for elmt in players:
-        elmt = elmt.split(": ")
-        if id == elmt[0]:
-            return elmt[1].replace("\n", "")
-
-    return None
+async def check_id(id):
+    async with aiosqlite.connect(f"players.db") as db:
+        async with db.execute(f"SELECT * FROM players WHERE discord_id = {id}") as c:
+            res = await c.fetchall()
+            if len(res) != 0:
+                return str("{0:09d}").format(res[0][1])
+            else:
+                return None
 
 
 def format_score(score):
