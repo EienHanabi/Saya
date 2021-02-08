@@ -24,7 +24,7 @@ class MyClient(discord.Client):
                 await profile(message)
             if message.content.startswith("!recent"):
                 await recent(message)
-            if message.content.startswith("!rec"):
+            if message.content.startswith("!rec") and not message.content.startswith("!recent"):
                 await ptt_recommendation(message)
             if message.content.startswith("!register"):
                 await register(message)
