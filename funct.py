@@ -158,6 +158,16 @@ async def profile(message):
     await message.channel.send(embed=msg_emb)
 
 
+async def get_help(message):
+    await message.channel.send("**Help:**\n"
+                               "> !art: Displays a random art tweet\n"
+                               "> !best: Sends the Top 30 plays\n"
+                               "> !help: Sends this message\n"
+                               "> !profile: Displays the user profile\n"
+                               "> !recent: Sends the latest play\n"
+                               "> !register: Links a user code to a Discord account")
+
+
 def check_id(id):
     with open("players.txt", "r+", encoding="UTF-8") as f:
         players = f.readlines()

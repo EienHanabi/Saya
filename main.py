@@ -2,7 +2,7 @@ from datetime import datetime
 import discord
 import yaml
 
-from funct import register, best, recent, profile
+from funct import best, get_help, recent, profile, register
 from art import get_random_tweet
 
 
@@ -14,16 +14,18 @@ class MyClient(discord.Client):
 
     async def on_message(self, message):
         if type(message.channel) != discord.channel.DMChannel:
-            if message.content.startswith("!register"):
-                await register(message)
-            if message.content.startswith("!best"):
-                await best(message)
-            if message.content.startswith("!recent"):
-                await recent(message)
-            if message.content.startswith("!profile"):
-                await profile(message)
             if message.content.startswith("!art"):
                 await get_random_tweet(message)
+            if message.content.startswith("!best"):
+                await best(message)
+            if message.content.startswith("!help"):
+                await get_help(message)
+            if message.content.startswith("!profile"):
+                await profile(message)
+            if message.content.startswith("!recent"):
+                await recent(message)
+            if message.content.startswith("!register"):
+                await register(message)
 
 
 def get_token():
