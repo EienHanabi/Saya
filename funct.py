@@ -97,16 +97,22 @@ async def recent(message):
                       value=f'> **{format_score(recent["score"])}** [{clr[recent["best_clear_type"]]}] '
                             f'(Rating: {round(recent["rating"], 3)})\n'
                             f'> Pure: {recent["perfect_count"]} ({recent["shiny_perfect_count"]}) \n'
-                            f'> Far: {recent["near_count"]}\n'
-                            f'> Miss: {recent["miss_count"]}')
+                            f'> Far: {recent["near_count"]} |  Lost: {recent["miss_count"]}\n'
+                            f'> Date: {format_time(recent["time_played"]).split(" - ")[0]}')
     await message.channel.send(embed=msg_emb)
 
 
 async def best(message):
-    code = await (message.author.id)
+    code = await check_id(message.author.id)
+    nb_scores = 30
     if not code:
         await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
+
+    if len(message.content.split(" ")) > 1:
+        if message.content.split(" ")[1].isdigit():
+            if 1 <= int(message.content.split(" ")[1]) <= 30:
+                nb_scores = int(message.content.split(" ")[1])
 
     api_ = AsyncApi(user_code=code)
     data = await api_.scores()
@@ -124,21 +130,19 @@ async def best(message):
 
     ls_top = sorted(ls_top, key=itemgetter('rating'), reverse=True)[0:30]
 
-    msg_emb = discord.Embed(title='Top 30', type='rich', color=discord.Color.dark_teal())
+    msg_emb = discord.Embed(title=f'Top {nb_scores}', type='rich', color=discord.Color.dark_teal())
     msg_emb.set_author(name=f"{prfl['name']}", icon_url=char_url)
-    count = 0
-    for elm in ls_top:
-        if count == 15:
+    for i in range(nb_scores):
+        if i == round(nb_scores/2) and nb_scores > 20:
             await message.channel.send(embed=msg_emb)
             msg_emb = discord.Embed(title='Top 30', type='rich', color=discord.Color.dark_teal())
             msg_emb.set_author(name=f"{prfl['name']}", icon_url=char_url)
-        msg_emb.add_field(name=f'**{songlist[elm["song_id"]]["en"]} <{diff[elm["difficulty"]]}\>**',
-                          value=f'> **{format_score(elm["score"])}** [{clr[elm["best_clear_type"]]}] '
-                                f'(Rating: {round(elm["rating"], 3)})\n'
-                                f'> Pure: {elm["perfect_count"]} ({elm["shiny_perfect_count"]}) \n'
-                                f'> Far: {elm["near_count"]}\n'
-                                f'> Miss: {elm["miss_count"]}')
-        count += 1
+        msg_emb.add_field(name=f'**{songlist[ls_top[i]["song_id"]]["en"]} <{diff[ls_top[i]["difficulty"]]}\>**',
+                          value=f'> **{format_score(ls_top[i]["score"])}** [{clr[ls_top[i]["best_clear_type"]]}] '
+                                f'(Rating: {round(ls_top[i]["rating"], 3)})\n'
+                                f'> Pure: {ls_top[i]["perfect_count"]} ({ls_top[i]["shiny_perfect_count"]}) \n'
+                                f'> Far: {ls_top[i]["near_count"]} | Lost: {ls_top[i]["miss_count"]}\n'
+                                f'> Date: {format_time(ls_top[i]["time_played"]).split(" - ")[0]}')
     await message.channel.send(embed=msg_emb)
 
 
@@ -170,12 +174,69 @@ async def profile(message):
     await message.channel.send(embed=msg_emb)
 
 
+# Gives 15 PTT recommendations
+async def ptt_recommendation(message):
+    code = await check_id(message.author.id)
+    if not code:
+        await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
+        return
+
+    api_ = AsyncApi(user_code=code)
+    data = await api_.scores()
+    scores = []
+    ptt_rec = []
+    songlist = data[0]
+    prfl = data[1]
+    PTT = int("{0:04d}".format(prfl["rating"])[:2])
+
+    if prfl["is_char_uncapped"]:
+        char_url = char + str(prfl['character']) + "u_icon.png"
+    else:
+        char_url = char + str(prfl['character']) + "_icon.png"
+
+    for elm in data[2:]:
+        scores.append(elm)
+
+    scores = sorted(scores, key=itemgetter('rating'), reverse=True)
+    # Divides scores between top 30 and scores below
+    scores_top_30 = scores[0:30]
+    scores_others = scores[30:]
+    # Removes PMs
+    scores_top_30 = filter(lambda scores: scores['score'] < 10000000, scores_top_30)
+    scores_others_2 = scores_others
+    scores_others = filter(lambda scores: scores['score'] < 10000000, scores_others)
+
+    # 10 recommendations : Oldest scores from top 30
+    ptt_rec += sorted(scores_top_30, key=itemgetter('time_played'), reverse=False)[0:10]
+    # 5 recommendations : Oldest scores not in top 30 with Chart Constant > PTT - 1
+    filtered_scores = filter(lambda scores: scores['constant'] > PTT - 1, scores_others)
+    ptt_rec += sorted(filtered_scores, key=itemgetter('time_played'), reverse=False)[0:5]
+    # 5 recommendations : Oldest scores not in top 30 with PTT - 1 >= Chart Constant > PTT - 2
+    filtered_scores_2 = filter(lambda scores: PTT - 1 >= scores['constant'] > PTT - 2, scores_others_2)
+    ptt_rec += sorted(filtered_scores_2, key=itemgetter('time_played'), reverse=False)[0:5]
+    # Sort by time_played
+    ptt_rec = sorted(ptt_rec, key=itemgetter('time_played'), reverse=False)
+
+    msg_emb = discord.Embed(title='Recommendation', type='rich', color=discord.Color.dark_teal())
+    msg_emb.set_author(name=f"{prfl['name']}", icon_url=char_url)
+    msg_emb.set_footer(text="*(Credit: Okami)*")
+    for elm in ptt_rec:
+        msg_emb.add_field(name=f'**{songlist[elm["song_id"]]["en"]} <{diff[elm["difficulty"]]}\>**',
+                          value=f'> **{format_score(elm["score"])}** [{clr[elm["best_clear_type"]]}] '
+                                f'(Rating: {round(elm["rating"], 3)})\n'
+                                f'> Pure: {elm["perfect_count"]} ({elm["shiny_perfect_count"]}) \n'
+                                f'> Far: {elm["near_count"]} | Lost: {elm["miss_count"]}\n'
+                                f'> Date: {format_time(elm["time_played"]).split(" - ")[0]}')
+    await message.channel.send(embed=msg_emb)
+
+
 async def get_help(message):
     await message.channel.send("**Help:**\n"
                                "> !art: Displays a random art tweet\n"
-                               "> !best: Sends the Top 30 plays\n"
+                               "> !best [1-30]: Sends the Top [1-30] plays (Default: 30)\n"
                                "> !help: Sends this message\n"
                                "> !profile: Displays the user profile\n"
+                               "> !rec: Sends 15 recommended plays to increase PTT\n"
                                "> !recent: Sends the latest play\n"
                                "> !register: Links a user code to a Discord account")
 
