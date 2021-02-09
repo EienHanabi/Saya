@@ -201,10 +201,11 @@ async def ptt_recommendation(message):
     # Divides scores between top 30 and scores below
     scores_top_30 = scores[0:30]
     scores_others = scores[30:]
+    scores_others_2 = scores_others
     # Removes PMs
     scores_top_30 = filter(lambda scores: scores['score'] < 10000000, scores_top_30)
-    scores_others_2 = scores_others
     scores_others = filter(lambda scores: scores['score'] < 10000000, scores_others)
+    scores_others_2 = filter(lambda scores: scores['score'] < 10000000, scores_others_2)
 
     # 10 recommendations : Oldest scores from top 30
     ptt_rec += sorted(scores_top_30, key=itemgetter('time_played'), reverse=False)[0:10]
