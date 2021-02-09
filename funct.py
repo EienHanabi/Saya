@@ -187,7 +187,7 @@ async def ptt_recommendation(message):
     ptt_rec = []
     songlist = data[0]
     prfl = data[1]
-    PTT = int("{0:04d}".format(prfl["rating"])[:2])
+    PTT = float(prfl["rating"]) / 100
 
     if prfl["is_char_uncapped"]:
         char_url = char + str(prfl['character']) + "u_icon.png"
