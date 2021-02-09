@@ -200,6 +200,7 @@ async def ptt_recommendation(message):
     scores = sorted(scores, key=itemgetter('rating'), reverse=True)
     # Divides scores between top 30 and scores below
     scores_top_30 = scores[0:30]
+    last_top_30 = scores_top_30[29]
     scores_others = scores[30:]
     scores_others_2 = scores_others
     # Removes PMs
@@ -213,7 +214,7 @@ async def ptt_recommendation(message):
     filtered_scores = filter(lambda scores: scores['constant'] > PTT - 1, scores_others)
     ptt_rec += sorted(filtered_scores, key=itemgetter('time_played'), reverse=False)[0:5]
     # 5 recommendations : Oldest scores not in top 30 with PTT - 1 >= Chart Constant > PTT - 2
-    filtered_scores_2 = filter(lambda scores: PTT - 1 >= scores['constant'] > PTT - 2, scores_others_2)
+    filtered_scores_2 = filter(lambda scores: PTT - 1 >= scores['constant'] > last_top_30['rating'] - 2, scores_others_2)
     ptt_rec += sorted(filtered_scores_2, key=itemgetter('time_played'), reverse=False)[0:5]
     # Sort by time_played
     ptt_rec = sorted(ptt_rec, key=itemgetter('time_played'), reverse=False)
