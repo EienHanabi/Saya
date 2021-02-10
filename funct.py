@@ -187,16 +187,15 @@ def get_ptt_recommendation_scores(scores, prfl, nb_scores):
     scores_others_2 = scores_others
     # Removes PMs
     scores_top_30 = filter(lambda scores: scores['score'] < 10000000, scores_top_30)
-    scores_others = filter(lambda scores: scores['score'] < 10000000, scores_others)
-    scores_others_2 = filter(lambda scores: scores['score'] < 10000000, scores_others_2)
+    scores_others = list(filter(lambda scores: scores['score'] < 10000000, scores_others))
 
     half_nb_scores = math.floor(nb_scores / 2)
     # Max 1/4 recommendations : Oldest scores not in top 30 with Chart Constant > PTT - 1
     filtered_scores = filter(lambda scores: scores['constant'] > PTT - 1 and scores['rating'] > last_top_30['rating'] - 1, scores_others)
     ptt_rec += sorted(filtered_scores, key=itemgetter('time_played'), reverse=False)[0:int(math.ceil(half_nb_scores/2))]
     # Max 1/4 recommendations : Oldest scores not in top 30 with PTT - 1 >= Chart Constant > PTT - 2
-    filtered_scores_2 = filter(lambda scores: PTT - 1 >= scores['constant'] > last_top_30['rating'] - 2 and scores['rating'] > last_top_30['rating'] - 1, scores_others_2)
-    ptt_rec += sorted(filtered_scores_2, key=itemgetter('time_played'), reverse=False)[0:int(math.floor(half_nb_scores/2))]
+    filtered_scores = filter(lambda scores: PTT - 1 >= scores['constant'] > last_top_30['rating'] - 2 and scores['rating'] > last_top_30['rating'] - 1, scores_others)
+    ptt_rec += sorted(filtered_scores, key=itemgetter('time_played'), reverse=False)[0:int(math.floor(half_nb_scores/2))]
     # Rest of recommendations : Oldest scores from top 30
     ptt_rec += sorted(scores_top_30, key=itemgetter('time_played'), reverse=False)[0:nb_scores - len(ptt_rec)]
     # Sort by time_played
