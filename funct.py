@@ -217,10 +217,10 @@ async def ptt_recommendation(message):
 
     half_nb_scores = math.floor(nb_scores / 2)
     # Max 1/4 recommendations : Oldest scores not in top 30 with Chart Constant > PTT - 1
-    filtered_scores = filter(lambda scores: scores['constant'] > PTT - 1, scores_others)
+    filtered_scores = filter(lambda scores: scores['constant'] > PTT - 1 and scores['rating'] > last_top_30['rating'] - 1, scores_others)
     ptt_rec += sorted(filtered_scores, key=itemgetter('time_played'), reverse=False)[0:int(math.ceil(half_nb_scores/2))]
     # Max 1/4 recommendations : Oldest scores not in top 30 with PTT - 1 >= Chart Constant > PTT - 2
-    filtered_scores_2 = filter(lambda scores: PTT - 1 >= scores['constant'] > last_top_30['rating'] - 2, scores_others_2)
+    filtered_scores_2 = filter(lambda scores: PTT - 1 >= scores['constant'] > last_top_30['rating'] - 2 and scores['rating'] > last_top_30['rating'] - 1, scores_others_2)
     ptt_rec += sorted(filtered_scores_2, key=itemgetter('time_played'), reverse=False)[0:int(math.floor(half_nb_scores/2))]
     # Rest of recommendations : Oldest scores from top 30
     ptt_rec += sorted(scores_top_30, key=itemgetter('time_played'), reverse=False)[0:nb_scores - len(ptt_rec)]
