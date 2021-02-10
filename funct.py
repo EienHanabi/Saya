@@ -26,19 +26,6 @@ char = 'http://119.23.30.103:8080/ArcAssets/icon/'
 cover = 'http://119.23.30.103:8080/ArcAssets/cover/'
 
 
-async def test():
-    data = await api_.scores()
-
-    songlist = data[0]
-    prfl = data[1]
-    best = prfl["rating_records"]
-
-    for elm in data[:]:
-        print(elm)
-
-    print(prfl)
-
-
 async def register(message):
     code = None
     if len(message.content.split(" ")) == 2:
@@ -94,7 +81,8 @@ async def recent(message):
     msg_emb = discord.Embed(title='Last play', type='rich', color=discord.Color.dark_teal())
     msg_emb.set_thumbnail(url=cover_url)
     msg_emb.set_author(name=f"{prfl['name']}", icon_url=char_url)
-    msg_emb.add_field(name=f'**{songlist[recent["song_id"]]["en"]} <{diff[recent["difficulty"]]}\>**',
+    msg_emb.add_field(name=f'**{songlist[recent["song_id"]]["en"]}\n<{diff[recent["difficulty"]]} '
+                           f'{get_diff(recent["constant"])}\>**',
                       value=f'> **{format_score(recent["score"])}** [{clr[recent["best_clear_type"]]}] '
                             f'(Rating: {round(recent["rating"], 3)})\n'
                             f'> Pure: {recent["perfect_count"]} ({recent["shiny_perfect_count"]}) \n'
@@ -138,7 +126,8 @@ async def best(message):
             await message.channel.send(embed=msg_emb)
             msg_emb = discord.Embed(title='Top 30', type='rich', color=discord.Color.dark_teal())
             msg_emb.set_author(name=f"{prfl['name']}", icon_url=char_url)
-        msg_emb.add_field(name=f'**{songlist[ls_top[i]["song_id"]]["en"]} <{diff[ls_top[i]["difficulty"]]}\>**',
+        msg_emb.add_field(name=f'**{songlist[ls_top[i]["song_id"]]["en"]}\n<{diff[ls_top[i]["difficulty"]]} '
+                               f'{get_diff(ls_top[i]["constant"])}\>**',
                           value=f'> **{format_score(ls_top[i]["score"])}** [{clr[ls_top[i]["best_clear_type"]]}] '
                                 f'(Rating: {round(ls_top[i]["rating"], 3)})\n'
                                 f'> Pure: {ls_top[i]["perfect_count"]} ({ls_top[i]["shiny_perfect_count"]}) \n'
@@ -231,7 +220,8 @@ async def ptt_recommendation(message):
     msg_emb.set_author(name=f"{prfl['name']}", icon_url=char_url)
     msg_emb.set_footer(text="*(Credit: Okami)*")
     for elm in ptt_rec:
-        msg_emb.add_field(name=f'**{songlist[elm["song_id"]]["en"]} <{diff[elm["difficulty"]]}\>**',
+        msg_emb.add_field(name=f'**{songlist[elm["song_id"]]["en"]}\n<{diff[elm["difficulty"]]} '
+                               f'{get_diff(elm["constant"])}\>**',
                           value=f'> **{format_score(elm["score"])}** [{clr[elm["best_clear_type"]]}] '
                                 f'(Rating: {round(elm["rating"], 3)})\n'
                                 f'> Pure: {elm["perfect_count"]} ({elm["shiny_perfect_count"]}) \n'
@@ -267,6 +257,18 @@ def format_score(score):
 
 def format_code(code):
     return code[:3] + " " + code[3:6] + " " + code[6:]
+
+
+def get_diff(cst):
+    if 9.6 < cst < 11:
+        if cst < 10:
+            return "9+"
+        elif cst < 10.6:
+            return "10"
+        else:
+            return "10+"
+    else:
+        return str(cst).split(".")[0]
 
 
 def format_time(ts):
