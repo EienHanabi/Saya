@@ -1,4 +1,5 @@
 import time
+import math
 import discord
 import aiosqlite
 from Arcapi import AsyncApi
@@ -181,13 +182,19 @@ async def ptt_recommendation(message):
         await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
 
+    nb_scores = 5
+    if len(message.content.split(" ")) > 1:
+        if message.content.split(" ")[1].isdigit():
+            if 1 <= int(message.content.split(" ")[1]) <= 20:
+                nb_scores = int(message.content.split(" ")[1])
+
     api_ = AsyncApi(user_code=code)
     data = await api_.scores()
     scores = []
     ptt_rec = []
     songlist = data[0]
     prfl = data[1]
-    PTT = int("{0:04d}".format(prfl["rating"])[:2])
+    PTT = float(prfl["rating"]) / 100
 
     if prfl["is_char_uncapped"]:
         char_url = char + str(prfl['character']) + "u_icon.png"
@@ -200,20 +207,23 @@ async def ptt_recommendation(message):
     scores = sorted(scores, key=itemgetter('rating'), reverse=True)
     # Divides scores between top 30 and scores below
     scores_top_30 = scores[0:30]
+    last_top_30 = scores_top_30[29]
     scores_others = scores[30:]
+    scores_others_2 = scores_others
     # Removes PMs
     scores_top_30 = filter(lambda scores: scores['score'] < 10000000, scores_top_30)
-    scores_others_2 = scores_others
     scores_others = filter(lambda scores: scores['score'] < 10000000, scores_others)
+    scores_others_2 = filter(lambda scores: scores['score'] < 10000000, scores_others_2)
 
-    # 10 recommendations : Oldest scores from top 30
-    ptt_rec += sorted(scores_top_30, key=itemgetter('time_played'), reverse=False)[0:10]
-    # 5 recommendations : Oldest scores not in top 30 with Chart Constant > PTT - 1
-    filtered_scores = filter(lambda scores: scores['constant'] > PTT - 1, scores_others)
-    ptt_rec += sorted(filtered_scores, key=itemgetter('time_played'), reverse=False)[0:5]
-    # 5 recommendations : Oldest scores not in top 30 with PTT - 1 >= Chart Constant > PTT - 2
-    filtered_scores_2 = filter(lambda scores: PTT - 1 >= scores['constant'] > PTT - 2, scores_others_2)
-    ptt_rec += sorted(filtered_scores_2, key=itemgetter('time_played'), reverse=False)[0:5]
+    half_nb_scores = math.floor(nb_scores / 2)
+    # Max 1/4 recommendations : Oldest scores not in top 30 with Chart Constant > PTT - 1
+    filtered_scores = filter(lambda scores: scores['constant'] > PTT - 1 and scores['rating'] > last_top_30['rating'] - 1, scores_others)
+    ptt_rec += sorted(filtered_scores, key=itemgetter('time_played'), reverse=False)[0:int(math.ceil(half_nb_scores/2))]
+    # Max 1/4 recommendations : Oldest scores not in top 30 with PTT - 1 >= Chart Constant > PTT - 2
+    filtered_scores_2 = filter(lambda scores: PTT - 1 >= scores['constant'] > last_top_30['rating'] - 2 and scores['rating'] > last_top_30['rating'] - 1, scores_others_2)
+    ptt_rec += sorted(filtered_scores_2, key=itemgetter('time_played'), reverse=False)[0:int(math.floor(half_nb_scores/2))]
+    # Rest of recommendations : Oldest scores from top 30
+    ptt_rec += sorted(scores_top_30, key=itemgetter('time_played'), reverse=False)[0:nb_scores - len(ptt_rec)]
     # Sort by time_played
     ptt_rec = sorted(ptt_rec, key=itemgetter('time_played'), reverse=False)
 
@@ -236,7 +246,7 @@ async def get_help(message):
                                "> !best [1-30]: Sends the Top [1-30] plays (Default: 30)\n"
                                "> !help: Sends this message\n"
                                "> !profile: Displays the user profile\n"
-                               "> !rec: Sends 15 recommended plays to increase PTT\n"
+                               "> !rec [1-20]: Sends [1-20] recommended plays to increase PTT (Default: 5)\n"
                                "> !recent: Sends the latest play\n"
                                "> !register: Links a user code to a Discord account")
 
