@@ -175,34 +175,9 @@ async def profile(message):
     await message.channel.send(embed=msg_emb)
 
 
-# Gives 15 PTT recommendations
-async def ptt_recommendation(message):
-    code = await check_id(message.author.id)
-    if not code:
-        await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
-        return
-
-    nb_scores = 5
-    if len(message.content.split(" ")) > 1:
-        if message.content.split(" ")[1].isdigit():
-            if 1 <= int(message.content.split(" ")[1]) <= 20:
-                nb_scores = int(message.content.split(" ")[1])
-
-    api_ = AsyncApi(user_code=code)
-    data = await api_.scores()
-    scores = []
+def get_ptt_recommendation_scores(scores, prfl, nb_scores):
     ptt_rec = []
-    songlist = data[0]
-    prfl = data[1]
     PTT = float(prfl["rating"]) / 100
-
-    if prfl["is_char_uncapped"]:
-        char_url = char + str(prfl['character']) + "u_icon.png"
-    else:
-        char_url = char + str(prfl['character']) + "_icon.png"
-
-    for elm in data[2:]:
-        scores.append(elm)
 
     scores = sorted(scores, key=itemgetter('rating'), reverse=True)
     # Divides scores between top 30 and scores below
@@ -226,6 +201,37 @@ async def ptt_recommendation(message):
     ptt_rec += sorted(scores_top_30, key=itemgetter('time_played'), reverse=False)[0:nb_scores - len(ptt_rec)]
     # Sort by time_played
     ptt_rec = sorted(ptt_rec, key=itemgetter('time_played'), reverse=False)
+    return ptt_rec
+
+
+# Gives [1-20] PTT recommendations
+async def ptt_recommendation(message):
+    code = await check_id(message.author.id)
+    if not code:
+        await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
+        return
+
+    nb_scores = 5
+    if len(message.content.split(" ")) > 1:
+        if message.content.split(" ")[1].isdigit():
+            if 1 <= int(message.content.split(" ")[1]) <= 20:
+                nb_scores = int(message.content.split(" ")[1])
+
+    api_ = AsyncApi(user_code=code)
+    data = await api_.scores()
+    songlist = data[0]
+    prfl = data[1]
+    scores = []
+    for elm in data[2:]:
+        scores.append(elm)
+
+    ptt_rec = get_ptt_recommendation_scores(scores, prfl, nb_scores)
+
+
+    if prfl["is_char_uncapped"]:
+        char_url = char + str(prfl['character']) + "u_icon.png"
+    else:
+        char_url = char + str(prfl['character']) + "_icon.png"
 
     msg_emb = discord.Embed(title='Recommendation', type='rich', color=discord.Color.dark_teal())
     msg_emb.set_author(name=f"{prfl['name']}", icon_url=char_url)
