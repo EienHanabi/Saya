@@ -8,9 +8,9 @@ from art import get_random_tweet
 
 class MyClient(discord.Client):
     async def on_ready(self):
-        await self.change_presence(activity=discord.Game(name='Arcaea'))
-        print(f"[{str(datetime.now().time().strftime('%H:%M:%S'))}] "
-              f"[INFO] Connecté en tant que: {self.user.name} ({self.user.id})")
+        await self.change_presence(activity=discord.Game(name="Arcaea"))
+        print(f'[{str(datetime.now().time().strftime("%H:%M:%S"))}] '
+              f'[INFO] Connecté en tant que: {self.user.name} ({self.user.id})')
 
     async def on_message(self, message):
         if type(message.channel) != discord.channel.DMChannel:
@@ -44,5 +44,5 @@ def main():
     client.run(token_bot)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
