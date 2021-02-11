@@ -174,6 +174,7 @@ async def profile(message):
     await message.channel.send(embed=msg_emb)
 
 
+# Return nb_scores recommendations based on given scores/profile, doesn't display anything
 def get_ptt_recommendation_scores(scores, prfl, nb_scores):
     ptt_rec = []
     PTT = float(prfl["rating"]) / 100
@@ -251,6 +252,7 @@ async def session_generator(message):
         await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
 
+	# Parse parameters
     params = message.content.split(" ")
     if len(params) <= 1 or len(params) % 2 == 0:
         await message.channel.send("> Erreur: Paramètres incorrects, aucune session ne peut être générée (*Exemple : !session 8 4 9 2 9+ 1*)")
@@ -265,7 +267,6 @@ async def session_generator(message):
         diffs.append(params[i])
         nb_songs.append(int(params[i + 1]))
         i += 2
-    # diffs = ["8", "9", "10+"]
     
     api_ = AsyncApi(user_code=code)
     data = await api_.scores()
@@ -275,6 +276,7 @@ async def session_generator(message):
     for elm in data[2:]:
         scores.append(elm)
 
+	# Get PTT Recommendations so they can be used in the algorithm
     ptt_rec = get_ptt_recommendation_scores(scores, prfl, 20)
     
     session_songs = []
@@ -286,11 +288,11 @@ async def session_generator(message):
         songs_pool = []
         for j in range(len(songs_list)):
             song = songs_list[j]
-            is_rec = len(list(filter(lambda rec_score: rec_score["song_id"] == song["song_id"] and rec_score["difficulty"] == song["difficulty"], ptt_rec)))
+            is_rec = len(list(filter(lambda rec_score: rec_score["song_id"] == song["song_id"] and rec_score["difficulty"] == song["difficulty"], ptt_rec))) # Check if a song is in PTT Recommendations
             songs_pool.extend(repeat(song, j + 1 + is_rec * 2))
         for j in range(nb_songs[i]):
             song = random.choice(songs_pool)
-            while len(list(filter(lambda score: score["song_id"] == song["song_id"] and score["difficulty"] == song["difficulty"], session_songs))) > 0:
+            while len(list(filter(lambda score: score["song_id"] == song["song_id"] and score["difficulty"] == song["difficulty"], session_songs))) > 0: # Avoid duplicate songs
                 song = random.choice(songs_pool)
             session_songs.append(song)
     session_songs = sorted(session_songs, key=itemgetter("constant"), reverse=False)
@@ -314,6 +316,7 @@ async def session_generator(message):
     await message.channel.send(embed=msg_emb)
 
 
+# Display help
 async def get_help(message):
     await message.channel.send("**Help:**\n"
                                "> !art: Displays a random art tweet\n"
@@ -336,14 +339,17 @@ async def check_id(id):
                 return None
 
 
+# Format score as 00'000'000
 def format_score(score):
     return "{0:08d}".format(score)[:2] + "'" + "{0:08d}".format(score)[2:5] + "'" + "{0:08d}".format(score)[5:]
 
 
+# Format player code as 000 000 000
 def format_code(code):
     return code[:3] + " " + code[3:6] + " " + code[6:]
 
 
+# Get song difficulty based on PTT (Is incorrect for Moonheart BYD)
 def get_diff(cst):
     if 9.6 < cst < 11:
         if cst < 10:
@@ -356,6 +362,7 @@ def get_diff(cst):
         return str(cst).split(".")[0]
 
 
+# Format time; Arcapi returns a delta from current time instead of EPOCH
 def format_time(ts):
     sec = int(time.time() - ts/1000)
     days = int(sec / 86400)
