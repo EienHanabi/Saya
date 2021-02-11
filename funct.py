@@ -9,23 +9,23 @@ from operator import itemgetter
 from datetime import datetime, timedelta
 
 # Initialize an API with user code
-api_ = AsyncApi(user_code='610602710')
+api_ = AsyncApi(user_code="610602710")
 
 diff = ["PST", "PRS", "FTR", "BYD"]
 diff_fn = ["Past", "Present", "Future", "Beyond"]
-clr = ['F', 'NC', 'FR', 'PM', 'EC', 'HC']
-char_names = ["Hikari", "Tairitsu", "Kou", "Sapphire", "Lethe", "unknown_icon", "[Axium] Tairitsu",
-              "[Grievous] Tairitsu", "unknown_icon", "Hikari & Fisica", "Ilith", "Eto", "Luna", "Shirabe",
-              "[Zero] Hikari", "[Fracture] Hikari", "[Summer] Hikari", "[Summer] Tairitsu", "Tairitsu & Trin",
-              "Ayu", "[Winter] Eto & Luna", "Yume", "Hikari & Seine", "Saya", "[Grievous] Tairistu & Chuni Penguin",
-              "Chuni Pinguin", "Haruna", "Nono", "[MTA-XXX] Pandora Nemesis", "[MDA-21] Regulus", "Kanae",
-              "[Fantasia] Hikari", "[Sonata] Tairitsu", "Sia", "DORO*C", "[Tempest] Tairitsu",
-              "[E/S Primera] Brillante", "[Summer] Ilith", "[Etude] Saya",  "Alice & Tenniel", "Luna & Mia",
-              "Areus", "Seele", "Isabelle"]
+clr = ["F", "NC", "FR", "PM", "EC", "HC"]
+partners_names = ["Hikari", "Tairitsu", "Kou", "Sapphire", "Lethe", "unknown_icon", "[Axium] Tairitsu",
+		          "[Grievous] Tairitsu", "unknown_icon", "Hikari & Fisica", "Ilith", "Eto", "Luna", "Shirabe",
+                  "[Zero] Hikari", "[Fracture] Hikari", "[Summer] Hikari", "[Summer] Tairitsu", "Tairitsu & Trin",
+                  "Ayu", "[Winter] Eto & Luna", "Yume", "Hikari & Seine", "Saya", "[Grievous] Tairistu & Chuni Penguin",
+                  "Chuni Pinguin", "Haruna", "Nono", "[MTA-XXX] Pandora Nemesis", "[MDA-21] Regulus", "Kanae",
+                  "[Fantasia] Hikari", "[Sonata] Tairitsu", "Sia", "DORO*C", "[Tempest] Tairitsu",
+                  "[E/S Primera] Brillante", "[Summer] Ilith", "[Etude] Saya",  "Alice & Tenniel", "Luna & Mia",
+                  "Areus", "Seele", "Isabelle"]
 
 # Asset links
-char = 'http://119.23.30.103:8080/ArcAssets/icon/'
-cover = 'http://119.23.30.103:8080/ArcAssets/cover/'
+partners = "http://119.23.30.103:8080/ArcAssets/icon/"
+cover = "http://119.23.30.103:8080/ArcAssets/cover/"
 
 
 async def register(message):
@@ -71,18 +71,13 @@ async def recent(message):
     prfl = data[1]
     recent = prfl["recent_score"][0]
 
-    if prfl["is_char_uncapped"]:
-        char_url = char + str(prfl['character']) + "u_icon.png"
-    else:
-        char_url = char + str(prfl['character']) + "_icon.png"
-
     if recent["difficulty"] == 3:
         cover_url = cover + "3_" + recent["song_id"] + ".jpg"
     else:
         cover_url = cover + recent["song_id"] + ".jpg"
-    msg_emb = discord.Embed(title='Last play', type='rich', color=discord.Color.dark_teal())
+    msg_emb = discord.Embed(title="Last play", type="rich", color=discord.Color.dark_teal())
     msg_emb.set_thumbnail(url=cover_url)
-    msg_emb.set_author(name=f"{prfl['name']}", icon_url=char_url)
+    msg_emb.set_author(name=f'{prfl["name"]}', icon_url=get_partner_icon(prfl))
     msg_emb.add_field(name=f'**{songlist[recent["song_id"]]["en"]}\n<{diff[recent["difficulty"]]} '
                            f'{get_diff(recent["constant"])}\>**',
                       value=f'> **{format_score(recent["score"])}** [{clr[recent["best_clear_type"]]}] '
@@ -111,18 +106,13 @@ async def best(message):
     prfl = data[1]
     ls_top = []
 
-    if prfl["is_char_uncapped"]:
-        char_url = char + str(prfl['character']) + "u_icon.png"
-    else:
-        char_url = char + str(prfl['character']) + "_icon.png"
-
     for elm in data[2:]:
         ls_top.append(elm)
 
-    ls_top = sorted(ls_top, key=itemgetter('rating'), reverse=True)[0:30]
+    ls_top = sorted(ls_top, key=itemgetter("rating"), reverse=True)[0:30]
 
-    msg_emb = discord.Embed(title=f'Top {nb_scores}', type='rich', color=discord.Color.dark_teal())
-    msg_emb.set_author(name=f"{prfl['name']}", icon_url=char_url)
+    msg_emb = discord.Embed(title=f'Top {nb_scores}', type="rich", color=discord.Color.dark_teal())
+    msg_emb.set_author(name=f'{prfl["name"]}', icon_url=get_partner_icon(prfl))
     
     if nb_scores == 1:
         if ls_top[0]["difficulty"] == 3:
@@ -134,8 +124,8 @@ async def best(message):
     for i in range(nb_scores):
         if i == round(nb_scores/2) and nb_scores > 20:
             await message.channel.send(embed=msg_emb)
-            msg_emb = discord.Embed(title='Top 30', type='rich', color=discord.Color.dark_teal())
-            msg_emb.set_author(name=f"{prfl['name']}", icon_url=char_url)
+            msg_emb = discord.Embed(title="Top 30", type="rich", color=discord.Color.dark_teal())
+            msg_emb.set_author(name=f'{prfl["name"]}', icon_url=get_partner_icon(prfl))
         msg_emb.add_field(name=f'**{songlist[ls_top[i]["song_id"]]["en"]}\n<{diff[ls_top[i]["difficulty"]]} '
                                f'{get_diff(ls_top[i]["constant"])}\>**',
                           value=f'> **{format_score(ls_top[i]["score"])}** [{clr[ls_top[i]["best_clear_type"]]}] '
@@ -156,49 +146,45 @@ async def profile(message):
     data = await api_.scores()
     prfl = data[1]
 
-    if prfl["is_char_uncapped"]:
-        char_url = char + str(prfl['character']) + "u_icon.png"
-    else:
-        char_url = char + str(prfl['character']) + "_icon.png"
-
     rating = "{0:04d}".format(prfl["rating"])[:2] + "." + "{0:04d}".format(prfl["rating"])[2:]
 
-    msg_emb = discord.Embed(title='Profile', type='rich', color=discord.Color.dark_teal())
-    msg_emb.set_thumbnail(url=char_url)
-    msg_emb.add_field(name=f"**{prfl['name']}'s profile**",
+    msg_emb = discord.Embed(title="Profile", type="rich", color=discord.Color.dark_teal())
+    msg_emb.set_thumbnail(url=get_partner_icon(prfl))
+    msg_emb.add_field(name=f'**{prfl["name"]}\'s profile**',
                       value=f'> Rating: **{rating}** PTT\n'
-                            f'> Favchar: **{char_names[prfl["character"]]}**\n'
+                            f'> Favchar: **{partners_names[prfl["character"]]}**\n'
                             f'> Last play: **{format_time(prfl["recent_score"][0]["time_played"])}**\n'
                             f'> Join date: **{format_time(prfl["join_date"])}**\n'
                             f'> Code: **{format_code(code)}**')
     await message.channel.send(embed=msg_emb)
 
 
+# Return nb_scores recommendations based on given scores/profile, doesn't display anything
 def get_ptt_recommendation_scores(scores, prfl, nb_scores):
     ptt_rec = []
     PTT = float(prfl["rating"]) / 100
 
-    scores = sorted(scores, key=itemgetter('rating'), reverse=True)
+    scores = sorted(scores, key=itemgetter("rating"), reverse=True)
     # Divides scores between top 30 and scores below
     scores_top_30 = scores[0:30]
     last_top_30 = scores_top_30[29]
     scores_others = scores[30:]
     scores_others_2 = scores_others
     # Removes PMs
-    scores_top_30 = filter(lambda scores: scores['score'] < 10000000, scores_top_30)
-    scores_others = list(filter(lambda scores: scores['score'] < 10000000, scores_others))
+    scores_top_30 = filter(lambda scores: scores["score"] < 10000000, scores_top_30)
+    scores_others = list(filter(lambda scores: scores["score"] < 10000000, scores_others))
 
     half_nb_scores = math.floor(nb_scores / 2)
     # Max 1/4 recommendations : Oldest scores not in top 30 with Chart Constant > PTT - 1
-    filtered_scores = filter(lambda scores: scores['constant'] > PTT - 1 and scores['rating'] > last_top_30['rating'] - 1, scores_others)
-    ptt_rec += sorted(filtered_scores, key=itemgetter('time_played'), reverse=False)[0:int(math.ceil(half_nb_scores/2))]
+    filtered_scores = filter(lambda scores: scores["constant"] > PTT - 1 and scores["rating"] > last_top_30["rating"] - 1, scores_others)
+    ptt_rec += sorted(filtered_scores, key=itemgetter("time_played"), reverse=False)[0:int(math.ceil(half_nb_scores/2))]
     # Max 1/4 recommendations : Oldest scores not in top 30 with PTT - 1 >= Chart Constant > PTT - 2
-    filtered_scores = filter(lambda scores: PTT - 1 >= scores['constant'] > last_top_30['rating'] - 2 and scores['rating'] > last_top_30['rating'] - 1, scores_others)
-    ptt_rec += sorted(filtered_scores, key=itemgetter('time_played'), reverse=False)[0:int(math.floor(half_nb_scores/2))]
+    filtered_scores = filter(lambda scores: PTT - 1 >= scores["constant"] > last_top_30["rating"] - 2 and scores["rating"] > last_top_30["rating"] - 1, scores_others)
+    ptt_rec += sorted(filtered_scores, key=itemgetter("time_played"), reverse=False)[0:int(math.floor(half_nb_scores/2))]
     # Rest of recommendations : Oldest scores from top 30
-    ptt_rec += sorted(scores_top_30, key=itemgetter('time_played'), reverse=False)[0:nb_scores - len(ptt_rec)]
+    ptt_rec += sorted(scores_top_30, key=itemgetter("time_played"), reverse=False)[0:nb_scores - len(ptt_rec)]
     # Sort by time_played
-    ptt_rec = sorted(ptt_rec, key=itemgetter('time_played'), reverse=False)
+    ptt_rec = sorted(ptt_rec, key=itemgetter("time_played"), reverse=False)
     return ptt_rec
 
 
@@ -225,13 +211,8 @@ async def ptt_recommendation(message):
 
     ptt_rec = get_ptt_recommendation_scores(scores, prfl, nb_scores)
 
-    if prfl["is_char_uncapped"]:
-        char_url = char + str(prfl['character']) + "u_icon.png"
-    else:
-        char_url = char + str(prfl['character']) + "_icon.png"
-
-    msg_emb = discord.Embed(title='Recommendation', type='rich', color=discord.Color.dark_teal())
-    msg_emb.set_author(name=f"{prfl['name']}", icon_url=char_url)
+    msg_emb = discord.Embed(title="Recommendation", type="rich", color=discord.Color.dark_teal())
+    msg_emb.set_author(name=f'{prfl["name"]}', icon_url=get_partner_icon(prfl))
     msg_emb.set_footer(text="*(Credit: Okami)*")
     for elm in ptt_rec:
         msg_emb.add_field(name=f'**{songlist[elm["song_id"]]["en"]}\n<{diff[elm["difficulty"]]} '
@@ -251,6 +232,7 @@ async def session_generator(message):
         await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
 
+	# Parse parameters
     params = message.content.split(" ")
     if len(params) <= 1 or len(params) % 2 == 0:
         await message.channel.send("> Erreur: Paramètres incorrects, aucune session ne peut être générée (*Exemple : !session 8 4 9 2 9+ 1*)")
@@ -265,7 +247,6 @@ async def session_generator(message):
         diffs.append(params[i])
         nb_songs.append(int(params[i + 1]))
         i += 2
-    # diffs = ["8", "9", "10+"]
     
     api_ = AsyncApi(user_code=code)
     data = await api_.scores()
@@ -275,33 +256,29 @@ async def session_generator(message):
     for elm in data[2:]:
         scores.append(elm)
 
+	# Get PTT Recommendations so they can be used in the algorithm
     ptt_rec = get_ptt_recommendation_scores(scores, prfl, 20)
     
     session_songs = []
     for i in range(len(diffs)):
-        songs_list = sorted(filter(lambda score: get_diff(score['constant']) == diffs[i], scores), key=itemgetter('time_played'), reverse=True)
+        songs_list = sorted(filter(lambda score: get_diff(score["constant"]) == diffs[i], scores), key=itemgetter("time_played"), reverse=True)
         if len(songs_list) < nb_songs[i]:
             await message.channel.send(f'> Erreur: Impossible de générer {nb_songs[i]} songs de difficulté {diffs[i]} ({len(songs_list)} disponibles)')
             return
         songs_pool = []
         for j in range(len(songs_list)):
             song = songs_list[j]
-            is_rec = len(list(filter(lambda rec_score: rec_score['song_id'] == song['song_id'] and rec_score['difficulty'] == song['difficulty'], ptt_rec)))
+            is_rec = len(list(filter(lambda rec_score: rec_score["song_id"] == song["song_id"] and rec_score["difficulty"] == song["difficulty"], ptt_rec))) # Check if a song is in PTT Recommendations
             songs_pool.extend(repeat(song, j + 1 + is_rec * 2))
         for j in range(nb_songs[i]):
             song = random.choice(songs_pool)
-            while len(list(filter(lambda score: score['song_id'] == song['song_id'] and score['difficulty'] == song['difficulty'], session_songs))) > 0:
+            while len(list(filter(lambda score: score["song_id"] == song["song_id"] and score["difficulty"] == song["difficulty"], session_songs))) > 0: # Avoid duplicate songs
                 song = random.choice(songs_pool)
             session_songs.append(song)
-    session_songs = sorted(session_songs, key=itemgetter('constant'), reverse=False)
-        
-    if prfl["is_char_uncapped"]:
-        char_url = char + str(prfl['character']) + "u_icon.png"
-    else:
-        char_url = char + str(prfl['character']) + "_icon.png"
+    session_songs = sorted(session_songs, key=itemgetter("constant"), reverse=False)
 
-    msg_emb = discord.Embed(title='Session Generator', type='rich', color=discord.Color.dark_teal())
-    msg_emb.set_author(name=f"{prfl['name']}", icon_url=char_url)
+    msg_emb = discord.Embed(title="Session Generator", type="rich", color=discord.Color.dark_teal())
+    msg_emb.set_author(name=f'{prfl["name"]}', icon_url=get_partner_icon(prfl))
     msg_emb.set_footer(text="*(Credit: Okami)*")
     for elm in session_songs:
         msg_emb.add_field(name=f'**{songlist[elm["song_id"]]["en"]}\n<{diff[elm["difficulty"]]} '
@@ -314,6 +291,7 @@ async def session_generator(message):
     await message.channel.send(embed=msg_emb)
 
 
+# Display help
 async def get_help(message):
     await message.channel.send("**Help:**\n"
                                "> !art: Displays a random art tweet\n"
@@ -336,14 +314,17 @@ async def check_id(id):
                 return None
 
 
+# Format score as 00'000'000
 def format_score(score):
-    return '{0:08d}'.format(score)[:2] + "'" + '{0:08d}'.format(score)[2:5] + "'" + '{0:08d}'.format(score)[5:]
+    return "{0:08d}".format(score)[:2] + "'" + "{0:08d}".format(score)[2:5] + "'" + "{0:08d}".format(score)[5:]
 
 
+# Format player code as 000 000 000
 def format_code(code):
     return code[:3] + " " + code[3:6] + " " + code[6:]
 
 
+# Get song difficulty based on PTT (Is incorrect for Moonheart BYD)
 def get_diff(cst):
     if 9.6 < cst < 11:
         if cst < 10:
@@ -356,6 +337,15 @@ def get_diff(cst):
         return str(cst).split(".")[0]
 
 
+# Get URL asset for Partner icon
+def get_partner_icon(prfl):
+    if prfl["is_char_uncapped"]:
+        return partners + str(prfl["character"]) + "u_icon.png"
+    else:
+        return partners + str(prfl["character"]) + "_icon.png"
+
+
+# Format time; Arcapi returns a delta from current time instead of EPOCH
 def format_time(ts):
     sec = int(time.time() - ts/1000)
     days = int(sec / 86400)
@@ -365,4 +355,4 @@ def format_time(ts):
 
     res = datetime.today() - timedelta(days=days, hours=hours, minutes=minutes, seconds=seconds)
 
-    return res.strftime('%d/%m/%Y - %H:%M')
+    return res.strftime("%d/%m/%Y - %H:%M")
