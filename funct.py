@@ -14,17 +14,17 @@ api_ = AsyncApi(user_code="610602710")
 diff = ["PST", "PRS", "FTR", "BYD"]
 diff_fn = ["Past", "Present", "Future", "Beyond"]
 clr = ["F", "NC", "FR", "PM", "EC", "HC"]
-char_names = ["Hikari", "Tairitsu", "Kou", "Sapphire", "Lethe", "unknown_icon", "[Axium] Tairitsu",
-              "[Grievous] Tairitsu", "unknown_icon", "Hikari & Fisica", "Ilith", "Eto", "Luna", "Shirabe",
-              "[Zero] Hikari", "[Fracture] Hikari", "[Summer] Hikari", "[Summer] Tairitsu", "Tairitsu & Trin",
-              "Ayu", "[Winter] Eto & Luna", "Yume", "Hikari & Seine", "Saya", "[Grievous] Tairistu & Chuni Penguin",
-              "Chuni Pinguin", "Haruna", "Nono", "[MTA-XXX] Pandora Nemesis", "[MDA-21] Regulus", "Kanae",
-              "[Fantasia] Hikari", "[Sonata] Tairitsu", "Sia", "DORO*C", "[Tempest] Tairitsu",
-              "[E/S Primera] Brillante", "[Summer] Ilith", "[Etude] Saya",  "Alice & Tenniel", "Luna & Mia",
-              "Areus", "Seele", "Isabelle"]
+partners_names = ["Hikari", "Tairitsu", "Kou", "Sapphire", "Lethe", "unknown_icon", "[Axium] Tairitsu",
+		          "[Grievous] Tairitsu", "unknown_icon", "Hikari & Fisica", "Ilith", "Eto", "Luna", "Shirabe",
+                  "[Zero] Hikari", "[Fracture] Hikari", "[Summer] Hikari", "[Summer] Tairitsu", "Tairitsu & Trin",
+                  "Ayu", "[Winter] Eto & Luna", "Yume", "Hikari & Seine", "Saya", "[Grievous] Tairistu & Chuni Penguin",
+                  "Chuni Pinguin", "Haruna", "Nono", "[MTA-XXX] Pandora Nemesis", "[MDA-21] Regulus", "Kanae",
+                  "[Fantasia] Hikari", "[Sonata] Tairitsu", "Sia", "DORO*C", "[Tempest] Tairitsu",
+                  "[E/S Primera] Brillante", "[Summer] Ilith", "[Etude] Saya",  "Alice & Tenniel", "Luna & Mia",
+                  "Areus", "Seele", "Isabelle"]
 
 # Asset links
-char = "http://119.23.30.103:8080/ArcAssets/icon/"
+partners = "http://119.23.30.103:8080/ArcAssets/icon/"
 cover = "http://119.23.30.103:8080/ArcAssets/cover/"
 
 
@@ -71,18 +71,13 @@ async def recent(message):
     prfl = data[1]
     recent = prfl["recent_score"][0]
 
-    if prfl["is_char_uncapped"]:
-        char_url = char + str(prfl['character']) + "u_icon.png"
-    else:
-        char_url = char + str(prfl['character']) + "_icon.png"
-
     if recent["difficulty"] == 3:
         cover_url = cover + "3_" + recent["song_id"] + ".jpg"
     else:
         cover_url = cover + recent["song_id"] + ".jpg"
     msg_emb = discord.Embed(title="Last play", type="rich", color=discord.Color.dark_teal())
     msg_emb.set_thumbnail(url=cover_url)
-    msg_emb.set_author(name=f'{prfl["name"]}', icon_url=char_url)
+    msg_emb.set_author(name=f'{prfl["name"]}', icon_url=get_partner_icon(prfl))
     msg_emb.add_field(name=f'**{songlist[recent["song_id"]]["en"]}\n<{diff[recent["difficulty"]]} '
                            f'{get_diff(recent["constant"])}\>**',
                       value=f'> **{format_score(recent["score"])}** [{clr[recent["best_clear_type"]]}] '
@@ -111,18 +106,13 @@ async def best(message):
     prfl = data[1]
     ls_top = []
 
-    if prfl["is_char_uncapped"]:
-        char_url = char + str(prfl['character']) + "u_icon.png"
-    else:
-        char_url = char + str(prfl['character']) + "_icon.png"
-
     for elm in data[2:]:
         ls_top.append(elm)
 
     ls_top = sorted(ls_top, key=itemgetter("rating"), reverse=True)[0:30]
 
     msg_emb = discord.Embed(title=f'Top {nb_scores}', type="rich", color=discord.Color.dark_teal())
-    msg_emb.set_author(name=f'{prfl["name"]}', icon_url=char_url)
+    msg_emb.set_author(name=f'{prfl["name"]}', icon_url=get_partner_icon(prfl))
     
     if nb_scores == 1:
         if ls_top[0]["difficulty"] == 3:
@@ -135,7 +125,7 @@ async def best(message):
         if i == round(nb_scores/2) and nb_scores > 20:
             await message.channel.send(embed=msg_emb)
             msg_emb = discord.Embed(title="Top 30", type="rich", color=discord.Color.dark_teal())
-            msg_emb.set_author(name=f'{prfl["name"]}', icon_url=char_url)
+            msg_emb.set_author(name=f'{prfl["name"]}', icon_url=get_partner_icon(prfl))
         msg_emb.add_field(name=f'**{songlist[ls_top[i]["song_id"]]["en"]}\n<{diff[ls_top[i]["difficulty"]]} '
                                f'{get_diff(ls_top[i]["constant"])}\>**',
                           value=f'> **{format_score(ls_top[i]["score"])}** [{clr[ls_top[i]["best_clear_type"]]}] '
@@ -156,18 +146,13 @@ async def profile(message):
     data = await api_.scores()
     prfl = data[1]
 
-    if prfl["is_char_uncapped"]:
-        char_url = char + str(prfl["character"]) + "u_icon.png"
-    else:
-        char_url = char + str(prfl["character"]) + "_icon.png"
-
     rating = "{0:04d}".format(prfl["rating"])[:2] + "." + "{0:04d}".format(prfl["rating"])[2:]
 
     msg_emb = discord.Embed(title="Profile", type="rich", color=discord.Color.dark_teal())
-    msg_emb.set_thumbnail(url=char_url)
+    msg_emb.set_thumbnail(url=get_partner_icon(prfl))
     msg_emb.add_field(name=f'**{prfl["name"]}\'s profile**',
                       value=f'> Rating: **{rating}** PTT\n'
-                            f'> Favchar: **{char_names[prfl["character"]]}**\n'
+                            f'> Favchar: **{partners_names[prfl["character"]]}**\n'
                             f'> Last play: **{format_time(prfl["recent_score"][0]["time_played"])}**\n'
                             f'> Join date: **{format_time(prfl["join_date"])}**\n'
                             f'> Code: **{format_code(code)}**')
@@ -226,13 +211,8 @@ async def ptt_recommendation(message):
 
     ptt_rec = get_ptt_recommendation_scores(scores, prfl, nb_scores)
 
-    if prfl["is_char_uncapped"]:
-        char_url = char + str(prfl["character"]) + "u_icon.png"
-    else:
-        char_url = char + str(prfl["character"]) + "_icon.png"
-
     msg_emb = discord.Embed(title="Recommendation", type="rich", color=discord.Color.dark_teal())
-    msg_emb.set_author(name=f'{prfl["name"]}', icon_url=char_url)
+    msg_emb.set_author(name=f'{prfl["name"]}', icon_url=get_partner_icon(prfl))
     msg_emb.set_footer(text="*(Credit: Okami)*")
     for elm in ptt_rec:
         msg_emb.add_field(name=f'**{songlist[elm["song_id"]]["en"]}\n<{diff[elm["difficulty"]]} '
@@ -296,14 +276,9 @@ async def session_generator(message):
                 song = random.choice(songs_pool)
             session_songs.append(song)
     session_songs = sorted(session_songs, key=itemgetter("constant"), reverse=False)
-        
-    if prfl["is_char_uncapped"]:
-        char_url = char + str(prfl["character"]) + "u_icon.png"
-    else:
-        char_url = char + str(prfl["character"]) + "_icon.png"
 
     msg_emb = discord.Embed(title="Session Generator", type="rich", color=discord.Color.dark_teal())
-    msg_emb.set_author(name=f'{prfl["name"]}', icon_url=char_url)
+    msg_emb.set_author(name=f'{prfl["name"]}', icon_url=get_partner_icon(prfl))
     msg_emb.set_footer(text="*(Credit: Okami)*")
     for elm in session_songs:
         msg_emb.add_field(name=f'**{songlist[elm["song_id"]]["en"]}\n<{diff[elm["difficulty"]]} '
@@ -360,6 +335,14 @@ def get_diff(cst):
             return "10+"
     else:
         return str(cst).split(".")[0]
+
+
+# Get URL asset for Partner icon
+def get_partner_icon(prfl):
+    if prfl["is_char_uncapped"]:
+        return partners + str(prfl["character"]) + "u_icon.png"
+    else:
+        return partners + str(prfl["character"]) + "_icon.png"
 
 
 # Format time; Arcapi returns a delta from current time instead of EPOCH
