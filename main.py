@@ -2,7 +2,7 @@ from datetime import datetime
 import discord
 import yaml
 
-from funct import best, get_help, recent, profile, register, ptt_recommendation
+from funct import best, get_help, recent, profile, register, ptt_recommendation, session_generator
 from art import get_random_tweet
 
 
@@ -26,6 +26,8 @@ class MyClient(discord.Client):
                 await recent(message)
             if message.content.startswith("!rec") and not message.content.startswith("!recent"):
                 await ptt_recommendation(message)
+            if message.content.startswith("!session"):
+                await session_generator(message)
             if message.content.startswith("!register"):
                 await register(message)
 
