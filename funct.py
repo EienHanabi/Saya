@@ -72,9 +72,9 @@ async def recent(message):
     recent = prfl["recent_score"][0]
 
     if prfl["is_char_uncapped"]:
-        char_url = char + str(prfl["character"]) + "_icon.png"
+        char_url = char + str(prfl['character']) + "u_icon.png"
     else:
-        char_url = char + str(prfl["character"]) + "u_icon.png"
+        char_url = char + str(prfl['character']) + "_icon.png"
 
     if recent["difficulty"] == 3:
         cover_url = cover + "3_" + recent["song_id"] + ".jpg"
@@ -112,9 +112,9 @@ async def best(message):
     ls_top = []
 
     if prfl["is_char_uncapped"]:
-        char_url = char + str(prfl["character"]) + "_icon.png"
+        char_url = char + str(prfl['character']) + "u_icon.png"
     else:
-        char_url = char + str(prfl["character"]) + "u_icon.png"
+        char_url = char + str(prfl['character']) + "_icon.png"
 
     for elm in data[2:]:
         ls_top.append(elm)
@@ -123,6 +123,14 @@ async def best(message):
 
     msg_emb = discord.Embed(title=f'Top {nb_scores}', type="rich", color=discord.Color.dark_teal())
     msg_emb.set_author(name=f'{prfl["name"]}', icon_url=char_url)
+    
+    if nb_scores == 1:
+        if ls_top[0]["difficulty"] == 3:
+            cover_url = cover + "3_" + ls_top[0]["song_id"] + ".jpg"
+        else:
+            cover_url = cover + ls_top[0]["song_id"] + ".jpg"
+        msg_emb.set_thumbnail(url=cover_url)
+
     for i in range(nb_scores):
         if i == round(nb_scores/2) and nb_scores > 20:
             await message.channel.send(embed=msg_emb)
