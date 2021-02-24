@@ -167,7 +167,7 @@ def get_ptt_recommendation_scores(scores, prfl, nb_scores):
     scores = sorted(scores, key=itemgetter("rating"), reverse=True)
     # Divides scores between top 30 and scores below
     scores_top_30 = scores[0:30]
-    last_top_30 = scores_top_30[29]
+    last_top_30 = scores_top_30[-1]
     scores_others = scores[30:]
     scores_others_2 = scores_others
     # Removes PMs
