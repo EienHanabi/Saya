@@ -121,6 +121,9 @@ async def best(message):
             cover_url = cover + ls_top[0]["song_id"] + ".jpg"
         msg_emb.set_thumbnail(url=cover_url)
 
+    if (nb_scores > len(ls_top)):
+        nb_scores = len(ls_top)
+		
     for i in range(nb_scores):
         if i == round(nb_scores/2) and nb_scores > 20:
             await message.channel.send(embed=msg_emb)
@@ -170,7 +173,7 @@ def get_ptt_recommendation_scores(scores, prfl, nb_scores):
     scores = sorted(scores, key=itemgetter("rating"), reverse=True)
     # Divides scores between top 30 and scores below
     scores_top_30 = scores[0:30]
-    last_top_30 = scores_top_30[29]
+    last_top_30 = scores_top_30[-1]
     scores_others = scores[30:]
     scores_others_2 = scores_others
     # Removes PMs
