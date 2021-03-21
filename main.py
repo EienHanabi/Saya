@@ -4,6 +4,7 @@ import yaml
 
 from funct import best, get_help, recent, profile, register, ptt_recommendation, session_generator
 from art import get_random_tweet
+from leaderboard import leaderboard
 
 
 class MyClient(discord.Client):
@@ -31,6 +32,9 @@ class MyClient(discord.Client):
                     await session_generator(message)
                 if message.content.startswith("!register"):
                     await register(message)
+                if message.content.startswith("!leaderboard"):
+                    await leaderboard(message)
+
         except OSError:
             msg_emb = discord.Embed(title="Erreur", type="rich", color=discord.Color.dark_red())
             msg_emb.add_field(name="Exception",value="La websocket ArcAPI a l'air d'être indisponible!")

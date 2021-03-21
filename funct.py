@@ -8,14 +8,11 @@ from Arcapi import AsyncApi
 from operator import itemgetter
 from datetime import datetime, timedelta
 
-# Initialize an API with user code
-api_ = AsyncApi(user_code="610602710")
-
 diff = ["PST", "PRS", "FTR", "BYD"]
 diff_fn = ["Past", "Present", "Future", "Beyond"]
 clr = ["F", "NC", "FR", "PM", "EC", "HC"]
 partners_names = ["Hikari", "Tairitsu", "Kou", "Sapphire", "Lethe", "unknown_icon", "[Axium] Tairitsu",
-		          "[Grievous] Tairitsu", "unknown_icon", "Hikari & Fisica", "Ilith", "Eto", "Luna", "Shirabe",
+                  "[Grievous] Tairitsu", "unknown_icon", "Hikari & Fisica", "Ilith", "Eto", "Luna", "Shirabe",
                   "[Zero] Hikari", "[Fracture] Hikari", "[Summer] Hikari", "[Summer] Tairitsu", "Tairitsu & Trin",
                   "Ayu", "[Winter] Eto & Luna", "Yume", "Hikari & Seine", "Saya", "[Grievous] Tairistu & Chuni Penguin",
                   "Chuni Pinguin", "Haruna", "Nono", "[MTA-XXX] Pandora Nemesis", "[MDA-21] Regulus", "Kanae",
@@ -121,9 +118,9 @@ async def best(message):
             cover_url = cover + ls_top[0]["song_id"] + ".jpg"
         msg_emb.set_thumbnail(url=cover_url)
 
-    if (nb_scores > len(ls_top)):
+    if nb_scores > len(ls_top):
         nb_scores = len(ls_top)
-		
+
     for i in range(nb_scores):
         if i == round(nb_scores/2) and nb_scores > 20:
             await message.channel.send(embed=msg_emb)
@@ -238,7 +235,7 @@ async def session_generator(message):
         await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
 
-	# Parse parameters
+    # Parse parameters
     params = message.content.split(" ")
     if len(params) <= 1 or len(params) % 2 == 0:
         await message.channel.send("> Erreur: Paramètres incorrects, aucune session ne peut être générée (*Exemple : !session 8 4 9 2 9+ 1*)")
@@ -262,7 +259,7 @@ async def session_generator(message):
     for elm in data[2:]:
         scores.append(elm)
 
-	# Get PTT Recommendations so they can be used in the algorithm
+    # Get PTT Recommendations so they can be used in the algorithm
     ptt_rec = get_ptt_recommendation_scores(scores, prfl, 20)
     
     session_songs = []
@@ -306,6 +303,7 @@ async def get_help(message):
                                "> !profile: Displays the user profile\n"
                                "> !rec [1-20]: Sends [1-20] recommended plays to increase PTT (Default: 5)\n"
                                "> !session [args]: Generate a personalized Arcaea session (Example : !session 8 4 9 2 9+ 1)\n"
+                               "> !leaderboard [song] [diff]: Sends the leaderboard for the selected song (Updates every 7 days)\n"
                                "> !recent: Sends the latest play\n"
                                "> !register: Links a user code to a Discord account")
 
