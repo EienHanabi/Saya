@@ -81,6 +81,7 @@ async def leaderboard(message):
                 msg_emb = discord.Embed(title=f"Leaderboard | {songname} <{diff_l[diff]}>",
                                         type="rich", color=discord.Color.dark_teal())
                 msg_emb.set_thumbnail(url=cover_url)
+                res.sort(key=lambda x: x[4], reverse=True)
                 for elm in res:
                     username = elm[3]
                     score = format_score(elm[4])
