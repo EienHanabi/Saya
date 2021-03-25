@@ -2,7 +2,7 @@ from datetime import datetime
 import discord
 import yaml
 
-from funct import best, get_help, recent, profile, register, ptt_recommendation, session_generator
+from funct import best, get_help, recent, profile, register, ptt_recommendation, session_generator, progression
 from art import get_random_tweet
 from leaderboard import leaderboard
 
@@ -34,6 +34,8 @@ class MyClient(discord.Client):
                     await register(message)
                 if message.content.startswith("!leaderboard"):
                     await leaderboard(message)
+                if message.content.startswith("!prog"):
+                    await progression(message)
 
         except OSError:
             msg_emb = discord.Embed(title="Erreur", type="rich", color=discord.Color.dark_red())
