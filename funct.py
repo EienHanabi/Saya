@@ -338,9 +338,10 @@ async def get_help(message):
                                "> !help: Sends this message\n"
                                "> !profile: Displays the user profile\n"
                                "> !rec [1-20]: Sends [1-20] recommended plays to increase PTT (Default: 5)\n"
-                               "> !session [args]: Generate a personalized Arcaea session (Example : !session 8 4 9 2 9+ 1)\n"
+                               "> !session [args]: Generates a personalized Arcaea session (Example : !session 8 4 9 2 9+ 1)\n"
                                "> !leaderboard [song] [diff]: Sends the leaderboard for the selected song (Updates every 7 days)\n"
                                "> !recent: Sends the latest play\n"
+                               "> !prog: Generates a PTT evolution graph\n"
                                "> !register: Links a user code to a Discord account")
 
 
