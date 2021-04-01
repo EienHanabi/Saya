@@ -1,7 +1,8 @@
-from funct import check_id
-from Arcapi import AsyncApi
 import csv
 
+from Arcapi import AsyncApi
+
+from utils import check_id
 
 diff = ["PST", "PRS", "FTR", "BYD"]
 
@@ -71,7 +72,3 @@ async def event(message):
     else:
         await message.channel.send("> ERREUR: La track ne fait pas partie de l'event en cours")
         return
-
-
-
-

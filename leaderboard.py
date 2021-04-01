@@ -1,12 +1,11 @@
-from funct import check_id, format_time, format_score
-from datetime import datetime
-import aiosqlite
-from Arcapi import AsyncApi
 import discord
+import aiosqlite
 
-diff_l = ["PST", "PRS", "FTR", "BYD"]
-clr = ["F", "NC", "FR", "PM", "EC", "HC"]
-cover = "http://119.23.30.103:8080/ArcAssets/cover/"
+from datetime import datetime
+from Arcapi import AsyncApi
+
+from constants import diff, cover, clr
+from utils import check_id, format_time, format_score
 
 
 async def leaderboard(message):
@@ -27,12 +26,12 @@ async def leaderboard(message):
     songname = " ".join(message.content.split(" ")[1:-1]).strip().lower()
 
     # Verification de la difficulté
-    diff = message.content.split(" ")[-1]
+    diff_asked = message.content.split(" ")[-1]
     try:
-        if diff_l.index(diff.upper()) == -1:
+        if diff.index(diff_asked.upper()) == -1:
             await message.channel.send("> Erreur: Le format de la difficulté n'existe pas")
             return
-        diff = diff_l.index(diff.upper())
+        diff_asked = diff.index(diff_asked.upper())
     except ValueError:
         await message.channel.send("> Erreur: Le format de la difficulté n'existe pas")
         return
@@ -68,17 +67,17 @@ async def leaderboard(message):
 
     # Leaderboard
     async with aiosqlite.connect(f"leaderboard.db") as db:
-        async with db.execute(f"SELECT * FROM scores WHERE song='{song}' AND diff={diff}") as c:
+        async with db.execute(f"SELECT * FROM scores WHERE song='{song}' AND diff={diff_asked}") as c:
             res = await c.fetchall()
             if len(res) == 0:
                 await message.channel.send("> Erreur: Aucun score trouvé pour cette track")
                 pass
             else:
-                if diff == 3:
+                if diff_asked == 3:
                     cover_url = cover + "3_" + song + ".jpg"
                 else:
                     cover_url = cover + song + ".jpg"
-                msg_emb = discord.Embed(title=f"Leaderboard | {songname} <{diff_l[diff]}>",
+                msg_emb = discord.Embed(title=f"Leaderboard | {songname} <{diff[diff_asked]}>",
                                         type="rich", color=discord.Color.dark_teal())
                 msg_emb.set_thumbnail(url=cover_url)
                 res.sort(key=lambda x: x[4], reverse=True)
