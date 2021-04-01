@@ -2,9 +2,16 @@ from datetime import datetime
 import discord
 import yaml
 
-from funct import best, get_help, recent, profile, register, ptt_recommendation, session_generator, progression
+from best import best
+from help import get_help
 from art import get_random_tweet
 from leaderboard import leaderboard
+from profile import profile
+from progression import progression
+from recent import recent
+from register import register
+from recommandation import ptt_recommendation
+from session import session_generator
 
 
 class MyClient(discord.Client):
