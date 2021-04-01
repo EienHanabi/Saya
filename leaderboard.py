@@ -24,7 +24,7 @@ async def leaderboard(message):
     for elm in songlist0:
         songlist.append({elm: songlist0[elm]["en"]})
 
-    songname = " ".join(message.content.split(" ")[1:-1]).strip()
+    songname = " ".join(message.content.split(" ")[1:-1]).strip().lower()
 
     # Verification de la difficulté
     diff = message.content.split(" ")[-1]
