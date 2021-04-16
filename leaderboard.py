@@ -94,6 +94,13 @@ async def leaderboard(message):
                                             f'> Date: {date}')
                 await message.channel.send(embed=msg_emb)
 
+async def forceupdate(message):
+    code = await check_id(message.author.id)
+    if not code:
+        await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
+        return
+    await add_scores(code)
+    await message.channel.send("> Mise à jour effectuée.")
 
 async def add_scores(code):
     api_ = AsyncApi(user_code=code)
@@ -115,7 +122,7 @@ async def add_scores(code):
                 if res[0][4] == score:
                     pass
                 else:
-                    async with db.execute(f"UPDATE scores SET score={score}, clear_type={clear_type}, date='{date}' WHERE id={res[0][0]}"):
+                    async with db.execute(f"UPDATE scores SET score={score}, stats={stats}, clear_type={clear_type}, date='{date}' WHERE id={res[0][0]}"):
                         await db.commit()
             else:
                 params = (song, diff, username, score, stats, clear_type, date)

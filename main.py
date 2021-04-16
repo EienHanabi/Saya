@@ -6,6 +6,7 @@ from best import best
 from help import get_help
 from art import get_random_tweet
 from leaderboard import leaderboard
+from leaderboard import forceupdate
 from profile import profile
 from progression import progression
 from recent import recent
@@ -46,6 +47,8 @@ class MyClient(discord.Client):
                     await progression(message)
                 if message.content.startswith("!pog"):
                     await pog(message)
+                if message.content.startswith("!lbupdate"):
+                    await forceupdate(message)
 
         except OSError:
             msg_emb = discord.Embed(title="Erreur", type="rich", color=discord.Color.dark_red())
