@@ -58,7 +58,7 @@ async def leaderboard(message):
                     await db.commit()
                     await add_scores(code)
             else:
-                if (datetime.strptime(res[0][1], '%Y-%m-%d %H:%M:%S') - datetime.now()).days >= 7:
+                if (datetime.strptime(res[0][1], '%Y-%m-%d %H:%M:%S') - datetime.now()).days >= 1:
                     async with db.execute(
                             f"UPDATE 'last-update' SET 'last-update'={datetime.now().strftime('%Y-%m-%d %H:%M:%S')} "
                             f"WHERE code='{code}'"):
