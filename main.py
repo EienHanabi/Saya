@@ -12,6 +12,7 @@ from recent import recent
 from register import register
 from recommandation import ptt_recommendation
 from session import session_generator
+from pog import pog
 
 
 class MyClient(discord.Client):
@@ -43,6 +44,8 @@ class MyClient(discord.Client):
                     await leaderboard(message)
                 if message.content.startswith("!prog"):
                     await progression(message)
+                if message.content.startswith("!pog"):
+                    await pog(message)
 
         except OSError:
             msg_emb = discord.Embed(title="Erreur", type="rich", color=discord.Color.dark_red())
