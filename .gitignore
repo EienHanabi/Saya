@@ -1,5 +1,5 @@
 config.yaml
 .idea
 __pycache__
-leaderboards.db
+leaderboard.db
 players.db
