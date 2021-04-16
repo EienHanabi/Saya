@@ -58,7 +58,7 @@ async def leaderboard(message):
                     await db.commit()
                     await add_scores(code)
             else:
-                if (datetime.strptime(res[0][1], '%Y-%m-%d %H:%M:%S') - datetime.now()).days >= 7:
+                if (datetime.strptime(res[0][1], '%Y-%m-%d %H:%M:%S') - datetime.now()).days >= 1:
                     async with db.execute(
                             f"UPDATE 'last-update' SET 'last-update'={datetime.now().strftime('%Y-%m-%d %H:%M:%S')} "
                             f"WHERE code='{code}'"):
@@ -115,8 +115,7 @@ async def add_scores(code):
                 if res[0][4] == score:
                     pass
                 else:
-                    async with db.execute(f"UPDATE scores SET score={score} clear_type={clear_type} date='{date}' "
-                                          f"WHERE id={res[0][0]}"):
+                    async with db.execute(f"UPDATE scores SET score={score}, clear_type={clear_type}, date='{date}' WHERE id={res[0][0]}"):
                         await db.commit()
             else:
                 params = (song, diff, username, score, stats, clear_type, date)
