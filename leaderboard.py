@@ -115,8 +115,7 @@ async def add_scores(code):
                 if res[0][4] == score:
                     pass
                 else:
-                    async with db.execute(f"UPDATE scores SET score={score} clear_type={clear_type} date='{date}' "
-                                          f"WHERE id={res[0][0]}"):
+                    async with db.execute(f"UPDATE scores SET score={score}, clear_type={clear_type}, date='{date}' WHERE id={res[0][0]}"):
                         await db.commit()
             else:
                 params = (song, diff, username, score, stats, clear_type, date)
