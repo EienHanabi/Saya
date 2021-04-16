@@ -10,4 +10,5 @@ async def get_help(message):
                                "> !leaderboard [song] [diff]: Sends the leaderboard for the selected song (Updates every 7 days)\n"
                                "> !recent: Sends the latest play\n"
                                "> !prog: Generates a PTT evolution graph\n"
+                               "> !pog: Sends a Pog in the chat\n"
                                "> !register: Links a user code to a Discord account")
