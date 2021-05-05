@@ -1,19 +1,15 @@
-import csv
-
+from utils import check_id, format_score
 from Arcapi import AsyncApi
+import discord
+import json
+import requests
+import logging
 
 from utils import check_id
 
 diff = ["PST", "PRS", "FTR", "BYD"]
 
-
 async def event(message):
-    with open("test.csv", "r", encoding="UTF-8") as f:
-        cf = csv.reader(f, delimiter=';')
-        dat = []
-        for elm in cf:
-            dat.append(elm)
-
     code = await check_id(message.author.id)
     if not code:
         await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
@@ -25,50 +21,29 @@ async def event(message):
     prfl = data[1]
     recent = prfl["recent_score"][0]
 
-    mode = dat[0][1]
-    song = songlist[recent["song_id"]]["en"]
-    dif = diff[recent["difficulty"]]
+    recent["name"] = prfl["name"]
+    recent["song"] = f'{songlist[recent["song_id"]]["en"]}'
+    recent["diff"] = f'{diff[recent["difficulty"]]}'
+    webhook_url = 'https://script.google.com/macros/s/AKfycbxGTTjt12J1HmD1B1RaiNTZuIc3ZoFlIvafFAdEtuN7ewCQ-YQVnkUEOb23d3iXQ9I0CQ/exec'
+    logging.error(json.dumps(recent))
+    response = requests.post(
+        webhook_url, data=json.dumps(recent),
+        headers={'Content-Type': 'application/json'}
+    )
+    if response.status_code != 200:
+        raise ValueError(
+            'Request to FRAG returned an error %s, the response is:\n%s'
+            % (response.status_code, response.text)
+        )
+#    else:
+#        msg_emb = discord.Embed(title=f'Test', type="rich", color=discord.Color.dark_teal())
+#        msg_emb.add_field(name=f'Test',
+#                          value=f'{response.text}')
+#        msg_emb = discord.Embed(title=f'Score FRAG - {prfl["name"]}', type="rich", color=discord.Color.dark_teal())
+#        msg_emb.add_field(name=f'{recent["song"]}',
+#                          value=f'> Score: {format_score(recent["score"])}\n'
+#                                f'> Pure: {recent["perfect_count"]} ({recent["shiny_perfect_count"]}) \n'
+#                                f'> Far: {recent["near_count"]} |  Lost: {recent["miss_count"]}')
+#        await message.channel.send(embed=msg_emb)
 
-    if mode == "score":
-        res = recent["score"]
 
-    elif mode == "pures":
-        res = recent["perfect_count"]
-
-    elif mode == "ppures":
-        res = recent["shiny_perfect_count"]
-
-    else:
-        await message.channel.send("> ERREUR: Aucun event en cours")
-        return
-
-    e_songs = []
-    e_players = [elm[1] for elm in dat[2:]]
-    for elm in dat[1][3:]:
-        if elm.split("|")[0] not in e_songs:
-            e_songs.append(elm)
-
-    if f"{song}|{dif}" in e_songs:
-        e_ind = e_songs.index(f"{song}|{dif}") + 3
-        p_line = e_players.index(str(message.author.id)) + 2
-        if dat[p_line][e_ind] != "X":
-            if int(dat[p_line][e_ind]) < res:
-                dat[p_line][e_ind] = res
-
-                with open('test.csv', 'w', newline='', encoding="UTF-8") as f:
-                    cf = csv.writer(f, delimiter=';')
-                    for elm in dat:
-                        cf.writerow(elm)
-
-                await message.channel.send(f"> INFO: Envoi du score reussi\n"
-                                           f"> Score de {song} <{dif}> modifié en {res}")
-
-            else:
-                await message.channel.send("> ERREUR: Le score est inferieur au resultat précédent")
-                return
-        else:
-            await message.channel.send("> ERREUR: La difficulté de cette track ne fait pas partie de l'event en cours")
-            return
-    else:
-        await message.channel.send("> ERREUR: La track ne fait pas partie de l'event en cours")
-        return
