@@ -13,6 +13,7 @@ from recent import recent
 from register import register
 from recommandation import ptt_recommendation
 from session import session_generator
+from event import event
 from pog import pog
 
 
@@ -49,6 +50,8 @@ class MyClient(discord.Client):
                     await pog(message)
                 if message.content.startswith("!lbupdate"):
                     await forceupdate(message)
+                if message.content.startswith("!event"):
+                    await event(message)
 
         except OSError:
             msg_emb = discord.Embed(title="Erreur", type="rich", color=discord.Color.dark_red())
