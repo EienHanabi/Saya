@@ -2,7 +2,7 @@ import discord
 import aiosqlite
 
 from datetime import datetime
-from Arcapi import AsyncApi
+from ArcProbeInterface import AsyncAPI
 
 from constants import diff, cover, clr
 from utils import check_id, format_time, format_score
@@ -15,9 +15,9 @@ async def leaderboard(message):
         return
 
     # Get song name
-    api_ = AsyncApi(user_code=code)
-    data = await api_.scores()
-    songlist0 = data[0]
+    api_ = AsyncAPI(user_code=code)
+    data = await api_.fetch_data()
+    songlist0 = data['songtitle']
 
     songlist = []
     for elm in songlist0:
@@ -103,11 +103,11 @@ async def forceupdate(message):
     await message.channel.send("> Mise à jour effectuée.")
 
 async def add_scores(code):
-    api_ = AsyncApi(user_code=code)
-    data = await api_.scores()
+    api_ = AsyncAPI(user_code=code)
+    data = await api_.fetch_data()
 
     async with aiosqlite.connect(f"leaderboard.db") as db:
-        for line in data[2:]:
+        for line in data['scores']:
             song = line["song_id"]
             diff = line["difficulty"]
             username = line["name"]

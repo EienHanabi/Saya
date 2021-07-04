@@ -2,10 +2,11 @@ from operator import itemgetter
 
 import discord
 
-from Arcapi import AsyncApi
+from ArcProbeInterface import AsyncAPI
 
 from constants import partners_names
 from utils import check_id, get_partner_icon, format_time, format_code
+
 
 async def profile(message):
     code = await check_id(message.author.id)
@@ -13,12 +14,12 @@ async def profile(message):
         await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
 
-    api_ = AsyncApi(user_code=code)
-    data = await api_.scores()
-    prfl = data[1]
+    api_ = AsyncAPI(user_code=code)
+    data = await api_.fetch_data()
+    prfl = data['userinfo']
 
     ls_top = []
-    for elm in data[2:]:
+    for elm in data['scores']:
         ls_top.append(elm)
 
     ls_top = sorted(ls_top, key=itemgetter("rating"), reverse=True)[0:30]
