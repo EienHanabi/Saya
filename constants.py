@@ -8,7 +8,7 @@ partners_names = ["Hikari", "Tairitsu", "Kou", "Sapphire", "Lethe", "unknown_ico
                   "Chuni Pinguin", "Haruna", "Nono", "[MTA-XXX] Pandora Nemesis", "[MDA-21] Regulus", "Kanae",
                   "[Fantasia] Hikari", "[Sonata] Tairitsu", "Sia", "DORO*C", "[Tempest] Tairitsu",
                   "[E/S Primera] Brillante", "[Summer] Ilith", "[Etude] Saya",  "Alice & Tenniel", "Luna & Mia",
-                  "Areus", "Seele", "Isabelle", "Mir"]
+                  "Areus", "Seele", "Isabelle", "Mir", "Lagrange"]
 
 # Asset links
 partners = "http://119.23.30.103:8080/ArcAssets/icon/"

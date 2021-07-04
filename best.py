@@ -1,6 +1,6 @@
 import discord
 
-from Arcapi import AsyncApi
+from ArcProbeInterface import AsyncAPI
 from operator import itemgetter
 
 from constants import cover, diff, clr
@@ -19,13 +19,13 @@ async def best(message):
             if 1 <= int(message.content.split(" ")[1]) <= 30:
                 nb_scores = int(message.content.split(" ")[1])
 
-    api_ = AsyncApi(user_code=code)
-    data = await api_.scores()
-    songlist = data[0]
-    prfl = data[1]
+    api_ = AsyncAPI(code)
+    data = await api_.fetch_data()
+    songlist = data['songtitle']
+    prfl = data['userinfo']
     ls_top = []
 
-    for elm in data[2:]:
+    for elm in data['scores']:
         ls_top.append(elm)
 
     ls_top = sorted(ls_top, key=itemgetter("rating"), reverse=True)[0:30]

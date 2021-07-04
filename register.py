@@ -1,5 +1,6 @@
 import aiosqlite
 
+
 async def register(message):
     code = None
     if len(message.content.split(" ")) == 2:

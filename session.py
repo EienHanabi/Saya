@@ -1,12 +1,13 @@
 import discord
 import random
 
-from Arcapi import AsyncApi
+from ArcProbeInterface import AsyncAPI
 from itertools import repeat
 from operator import itemgetter
 
 from constants import diff, clr
 from utils import check_id, get_diff, get_partner_icon, get_ptt_recommendation_scores, format_time, format_score
+
 
 # Generate an Arcaea session depending of parameters entered by user
 async def session_generator(message):
@@ -33,12 +34,12 @@ async def session_generator(message):
         nb_songs.append(int(params[i + 1]))
         i += 2
 
-    api_ = AsyncApi(user_code=code)
-    data = await api_.scores()
-    songlist = data[0]
-    prfl = data[1]
+    api_ = AsyncAPI(user_code=code)
+    data = await api_.fetch_data()
+    songlist = data['songtitle']
+    prfl = data['userinfo']
     scores = []
-    for elm in data[2:]:
+    for elm in data['scores']:
         scores.append(elm)
 
     # Get PTT Recommendations so they can be used in the algorithm

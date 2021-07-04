@@ -3,7 +3,7 @@ import discord
 import io
 
 from datetime import datetime
-from Arcapi import AsyncApi
+from ArcProbeInterface import AsyncAPI
 
 from utils import check_id
 
@@ -19,9 +19,9 @@ async def progression(message):
         await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
 
-    api_ = AsyncApi(user_code=code)
-    data = await api_.scores()
-    prfl = data[1]
+    api_ = AsyncAPI(user_code=code)
+    data = await api_.fetch_data()
+    prfl = data['userinfo']
     recs = prfl['rating_records']
 
     dates = [datetime.strptime(rec[0], '%y%m%d').date() for rec in recs]
