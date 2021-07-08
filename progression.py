@@ -16,7 +16,7 @@ plt.rcParams['ytick.color'] = "white"
 async def progression(message):
     code = await check_id(message.author.id)
     if not code:
-        await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
+        await message.reply("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
 
     api_ = AsyncAPI(user_code=code)
@@ -41,4 +41,4 @@ async def progression(message):
     plt.close()
     b.seek(0)
     file = discord.File(b, f"progression.png")
-    await message.channel.send(file=file)
+    await message.reply(file=file)

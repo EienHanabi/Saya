@@ -13,7 +13,7 @@ from utils import check_id, format_time, format_score, send_back_error
 async def leaderboard(message):
     code = await check_id(message.author.id)
     if not code:
-        await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
+        await message.reply("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
 
     # Get song name
@@ -28,20 +28,20 @@ async def leaderboard(message):
     diff_asked = message.content.split(" ")[-1]
     try:
         if diff.index(diff_asked.upper()) == -1:
-            await message.channel.send("> Erreur: Le format de la difficulté n'existe pas")
+            await message.reply("> Erreur: Le format de la difficulté n'existe pas")
             return
         diff_asked = diff.index(diff_asked.upper())
     except ValueError:
-        await message.channel.send("> Erreur: Le format de la difficulté n'existe pas")
+        await message.reply("> Erreur: Le format de la difficulté n'existe pas")
         return
 
     song = [d for d in songlist_0 if any(songname in v.lower() for v in d.values())]
 
     if len(song) == 0:
-        await message.channel.send("> Erreur: Aucune song n'a été trouvée")
+        await message.reply("> Erreur: Aucune song n'a été trouvée")
         return
     elif len(song) > 1:
-        await message.channel.send("> Erreur: Plus d'une song a été trouvée, soyez plus precis !")
+        await message.reply("> Erreur: Plus d'une song a été trouvée, soyez plus precis !")
         return
     else:
         songname = list(song[0].values())[0]
@@ -69,7 +69,7 @@ async def leaderboard(message):
         async with db.execute(f"SELECT * FROM scores WHERE song='{song}' AND diff={diff_asked}") as c:
             res = await c.fetchall()
             if len(res) == 0:
-                await message.channel.send("> Erreur: Aucun score trouvé pour cette track")
+                await message.reply("> Erreur: Aucun score trouvé pour cette track")
                 pass
             else:
                 if diff_asked == 3:
@@ -91,16 +91,16 @@ async def leaderboard(message):
                                             f'> Pure: {stats[1]} ({stats[0]})\n'
                                             f'> Far: {stats[2]} | Lost: {stats[3]}\n'
                                             f'> Date: {date}')
-                await message.channel.send(embed=msg_emb)
+                await message.reply(embed=msg_emb)
 
 
 async def forceupdate(message):
     code = await check_id(message.author.id)
     if not code:
-        await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
+        await message.reply("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
     await add_scores(message, code)
-    await message.channel.send("> Mise à jour effectuée.")
+    await message.reply("> Mise à jour effectuée.")
 
 
 async def add_scores(message, code):

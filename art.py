@@ -32,4 +32,4 @@ async def get_random_tweet(message):
     msg_emb.set_footer(text=f"Original tweet: https://twitter.com/twitter/statuses/{tweet.id}")
     msg_emb.add_field(name=":repeat:", value=tweet.retweet_count)
     msg_emb.add_field(name=":heart:", value=tweet.favorite_count)
-    await message.channel.send(embed=msg_emb)
+    await message.reply(embed=msg_emb)

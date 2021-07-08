@@ -46,4 +46,4 @@ async def profile(message):
                             f'> Last play: **{format_time(prfl["recent_score"][0]["time_played"])}**\n'
                             f'> Join date: **{format_time(prfl["join_date"])}**\n'
                             f'> Code: **{format_code(code)}**')
-    await message.channel.send(embed=msg_emb)
+    await message.reply(embed=msg_emb)
