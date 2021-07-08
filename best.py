@@ -48,7 +48,7 @@ async def best(message):
 
     for i in range(nb_scores):
         if i == round(nb_scores / 2) and nb_scores > 20:
-            await message.channel.send(embed=msg_emb)
+            await message.channel.reply(embed=msg_emb)
             msg_emb = discord.Embed(title="Top 30", type="rich", color=discord.Color.dark_teal())
             msg_emb.set_author(name=f'{prfl["name"]}', icon_url=get_partner_icon(prfl))
         msg_emb.add_field(name=f'**{query_songname(ls_top[i]["song_id"])}\n<{diff[ls_top[i]["difficulty"]]} '
@@ -58,4 +58,4 @@ async def best(message):
                                 f'> Pure: {ls_top[i]["perfect_count"]} ({ls_top[i]["shiny_perfect_count"]}) \n'
                                 f'> Far: {ls_top[i]["near_count"]} | Lost: {ls_top[i]["miss_count"]}\n'
                                 f'> Date: {format_time(ls_top[i]["time_played"]).split(" - ")[0]}')
-    await message.channel.send(embed=msg_emb)
+    await message.reply(embed=msg_emb)

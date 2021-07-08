@@ -19,7 +19,7 @@ async def check_id(id):
 
 
 async def send_back_error(message, json):
-    await message.channel.send(f"Error, status: {json['status']}, message: {json['message']}")
+    await message.reply(f"Error, status: {json['status']}, message: {json['message']}")
     return
 
 

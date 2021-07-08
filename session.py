@@ -14,13 +14,13 @@ from utils import check_id, get_diff, get_partner_icon, get_ptt_recommendation_s
 async def session_generator(message):
     code = await check_id(message.author.id)
     if not code:
-        await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
+        await message.reply("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
 
     # Parse parameters
     params = message.content.split(" ")
     if len(params) <= 1 or len(params) % 2 == 0:
-        await message.channel.send(
+        await message.reply(
             "> Erreur: Paramètres incorrects, aucune session ne peut être générée (*Exemple : !session 8 4 9 2 9+ 1*)")
         return
     i = 1
@@ -28,7 +28,7 @@ async def session_generator(message):
     nb_songs = []
     while i < len(params):
         if not params[i + 1].isdigit():
-            await message.channel.send(
+            await message.reply(
                 "> Erreur: Le nombre de songs d'une difficulté ne doit contenir que des chiffres (*Exemple : !session 8 4 9 2 9+ 1*)")
             return
         diffs.append(params[i])
@@ -63,7 +63,7 @@ async def session_generator(message):
         songs_list = sorted(filter(lambda score: get_diff(query_constant(score)) == diffs[i], scores),
                             key=itemgetter("time_played"), reverse=True)
         if len(songs_list) < nb_songs[i]:
-            await message.channel.send(
+            await message.reply(
                 f'> Erreur: Impossible de générer {nb_songs[i]} songs de difficulté {diffs[i]} ({len(songs_list)} disponibles)')
             return
         songs_pool = []
@@ -93,4 +93,4 @@ async def session_generator(message):
                                 f'> Pure: {elm["perfect_count"]} ({elm["shiny_perfect_count"]}) \n'
                                 f'> Far: {elm["near_count"]} | Lost: {elm["miss_count"]}\n'
                                 f'> Date: {format_time(elm["time_played"]).split(" - ")[0]}')
-    await message.channel.send(embed=msg_emb)
+    await message.reply(embed=msg_emb)

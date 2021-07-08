@@ -21,7 +21,6 @@ async def event(message):
         await send_back_error(message, info_json)
         return
 
-
     prfl = info_json['content']
     recent = prfl["recent_score"][0]
 
@@ -39,3 +38,5 @@ async def event(message):
             'Request to FRAG returned an error %s, the response is:\n%s'
             % (response.status_code, response.text)
         )
+    else:
+        await message.reply("Upload to FRAG done!")

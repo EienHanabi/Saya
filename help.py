@@ -1,6 +1,6 @@
 # Display help
 async def get_help(message):
-    await message.channel.send("**Help:**\n"
+    await message.reply("**Help:**\n"
                                "> !art: Displays a random art tweet\n"
                                "> !best [1-30]: Sends the Top [1-30] plays (Default: 30)\n"
                                "> !help: Sends this message\n"

@@ -57,12 +57,12 @@ class MyClient(discord.Client):
         except OSError:
             msg_emb = discord.Embed(title="Erreur", type="rich", color=discord.Color.dark_red())
             msg_emb.add_field(name="Exception",value="La websocket ArcAPI a l'air d'être indisponible!")
-            await message.channel.send(embed=msg_emb)
+            await message.reply(embed=msg_emb)
         except Exception as e:
             traceback.print_exc()
             msg_emb = discord.Embed(title="Erreur", type="rich", color=discord.Color.dark_red())
             msg_emb.add_field(name="Exception :",value=str(e))
-            await message.channel.send(embed=msg_emb)
+            await message.reply(embed=msg_emb)
 
 
 def get_token():

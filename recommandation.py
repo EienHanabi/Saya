@@ -10,7 +10,7 @@ from utils import check_id, get_diff, get_partner_icon, get_ptt_recommendation_s
 async def ptt_recommendation(message):
     code = await check_id(message.author.id)
     if not code:
-        await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
+        await message.reply("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
 
     nb_scores = 5
@@ -52,4 +52,4 @@ async def ptt_recommendation(message):
                                 f'> Pure: {elm["perfect_count"]} ({elm["shiny_perfect_count"]}) \n'
                                 f'> Far: {elm["near_count"]} | Lost: {elm["miss_count"]}\n'
                                 f'> Date: {format_time(elm["time_played"]).split(" - ")[0]}')
-    await message.channel.send(embed=msg_emb)
+    await message.reply(embed=msg_emb)

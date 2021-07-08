@@ -18,15 +18,15 @@ async def register(message):
                     async with db.execute(f"INSERT INTO players (discord_id, arc_id) VALUES "
                                           f"('{message.author.id}', '{code}')"):
                         await db.commit()
-                    await message.channel.send("> INFO: Code ajouté a la base de données")
+                    await message.reply("> INFO: Code ajouté a la base de données")
                     return
                 else:
                     async with db.execute(f"UPDATE players SET arc_id = '{code}' "
                                           f"WHERE discord_id = '{message.author.id}'"):
                         await db.commit()
-                    await message.channel.send("> INFO: Code mis à jour la base de données")
+                    await message.reply("> INFO: Code mis à jour la base de données")
                     return
 
     else:
-        await message.channel.send("> ERREUR: Le format du code est incorrect")
+        await message.reply("> ERREUR: Le format du code est incorrect")
         return
