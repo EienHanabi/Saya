@@ -2,10 +2,12 @@ import discord
 import aiosqlite
 
 from datetime import datetime
+
+import requests
 from ArcProbeInterface import AsyncAPI
 
-from constants import diff, cover, clr
-from utils import check_id, format_time, format_score
+from constants import diff, cover, clr, songlist, api_url, headers
+from utils import check_id, format_time, format_score, send_back_error
 
 
 async def leaderboard(message):
@@ -15,13 +17,10 @@ async def leaderboard(message):
         return
 
     # Get song name
-    api_ = AsyncAPI(user_code=code)
-    data = await api_.fetch_data()
-    songlist0 = data['songtitle']
 
-    songlist = []
-    for elm in songlist0:
-        songlist.append({elm: songlist0[elm]["en"]})
+    songlist_0 = []
+    for elm in songlist['songs']:
+        songlist_0.append({elm['id']: elm['title_localized']['en']})
 
     songname = " ".join(message.content.split(" ")[1:-1]).strip().lower()
 
@@ -36,7 +35,7 @@ async def leaderboard(message):
         await message.channel.send("> Erreur: Le format de la difficulté n'existe pas")
         return
 
-    song = [d for d in songlist if any(songname in v.lower() for v in d.values())]
+    song = [d for d in songlist_0 if any(songname in v.lower() for v in d.values())]
 
     if len(song) == 0:
         await message.channel.send("> Erreur: Aucune song n'a été trouvée")
@@ -56,14 +55,14 @@ async def leaderboard(message):
                 async with db.execute(f"INSERT INTO 'last-update' (code, 'last-update') VALUES "
                                       f"('{code}', '{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}')"):
                     await db.commit()
-                    await add_scores(code)
+                    await add_scores(message, code)
             else:
                 if (datetime.strptime(res[0][1], '%Y-%m-%d %H:%M:%S') - datetime.now()).days >= 1:
                     async with db.execute(
                             f"UPDATE 'last-update' SET 'last-update'={datetime.now().strftime('%Y-%m-%d %H:%M:%S')} "
                             f"WHERE code='{code}'"):
                         await db.commit()
-                        await add_scores(code)
+                        await add_scores(message, code)
 
     # Leaderboard
     async with aiosqlite.connect(f"leaderboard.db") as db:
@@ -94,23 +93,35 @@ async def leaderboard(message):
                                             f'> Date: {date}')
                 await message.channel.send(embed=msg_emb)
 
+
 async def forceupdate(message):
     code = await check_id(message.author.id)
     if not code:
         await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
-    await add_scores(code)
+    await add_scores(message, code)
     await message.channel.send("> Mise à jour effectuée.")
 
-async def add_scores(code):
-    api_ = AsyncAPI(user_code=code)
-    data = await api_.fetch_data()
+
+async def add_scores(message, code):
+    r_b30 = requests.post(f"{api_url}/user/best30?usercode={code}&overflow=400", headers=headers)
+    b30_json = r_b30.json()
+    if b30_json['status'] != 0:
+        await send_back_error(message, b30_json)
+        return
+
+    r_info = requests.post(f"{api_url}/user/info?usercode={code}", headers=headers)
+    info_json = r_info.json()
+    if info_json['status'] != 0:
+        await send_back_error(message, info_json)
+        return
+
+    username = info_json['content']['name']
 
     async with aiosqlite.connect(f"leaderboard.db") as db:
-        for line in data['scores']:
+        for line in [*b30_json['content']['best30_list'], *b30_json['content']['best30_overflow']]:
             song = line["song_id"]
             diff = line["difficulty"]
-            username = line["name"]
             score = line["score"]
             clear_type = line["clear_type"]
             date = format_time(line["time_played"])
@@ -122,7 +133,8 @@ async def add_scores(code):
                 if res[0][4] == score:
                     pass
                 else:
-                    async with db.execute(f"UPDATE scores SET score={score}, stats={stats}, clear_type={clear_type}, date='{date}' WHERE id={res[0][0]}"):
+                    async with db.execute(
+                            f"UPDATE scores SET score={score}, stats={stats}, clear_type={clear_type}, date='{date}' WHERE id={res[0][0]}"):
                         await db.commit()
             else:
                 params = (song, diff, username, score, stats, clear_type, date)

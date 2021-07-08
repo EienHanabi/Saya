@@ -1,11 +1,8 @@
-from operator import itemgetter
-
 import discord
+import requests
 
-from ArcProbeInterface import AsyncAPI
-
-from constants import partners_names
-from utils import check_id, get_partner_icon, format_time, format_code
+from constants import partners_names, api_url, headers
+from utils import check_id, get_partner_icon, format_time, format_code, send_back_error
 
 
 async def profile(message):
@@ -14,21 +11,22 @@ async def profile(message):
         await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
 
-    api_ = AsyncAPI(user_code=code)
-    data = await api_.fetch_data()
-    prfl = data['userinfo']
+    r_b30 = requests.post(f"{api_url}/user/best30?usercode={code}", headers=headers)
+    b30_json = r_b30.json()
+    if b30_json['status'] != 0:
+        await send_back_error(message, b30_json)
+        return
 
-    ls_top = []
-    for elm in data['scores']:
-        ls_top.append(elm)
+    r_info = requests.post(f"{api_url}/user/info?usercode={code}&recent=1", headers=headers)
+    info_json = r_info.json()
+    if info_json['status'] != 0:
+        await send_back_error(message, info_json)
+        return
 
-    ls_top = sorted(ls_top, key=itemgetter("rating"), reverse=True)[0:30]
+    prfl = info_json['content']
 
-    b30 = 0.0
-    for elm in ls_top:
-        b30 += elm['rating']
-    b30 /= 30
-    r10 = prfl['rating'] * 0.04 - b30 * 3
+    b30 = b30_json['content']['best30_avg']
+    r10 = b30_json['content']['recent10_avg']
 
     b30f = "{:.3f}".format(b30)
     r10f = "{:.3f}".format(r10)

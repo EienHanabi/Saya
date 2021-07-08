@@ -2,9 +2,9 @@ import json
 import logging
 
 import requests
-from ArcProbeInterface import AsyncAPI
 
-from utils import check_id
+from constants import api_url, headers
+from utils import check_id, query_songname, send_back_error
 
 diff = ["PST", "PRS", "FTR", "BYD"]
 
@@ -15,14 +15,18 @@ async def event(message):
         await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
 
-    api_ = AsyncAPI(user_code=code)
-    data = await api_.fetch_data()
-    songlist = data['songtitle']
-    prfl = data['userinfo']
+    r_info = r_info = requests.post(f"{api_url}/user/info?usercode={code}&recent=1", headers=headers)
+    info_json = r_info.json()
+    if info_json['status'] != 0:
+        await send_back_error(message, info_json)
+        return
+
+
+    prfl = info_json['content']
     recent = prfl["recent_score"][0]
 
     recent["name"] = prfl["name"]
-    recent["song"] = f'{songlist[recent["song_id"]]["en"]}'
+    recent["song"] = f'{query_songname(recent["song_id"])}'
     recent["diff"] = f'{diff[recent["difficulty"]]}'
     webhook_url = 'https://script.google.com/macros/s/AKfycbxGTTjt12J1HmD1B1RaiNTZuIc3ZoFlIvafFAdEtuN7ewCQ-YQVnkUEOb23d3iXQ9I0CQ/exec'
     logging.error(json.dumps(recent))

@@ -5,7 +5,7 @@ import math
 from operator import itemgetter
 from datetime import datetime, timedelta
 
-from constants import partners
+from constants import partners, songlist
 
 
 async def check_id(id):
@@ -16,6 +16,11 @@ async def check_id(id):
                 return str("{0:09d}").format(res[0][1])
             else:
                 return None
+
+
+async def send_back_error(message, json):
+    await message.channel.send(f"Error, status: {json['status']}, message: {json['message']}")
+    return
 
 
 # Format score as 00'000'000
@@ -80,12 +85,12 @@ def get_ptt_recommendation_scores(scores, prfl, nb_scores):
     half_nb_scores = math.floor(nb_scores / 2)
     # Max 1/4 recommendations : Oldest scores not in top 30 with Chart Constant > PTT - 1
     filtered_scores = filter(
-        lambda scores: scores["constant"] > PTT - 1 and scores["rating"] > last_top_30["rating"] - 1, scores_others)
+        lambda scores: query_constant(scores) > PTT - 1 and scores["rating"] > last_top_30["rating"] - 1, scores_others)
     ptt_rec += sorted(filtered_scores, key=itemgetter("time_played"), reverse=False)[
                0:int(math.ceil(half_nb_scores / 2))]
     # Max 1/4 recommendations : Oldest scores not in top 30 with PTT - 1 >= Chart Constant > PTT - 2
     filtered_scores = filter(
-        lambda scores: PTT - 1 >= scores["constant"] > last_top_30["rating"] - 2 and scores["rating"] > last_top_30[
+        lambda scores: PTT - 1 >= query_constant(scores) > last_top_30["rating"] - 2 and scores["rating"] > last_top_30[
             "rating"] - 1, scores_others)
     ptt_rec += sorted(filtered_scores, key=itemgetter("time_played"), reverse=False)[
                0:int(math.floor(half_nb_scores / 2))]
@@ -94,3 +99,15 @@ def get_ptt_recommendation_scores(scores, prfl, nb_scores):
     # Sort by time_played
     ptt_rec = sorted(ptt_rec, key=itemgetter("time_played"), reverse=False)
     return ptt_rec
+
+
+def query_songname(songid):
+    for i in songlist['songs']:
+        if i['id'] == songid:
+            return i['title_localized']['en']
+
+
+def query_constant(json_entry):
+    for i in songlist['songs']:
+        if json_entry['song_id'] == i['id']:
+            return i['difficulties'][json_entry['difficulty']]['fixedValue']
