@@ -60,7 +60,7 @@ async def session_generator(message):
 
     session_songs = []
     for i in range(len(diffs)):
-        songs_list = sorted(filter(lambda score: get_diff(score["constant"]) == diffs[i], scores),
+        songs_list = sorted(filter(lambda score: get_diff(query_constant(score)) == diffs[i], scores),
                             key=itemgetter("time_played"), reverse=True)
         if len(songs_list) < nb_songs[i]:
             await message.channel.send(
