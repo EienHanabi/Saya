@@ -80,7 +80,7 @@ async def session_generator(message):
                     session_songs))) > 0:  # Avoid duplicate songs
                 song = random.choice(songs_pool)
             session_songs.append(song)
-    session_songs = sorted(session_songs, key=itemgetter("constant"), reverse=False)
+    session_songs = sorted(session_songs, key=lambda x: query_constant(x), reverse=False)
 
     msg_emb = discord.Embed(title="Session Generator", type="rich", color=discord.Color.dark_teal())
     msg_emb.set_author(name=f'{prfl["name"]}', icon_url=get_partner_icon(prfl))
