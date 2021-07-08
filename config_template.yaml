@@ -5,3 +5,6 @@ tweepy:
   access_token_secret: access_token_secret
 discord:
   token: token
+api:
+  url: url
+  user-agent: ua_str
