@@ -23,6 +23,11 @@ async def send_back_error(message, json):
     return
 
 
+async def send_back_http_error(message, code):
+    await message.reply(f"Error, HTTP Status : {code}")
+    return
+
+
 # Format score as 00'000'000
 def format_score(score):
     return "{0:08d}".format(score)[:2] + "'" + "{0:08d}".format(score)[2:5] + "'" + "{0:08d}".format(score)[5:]
