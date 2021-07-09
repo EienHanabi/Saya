@@ -3,7 +3,7 @@ import requests
 
 from constants import cover, diff, clr, api_url, headers
 from utils import check_id, get_partner_icon, get_diff, format_score, format_time, send_back_error, query_songname, \
-    query_constant
+    query_constant, send_back_http_error
 
 
 async def recent(message):
@@ -12,7 +12,10 @@ async def recent(message):
         await message.reply("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
 
-    r_info = r_info = requests.post(f"{api_url}/user/info?usercode={code}&recent=1", headers=headers)
+    r_info = requests.post(f"{api_url}/user/info?usercode={code}&recent=1", headers=headers)
+    if not r_info.ok:
+        await send_back_http_error(message, r_info.status_code)
+        return
     info_json = r_info.json()
     if info_json['status'] != 0:
         await send_back_error(message, info_json)

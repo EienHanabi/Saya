@@ -3,7 +3,7 @@ import requests
 
 from constants import cover, diff, clr, api_url, headers
 from utils import check_id, get_partner_icon, get_diff, format_score, format_time, send_back_error, query_songname, \
-    query_constant
+    query_constant, send_back_http_error
 
 
 async def best(message):
@@ -19,12 +19,18 @@ async def best(message):
                 nb_scores = int(message.content.split(" ")[1])
 
     r_b30 = requests.post(f"{api_url}/user/best30?usercode={code}", headers=headers)
+    if not r_b30.ok:
+        await send_back_http_error(message, r_b30.status_code)
+        return
     b30_json = r_b30.json()
     if b30_json['status'] != 0:
         await send_back_error(message, b30_json)
         return
 
     r_info = requests.post(f"{api_url}/user/info?usercode={code}", headers=headers)
+    if not r_info.ok:
+        await send_back_http_error(message, r_info.status_code)
+        return
     info_json = r_info.json()
     if info_json['status'] != 0:
         await send_back_error(message, info_json)
@@ -48,7 +54,7 @@ async def best(message):
 
     for i in range(nb_scores):
         if i == round(nb_scores / 2) and nb_scores > 20:
-            await message.channel.reply(embed=msg_emb)
+            await message.reply(embed=msg_emb)
             msg_emb = discord.Embed(title="Top 30", type="rich", color=discord.Color.dark_teal())
             msg_emb.set_author(name=f'{prfl["name"]}', icon_url=get_partner_icon(prfl))
         msg_emb.add_field(name=f'**{query_songname(ls_top[i]["song_id"])}\n<{diff[ls_top[i]["difficulty"]]} '

@@ -7,7 +7,7 @@ import requests
 
 from constants import diff, clr, api_url, headers
 from utils import check_id, get_diff, get_partner_icon, get_ptt_recommendation_scores, format_time, format_score, \
-    send_back_error, query_songname, query_constant
+    send_back_error, query_songname, query_constant, send_back_http_error
 
 
 # Generate an Arcaea session depending of parameters entered by user
@@ -36,12 +36,18 @@ async def session_generator(message):
         i += 2
 
     r_b30 = requests.post(f"{api_url}/user/best30?usercode={code}&overflow=400", headers=headers)
+    if not r_b30.ok:
+        await send_back_http_error(message, r_b30.status_code)
+        return
     b30_json = r_b30.json()
     if b30_json['status'] != 0:
         await send_back_error(message, b30_json)
         return
 
     r_info = requests.post(f"{api_url}/user/info?usercode={code}", headers=headers)
+    if not r_info.ok:
+        await send_back_http_error(message, r_info.status_code)
+        return
     info_json = r_info.json()
     if info_json['status'] != 0:
         await send_back_error(message, info_json)
