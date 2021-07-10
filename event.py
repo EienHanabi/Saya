@@ -3,7 +3,7 @@ import logging
 
 import requests
 
-from constants import api_url, headers
+from constants import api_url, headers, gsheet_webhook_url
 from utils import check_id, query_songname, send_back_error, send_back_http_error
 
 diff = ["PST", "PRS", "FTR", "BYD"]
@@ -30,10 +30,9 @@ async def event(message):
     recent["name"] = prfl["name"]
     recent["song"] = f'{query_songname(recent["song_id"])}'
     recent["diff"] = f'{diff[recent["difficulty"]]}'
-    webhook_url = 'https://script.google.com/macros/s/AKfycbxGTTjt12J1HmD1B1RaiNTZuIc3ZoFlIvafFAdEtuN7ewCQ-YQVnkUEOb23d3iXQ9I0CQ/exec'
     logging.error(json.dumps(recent))
     response = requests.post(
-        webhook_url, data=json.dumps(recent),
+        gsheet_webhook_url, data=json.dumps(recent),
         headers={'Content-Type': 'application/json'}
     )
     if response.status_code != 200:
