@@ -27,6 +27,9 @@ def get_ua():
     with open("config.yaml", "r", encoding="UTF-8") as f:
         return yaml.load("".join(f.readlines()), Loader=yaml.FullLoader)["api"]["user-agent"]
 
+def get_gsheet_webhook_url():
+    with open("config.yaml", "r", encoding="UTF-8") as f:
+        return yaml.load("".join(f.readlines()), Loader=yaml.FullLoader)["gsheet"]["webhook_url"]
 
 def get_songlist():
     with open("ArcSongList.json", "r", encoding="UTF-8") as f:
@@ -37,4 +40,5 @@ api_url = get_api()
 api_ua = get_ua()
 headers = {"User-Agent": api_ua}
 
+gsheet_webhook_url = get_gsheet_webhook_url()
 songlist = get_songlist()
