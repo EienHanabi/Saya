@@ -3,6 +3,8 @@ from datetime import datetime
 import discord
 import yaml
 
+import sys
+sys.path.insert(1, './commands')
 from best import best
 from help import get_help
 from art import get_random_tweet
