@@ -52,11 +52,11 @@ def get_diff(cst):
 
 
 # Get URL asset for Partner icon
-def get_partner_icon(prfl):
-    if prfl["is_char_uncapped"]:
-        return partners + str(prfl["character"]) + "u_icon.png"
+def get_partner_icon(profile):
+    if profile["is_char_uncapped"]:
+        return partners + str(profile["character"]) + "u_icon.png"
     else:
-        return partners + str(prfl["character"]) + "_icon.png"
+        return partners + str(profile["character"]) + "_icon.png"
 
 
 # Format time; Arcapi returns a delta from current time instead of EPOCH
@@ -73,9 +73,9 @@ def format_time(ts):
 
 
 # Return nb_scores recommendations based on given scores/profile, doesn't display anything
-def get_ptt_recommendation_scores(scores, prfl, nb_scores):
+def get_ptt_recommendation_scores(scores, profile, nb_scores):
     ptt_rec = []
-    PTT = float(prfl["rating"]) / 100
+    PTT = float(profile["rating"]) / 100
 
     scores = sorted(scores, key=itemgetter("rating"), reverse=True)
     # Divides scores between top 30 and scores below
