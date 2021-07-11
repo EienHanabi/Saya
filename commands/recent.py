@@ -28,14 +28,12 @@ async def recent(message):
         cover_url = cover + "3_" + recent["song_id"] + ".jpg"
     else:
         cover_url = cover + recent["song_id"] + ".jpg"
-    msg_emb = discord.Embed(title="Last play", type="rich", color=discord.Color.dark_teal())
+    msg_emb = discord.Embed(title=f'{query_songname(recent["song_id"])} <{diff[recent["difficulty"]]} {get_diff(query_constant(recent))}\>', type="rich", color=discord.Color.dark_teal())
     msg_emb.set_thumbnail(url=cover_url)
     msg_emb.set_author(name=f'{prfl["name"]}', icon_url=get_partner_icon(prfl))
-    msg_emb.add_field(name=f'**{query_songname(recent["song_id"])}\n<{diff[recent["difficulty"]]} '
-                           f'{get_diff(query_constant(recent))}\>**',
-                      value=f'> **{format_score(recent["score"])}** [{clr[recent["best_clear_type"]]}] '
-                            f'(Rating: {round(recent["rating"], 3)})\n'
-                            f'> Pure: {recent["perfect_count"]} ({recent["shiny_perfect_count"]}) \n'
-                            f'> Far: {recent["near_count"]} |  Lost: {recent["miss_count"]}\n'
-                            f'> Date: {format_time(recent["time_played"]).split(" - ")[0]}')
+    msg_emb.add_field(name=f'{format_score(recent["score"])} [{clr[recent["best_clear_type"]]}]',
+                      value=f'> **Rating:** {round(recent["rating"], 3)}\n'
+                            f'> **Pure:** {recent["perfect_count"]} ({recent["shiny_perfect_count"]}) \n'
+                            f'> **Far:** {recent["near_count"]} |  **Lost:** {recent["miss_count"]}\n'
+                            f'> **Date:** {format_time(recent["time_played"]).split(" - ")[0]}')
     await message.reply(embed=msg_emb)
