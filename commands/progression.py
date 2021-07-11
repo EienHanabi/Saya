@@ -21,8 +21,8 @@ async def progression(message):
 
     api_ = AsyncAPI(user_code=code)
     data = await api_.fetch_data()
-    prfl = data['userinfo']
-    recs = prfl['rating_records']
+    profile = data['userinfo']
+    recs = profile['rating_records']
 
     dates = [datetime.strptime(rec[0], '%y%m%d').date() for rec in recs]
     ptts = [float(rec[1]) / 100 for rec in recs]

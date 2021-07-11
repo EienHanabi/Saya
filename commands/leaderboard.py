@@ -104,20 +104,20 @@ async def forceupdate(message):
 
 
 async def add_scores(message, code):
-    r_b30 = requests.post(f"{api_url}/user/best30?usercode={code}&overflow=400", headers=headers)
-    if not r_b30.ok:
-        await send_back_http_error(message, r_b30.status_code)
+    response_best_30 = requests.post(f"{api_url}/user/best30?usercode={code}&overflow=400", headers=headers)
+    if not response_best_30.ok:
+        await send_back_http_error(message, response_best_30.status_code)
         return
-    b30_json = r_b30.json()
-    if b30_json['status'] != 0:
-        await send_back_error(message, b30_json)
+    best_30_json = response_best_30.json()
+    if best_30_json['status'] != 0:
+        await send_back_error(message, best_30_json)
         return
 
-    r_info = requests.post(f"{api_url}/user/info?usercode={code}", headers=headers)
-    if not r_info.ok:
-        await send_back_http_error(message, r_info.status_code)
+    response_info = requests.post(f"{api_url}/user/info?usercode={code}", headers=headers)
+    if not response_info.ok:
+        await send_back_http_error(message, response_info.status_code)
         return
-    info_json = r_info.json()
+    info_json = response_info.json()
     if info_json['status'] != 0:
         await send_back_error(message, info_json)
         return
@@ -125,7 +125,7 @@ async def add_scores(message, code):
     username = info_json['content']['name']
 
     async with aiosqlite.connect(f"leaderboard.db") as db:
-        for line in [*b30_json['content']['best30_list'], *b30_json['content']['best30_overflow']]:
+        for line in [*best_30_json['content']['best30_list'], *best_30_json['content']['best30_overflow']]:
             song = line["song_id"]
             diff = line["difficulty"]
             score = line["score"]

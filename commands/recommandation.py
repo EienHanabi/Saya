@@ -19,36 +19,36 @@ async def ptt_recommendation(message):
             if 1 <= int(message.content.split(" ")[1]) <= 20:
                 nb_scores = int(message.content.split(" ")[1])
 
-    r_b30 = requests.post(f"{api_url}/user/best30?usercode={code}&overflow=400", headers=headers)
-    if not r_b30.ok:
-        await send_back_http_error(message, r_b30.status_code)
+    response_best_30 = requests.post(f"{api_url}/user/best30?usercode={code}&overflow=400", headers=headers)
+    if not response_best_30.ok:
+        await send_back_http_error(message, response_best_30.status_code)
         return
-    b30_json = r_b30.json()
-    if b30_json['status'] != 0:
-        await send_back_error(message, b30_json)
+    best_30_json = response_best_30.json()
+    if best_30_json['status'] != 0:
+        await send_back_error(message, best_30_json)
         return
 
-    r_info = requests.post(f"{api_url}/user/info?usercode={code}", headers=headers)
-    if not r_info.ok:
-        await send_back_http_error(message, r_info.status_code)
+    response_info = requests.post(f"{api_url}/user/info?usercode={code}", headers=headers)
+    if not response_info.ok:
+        await send_back_http_error(message, response_info.status_code)
         return
-    info_json = r_info.json()
+    info_json = response_info.json()
     if info_json['status'] != 0:
         await send_back_error(message, info_json)
         return
 
-    prfl = info_json['content']
+    profile = info_json['content']
     scores = []
-    for elm in b30_json['content']['best30_list']:
+    for elm in best_30_json['content']['best30_list']:
         scores.append(elm)
 
-    for elm in b30_json['content']['best30_overflow']:
+    for elm in best_30_json['content']['best30_overflow']:
         scores.append(elm)
 
-    ptt_rec = get_ptt_recommendation_scores(scores, prfl, nb_scores)
+    ptt_rec = get_ptt_recommendation_scores(scores, profile, nb_scores)
 
     msg_emb = discord.Embed(title="Recommendation", type="rich", color=discord.Color.dark_teal())
-    msg_emb.set_author(name=f'{prfl["name"]}', icon_url=get_partner_icon(prfl))
+    msg_emb.set_author(name=f'{profile["name"]}', icon_url=get_partner_icon(profile))
     msg_emb.set_footer(text="*(Credit: Okami)*")
     for elm in ptt_rec:
         msg_emb.add_field(name=f'**{query_songname(elm["song_id"])}\n<{diff[elm["difficulty"]]} '

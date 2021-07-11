@@ -15,19 +15,19 @@ async def event(message):
         await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
 
-    r_info = r_info = requests.post(f"{api_url}/user/info?usercode={code}&recent=1", headers=headers)
-    if not r_info.ok:
-        await send_back_http_error(message, r_info.status_code)
+    response_info = response_info = requests.post(f"{api_url}/user/info?usercode={code}&recent=1", headers=headers)
+    if not response_info.ok:
+        await send_back_http_error(message, response_info.status_code)
         return
-    info_json = r_info.json()
+    info_json = response_info.json()
     if info_json['status'] != 0:
         await send_back_error(message, info_json)
         return
 
-    prfl = info_json['content']
-    recent = prfl["recent_score"][0]
+    profile = info_json['content']
+    recent = profile["recent_score"][0]
 
-    recent["name"] = prfl["name"]
+    recent["name"] = profile["name"]
     recent["song"] = f'{query_songname(recent["song_id"])}'
     recent["diff"] = f'{diff[recent["difficulty"]]}'
     logging.error(json.dumps(recent))

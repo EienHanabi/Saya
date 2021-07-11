@@ -18,29 +18,29 @@ async def best(message):
             if 1 <= int(message.content.split(" ")[1]) <= 30:
                 nb_scores = int(message.content.split(" ")[1])
 
-    r_b30 = requests.post(f"{api_url}/user/best30?usercode={code}", headers=headers)
-    if not r_b30.ok:
-        await send_back_http_error(message, r_b30.status_code)
+    response_best_30 = requests.post(f"{api_url}/user/best30?usercode={code}", headers=headers)
+    if not response_best_30.ok:
+        await send_back_http_error(message, response_best_30.status_code)
         return
-    b30_json = r_b30.json()
-    if b30_json['status'] != 0:
-        await send_back_error(message, b30_json)
+    best_30_json = response_best_30.json()
+    if best_30_json['status'] != 0:
+        await send_back_error(message, best_30_json)
         return
 
-    r_info = requests.post(f"{api_url}/user/info?usercode={code}", headers=headers)
-    if not r_info.ok:
-        await send_back_http_error(message, r_info.status_code)
+    response_info = requests.post(f"{api_url}/user/info?usercode={code}", headers=headers)
+    if not response_info.ok:
+        await send_back_http_error(message, response_info.status_code)
         return
-    info_json = r_info.json()
+    info_json = response_info.json()
     if info_json['status'] != 0:
         await send_back_error(message, info_json)
         return
 
-    prfl = info_json['content']
-    ls_top = b30_json['content']['best30_list']
+    profile = info_json['content']
+    ls_top = best_30_json['content']['best30_list']
 
     msg_emb = discord.Embed(title=f'Top {nb_scores}', type="rich", color=discord.Color.dark_teal())
-    msg_emb.set_author(name=f'{prfl["name"]}', icon_url=get_partner_icon(prfl))
+    msg_emb.set_author(name=f'{profile["name"]}', icon_url=get_partner_icon(profile))
 
     if nb_scores == 1:
         if ls_top[0]["difficulty"] == 3:
@@ -56,7 +56,7 @@ async def best(message):
         if i == round(nb_scores / 2) and nb_scores > 20:
             await message.reply(embed=msg_emb)
             msg_emb = discord.Embed(title="Top 30", type="rich", color=discord.Color.dark_teal())
-            msg_emb.set_author(name=f'{prfl["name"]}', icon_url=get_partner_icon(prfl))
+            msg_emb.set_author(name=f'{profile["name"]}', icon_url=get_partner_icon(profile))
         msg_emb.add_field(name=f'**{query_songname(ls_top[i]["song_id"])}\n<{diff[ls_top[i]["difficulty"]]} '
                                f'{get_diff(query_constant(ls_top[i]))}\>**',
                           value=f'> **{format_score(ls_top[i]["score"])}** [{clr[ls_top[i]["best_clear_type"]]}] '
