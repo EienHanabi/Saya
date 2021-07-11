@@ -43,7 +43,7 @@ def get_diff(cst):
     if 9.6 < cst < 11:
         if cst < 10:
             return "9+"
-        elif cst < 10.6:
+        elif cst <= 10.6:
             return "10"
         else:
             return "10+"
