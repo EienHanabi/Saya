@@ -13,12 +13,18 @@ async def profile(message):
 
     r_b30 = requests.post(f"{api_url}/user/best30?usercode={code}", headers=headers)
     if not r_b30.ok:
-        await send_back_http_error(message, r_b30.status_code)
-        return
-    b30_json = r_b30.json()
-    if b30_json['status'] != 0:
-        await send_back_error(message, b30_json)
-        return
+        b30f = "Unavailable"
+        r10f = "Unavailable"
+    else:
+        b30_json = r_b30.json()
+        if b30_json['status'] != 0:
+            b30f = "Unavailable"
+            r10f = "Unavailable"
+        else:
+            b30 = b30_json['content']['best30_avg']
+            r10 = b30_json['content']['recent10_avg']
+            b30f = "{:.3f}".format(b30)
+            r10f = "{:.3f}".format(r10)
 
     r_info = requests.post(f"{api_url}/user/info?usercode={code}&recent=1", headers=headers)
     if not r_info.ok:
@@ -30,12 +36,6 @@ async def profile(message):
         return
 
     prfl = info_json['content']
-
-    b30 = b30_json['content']['best30_avg']
-    r10 = b30_json['content']['recent10_avg']
-
-    b30f = "{:.3f}".format(b30)
-    r10f = "{:.3f}".format(r10)
 
     rating = "{0:04d}".format(prfl["rating"])[:2] + "." + "{0:04d}".format(prfl["rating"])[2:] + " PTT"
 
