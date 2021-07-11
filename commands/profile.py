@@ -1,3 +1,4 @@
+from operator import itemgetter
 import discord
 import requests
 
@@ -20,11 +21,20 @@ async def profile(message):
         if b30_json['status'] != 0:
             b30f = "Unavailable"
             r10f = "Unavailable"
+            max_pttf = "Unavailable"
         else:
             b30 = b30_json['content']['best30_avg']
             r10 = b30_json['content']['recent10_avg']
             b30f = "{:.3f}".format(b30)
             r10f = "{:.3f}".format(r10)
+            scores = []
+            for elm in b30_json['content']['best30_list']:
+                scores.append(elm)
+            scores = sorted(scores, key=itemgetter("rating"), reverse=True)
+            scores_top_10 = scores[0:10]
+            sum_top_10 = sum([score['rating'] for score in scores_top_10])
+            max_ptt = (b30 * 30 + sum_top_10) / 40
+            max_pttf = "{:.3f}".format(max_ptt)
 
     r_info = requests.post(f"{api_url}/user/info?usercode={code}&recent=1", headers=headers)
     if not r_info.ok:
@@ -46,6 +56,7 @@ async def profile(message):
     msg_emb.set_thumbnail(url=get_partner_icon(prfl))
     msg_emb.add_field(name=f'**{prfl["name"]}\'s profile**',
                       value=f'> Rating: **{rating}**\n'
+                            f'> Max PTT: **{max_pttf} PTT**\n'
                             f'> Best 30: **{b30f} PTT**\n'
                             f'> Recent 10: **{r10f} PTT**\n'
                             f'> Favchar: **{partners_names[prfl["character"]]}**\n'
