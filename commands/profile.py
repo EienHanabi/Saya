@@ -16,12 +16,13 @@ async def profile(message):
     if not response_best_30.ok:
         best_30_str = "Unavailable"
         recent_10_str = "Unavailable"
+        max_ptt_str = "Unavailable"
     else:
         best_30_json = response_best_30.json()
         if best_30_json['status'] != 0:
             best_30_str = "Unavailable"
             recent_10_str = "Unavailable"
-            max_pttf = "Unavailable"
+            max_ptt_str = "Unavailable"
         else:
             best_30 = best_30_json['content']['best30_avg']
             recent_10 = best_30_json['content']['recent10_avg']
