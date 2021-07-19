@@ -1,12 +1,8 @@
-import re
-
-import discord
-import aiosqlite
-
 from datetime import datetime
 
+import aiosqlite
+import discord
 import requests
-from ArcProbeInterface import AsyncAPI
 
 from constants import diff, cover, clr, songlist, api_url, headers
 from utils import check_id, format_time, format_score, send_back_error, send_back_http_error
