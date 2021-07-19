@@ -1,3 +1,5 @@
+import re
+
 import discord
 import aiosqlite
 
@@ -83,7 +85,7 @@ async def leaderboard(message):
                 for elm in res:
                     username = elm[3]
                     score = format_score(elm[4])
-                    stats = elm[5].split(";")
+                    stats = elm[5].split('-')
                     clear_type = elm[6]
                     date = elm[7]
                     msg_emb.add_field(name=f'**{username}**',
@@ -131,7 +133,7 @@ async def add_scores(message, code):
             score = line["score"]
             clear_type = line["clear_type"]
             date = format_time(line["time_played"])
-            stats = f"{line['shiny_perfect_count']};{line['perfect_count']};{line['near_count']};{line['miss_count']}"
+            stats = f'{line["shiny_perfect_count"]}-{line["perfect_count"]}-{line["near_count"]}-{line["miss_count"]}'
             async with db.execute(
                     f"SELECT * FROM scores WHERE username='{username}' AND song='{song}' AND diff={diff}") as c:
                 res = await c.fetchall()
@@ -144,6 +146,5 @@ async def add_scores(message, code):
                         await db.commit()
             else:
                 params = (song, diff, username, score, stats, clear_type, date)
-                async with db.execute(f"INSERT INTO scores VALUES "
-                                      f"(NULL, ?, ?, ?, ?, ?, ?, ?)", params):
+                async with db.execute(f"INSERT INTO scores VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)", params):
                     await db.commit()
