@@ -11,4 +11,5 @@ async def get_help(message):
                                "> !recent: Sends the latest play\n"
                                "> !prog: Generates a PTT evolution graph\n"
                                "> !pog: Sends a Pog in the chat\n"
+                               "> !score [song] [diff] : Returns your best score on the selected song" 
                                "> !register: Links a user code to a Discord account")

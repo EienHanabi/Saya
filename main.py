@@ -4,6 +4,7 @@ import discord
 import yaml
 
 import sys
+
 sys.path.insert(1, './commands')
 from best import best
 from help import get_help
@@ -18,6 +19,7 @@ from recommandation import ptt_recommendation
 from session import session_generator
 from event import event
 from pog import pog
+from score import score
 
 
 class MyClient(discord.Client):
@@ -55,15 +57,17 @@ class MyClient(discord.Client):
                     await forceupdate(message)
                 if message.content.startswith("!event"):
                     await event(message)
+                if message.content.startswith("!score"):
+                    await score(message)
 
         except OSError:
             msg_emb = discord.Embed(title="Erreur", type="rich", color=discord.Color.dark_red())
-            msg_emb.add_field(name="Exception",value="La websocket ArcAPI a l'air d'être indisponible!")
+            msg_emb.add_field(name="Exception", value="La websocket ArcAPI a l'air d'être indisponible!")
             await message.reply(embed=msg_emb)
         except Exception as e:
             traceback.print_exc()
             msg_emb = discord.Embed(title="Erreur", type="rich", color=discord.Color.dark_red())
-            msg_emb.add_field(name="Exception :",value=str(e))
+            msg_emb.add_field(name="Exception :", value=str(e))
             await message.reply(embed=msg_emb)
 
 
