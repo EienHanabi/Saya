@@ -9210,6 +9210,48 @@
       ]
     },
     {
+      "id": "seclusion",
+      "title_localized": {
+        "en": "Seclusion"
+      },
+      "artist": "Laur feat. Sennzai",
+      "bpm": "175",
+      "bpm_base": 175,
+      "set": "observer",
+      "audioTimeSec": 0,
+      "side": 1,
+      "remote_dl": true,
+      "world_unlock": true,
+      "date": 1626825603,
+      "version": "3.7",
+      "difficulties": [
+        {
+          "ratingClass": 0,
+          "chartDesigner": "Exschwasion",
+          "jacketDesigner": "海鵜げそ",
+          "rating": 4,
+          "fixedValue": 4,
+          "totalNotes": 544
+        },
+        {
+          "ratingClass": 1,
+          "chartDesigner": "Exschwasion",
+          "jacketDesigner": "海鵜げそ",
+          "rating": 7,
+          "fixedValue": 7,
+          "totalNotes": 762
+        },
+        {
+          "ratingClass": 2,
+          "chartDesigner": "N•Ex•T",
+          "jacketDesigner": "海鵜げそ",
+          "rating": 10,
+          "fixedValue": 10.5,
+          "totalNotes": 1132
+        }
+      ]
+    },
+    {
       "id": "kyogenkigo",
       "title_localized": {
         "en": "False Embellishment",
