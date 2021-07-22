@@ -33,6 +33,22 @@ def format_score(score):
     return "{0:08d}".format(score)[:2] + "'" + "{0:08d}".format(score)[2:5] + "'" + "{0:08d}".format(score)[5:]
 
 
+def format_diff(diff):
+    diff_format = "{0:08d}".format(diff)[:2] + "'" + "{0:08d}".format(diff)[2:5] + "'" + "{0:08d}".format(diff)[5:]
+    if diff < 0:
+        return diff_format
+    else:
+        return "+" + diff_format
+
+
+def format_diff_rating(diff):
+    diff_format = str(round(diff, 3))
+    if diff < 0:
+        return diff_format
+    else:
+        return "+" + diff_format
+
+
 # Format player code as 000 000 000
 def format_code(code):
     return code[:3] + " " + code[3:6] + " " + code[6:]
