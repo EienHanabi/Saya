@@ -9015,7 +9015,7 @@
           "chartDesigner": "夜浪 vs Nitro",
           "jacketDesigner": "Nagu + yusi.",
           "rating": 5,
-          "ratingReal": 5,
+          "fixedValue": 5,
           "totalNotes": 860
         },
         {
@@ -9023,7 +9023,7 @@
           "chartDesigner": "夜浪 vs Nitro",
           "jacketDesigner": "Nagu + yusi.",
           "rating": 8,
-          "ratingReal": 8.3,
+          "fixedValue": 8.3,
           "totalNotes": 1051
         },
         {
@@ -9031,7 +9031,7 @@
           "chartDesigner": "夜浪 vs Nitro",
           "jacketDesigner": "Nagu + yusi.",
           "rating": 10,
-          "ratingReal": 10.7,
+          "fixedValue": 10.7,
           "ratingPlus": true,
           "totalNotes": 1212
         }
@@ -9058,7 +9058,7 @@
           "chartDesigner": "東星 vs Toaster",
           "jacketDesigner": "fixro2n",
           "rating": 3,
-          "ratingReal": 3,
+          "fixedValue": 3,
           "totalNotes": 749
         },
         {
@@ -9066,7 +9066,7 @@
           "chartDesigner": "東星 vs Toaster",
           "jacketDesigner": "fixro2n",
           "rating": 7,
-          "ratingReal": 7,
+          "fixedValue": 7,
           "totalNotes": 919
         },
         {
@@ -9074,7 +9074,7 @@
           "chartDesigner": "東星 vs Toaster",
           "jacketDesigner": "fixro2n",
           "rating": 9,
-          "ratingReal": 9.7,
+          "fixedValue": 9.7,
           "ratingPlus": true,
           "totalNotes": 1304
         }
@@ -9101,7 +9101,7 @@
           "chartDesigner": "CERiNG",
           "jacketDesigner": "ちょこ庵",
           "rating": 3,
-          "ratingReal": 3,
+          "fixedValue": 3,
           "totalNotes": 728
         },
         {
@@ -9109,7 +9109,7 @@
           "chartDesigner": "CERiNG",
           "jacketDesigner": "ちょこ庵",
           "rating": 6,
-          "ratingReal": 6,
+          "fixedValue": 6,
           "totalNotes": 881
         },
         {
@@ -9117,7 +9117,7 @@
           "chartDesigner": "CERiNG",
           "jacketDesigner": "ちょこ庵",
           "rating": 9,
-          "ratingReal": 9.7,
+          "fixedValue": 9.7,
           "ratingPlus": true,
           "totalNotes": 1277
         }
@@ -9144,7 +9144,7 @@
           "chartDesigner": "én",
           "jacketDesigner": "のう",
           "rating": 3,
-          "ratingReal": 3,
+          "fixedValue": 3,
           "totalNotes": 548
         },
         {
@@ -9152,7 +9152,7 @@
           "chartDesigner": "én",
           "jacketDesigner": "のう",
           "rating": 6,
-          "ratingReal": 6.5,
+          "fixedValue": 6.5,
           "totalNotes": 727
         },
         {
@@ -9160,7 +9160,7 @@
           "chartDesigner": "én",
           "jacketDesigner": "のう",
           "rating": 9,
-          "ratingReal": 9.1,
+          "fixedValue": 9.1,
           "totalNotes": 919
         }
       ]
@@ -9187,7 +9187,7 @@
           "chartDesigner": "東星※神授",
           "jacketDesigner": "緋原ヨウ",
           "rating": 4,
-          "ratingReal": 4.5,
+          "fixedValue": 4.5,
           "totalNotes": 798
         },
         {
@@ -9195,7 +9195,7 @@
           "chartDesigner": "東星※神授",
           "jacketDesigner": "緋原ヨウ",
           "rating": 7,
-          "ratingReal": 7.5,
+          "fixedValue": 7.5,
           "totalNotes": 835
         },
         {
@@ -9203,9 +9203,51 @@
           "chartDesigner": "東星※神授",
           "jacketDesigner": "緋原ヨウ",
           "rating": 10,
-          "ratingReal": 10.8,
+          "fixedValue": 10.8,
           "ratingPlus": true,
           "totalNotes": 1021
+        }
+      ]
+    },
+    {
+      "id": "seclusion",
+      "title_localized": {
+        "en": "Seclusion"
+      },
+      "artist": "Laur feat. Sennzai",
+      "bpm": "175",
+      "bpm_base": 175,
+      "set": "observer",
+      "audioTimeSec": 0,
+      "side": 1,
+      "remote_dl": true,
+      "world_unlock": true,
+      "date": 1626825603,
+      "version": "3.7",
+      "difficulties": [
+        {
+          "ratingClass": 0,
+          "chartDesigner": "Exschwasion",
+          "jacketDesigner": "海鵜げそ",
+          "rating": 4,
+          "fixedValue": 4,
+          "totalNotes": 544
+        },
+        {
+          "ratingClass": 1,
+          "chartDesigner": "Exschwasion",
+          "jacketDesigner": "海鵜げそ",
+          "rating": 7,
+          "fixedValue": 7,
+          "totalNotes": 762
+        },
+        {
+          "ratingClass": 2,
+          "chartDesigner": "N•Ex•T",
+          "jacketDesigner": "海鵜げそ",
+          "rating": 10,
+          "fixedValue": 10.5,
+          "totalNotes": 1132
         }
       ]
     },
@@ -9231,7 +9273,7 @@
           "chartDesigner": "Exschwasion",
           "jacketDesigner": "あすだ",
           "rating": 3,
-          "ratingReal": 3.5,
+          "fixedValue": 3.5,
           "totalNotes": 576
         },
         {
@@ -9239,7 +9281,7 @@
           "chartDesigner": "Exschwasion",
           "jacketDesigner": "あすだ",
           "rating": 6,
-          "ratingReal": 6.5,
+          "fixedValue": 6.5,
           "totalNotes": 684
         },
         {
@@ -9247,7 +9289,7 @@
           "chartDesigner": "Exschwasion",
           "jacketDesigner": "あすだ",
           "rating": 9,
-          "ratingReal": 9.3,
+          "fixedValue": 9.3,
           "totalNotes": 969
         }
       ]
@@ -9273,7 +9315,7 @@
           "chartDesigner": "NITRO -unconnected-",
           "jacketDesigner": "fixro2n",
           "rating": 4,
-          "ratingReal": 4,
+          "fixedValue": 4,
           "totalNotes": 995
         },
         {
@@ -9281,7 +9323,7 @@
           "chartDesigner": "NITRO -unconnected-",
           "jacketDesigner": "fixro2n",
           "rating": 7,
-          "ratingReal": 7.5,
+          "fixedValue": 7.5,
           "totalNotes": 988
         },
         {
@@ -9289,7 +9331,7 @@
           "chartDesigner": "NITRO -unconnected-",
           "jacketDesigner": "fixro2n",
           "rating": 9,
-          "ratingReal": 9.9,
+          "fixedValue": 9.9,
           "ratingPlus": true,
           "totalNotes": 1252
         }
