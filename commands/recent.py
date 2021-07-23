@@ -57,7 +57,8 @@ async def recent(message):
     else:
         cover_url = cover + recent["song_id"] + ".jpg"
     msg_emb = discord.Embed(
-        title=f'{query_songname(recent["song_id"])} <{diff[recent["difficulty"]]} {get_diff(query_constant(recent))}\>',
+        title=f'{query_songname(recent["song_id"])} <{diff[recent["difficulty"]]} '
+              f'{get_diff(query_constant(recent))} | {query_constant(recent)}\>',
         type="rich", color=discord.Color.dark_teal())
     msg_emb.set_thumbnail(url=cover_url)
     msg_emb.set_author(name=f'{profile["name"]}', icon_url=get_partner_icon(profile))

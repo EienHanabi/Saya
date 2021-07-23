@@ -42,7 +42,8 @@ async def score(message):
         songname = list(song[0].values())[0]
         song = list(song[0].keys())[0]
 
-    api_response = requests.post(f"{api_url}/user/history?usercode={code}&quantity=1&songname={song}&difficulty={diff_asked}", headers=headers)
+    api_response = requests.post(
+        f"{api_url}/user/history?usercode={code}&quantity=1&songname={song}&difficulty={diff_asked}", headers=headers)
     if not api_response.ok:
         await send_back_http_error(message, api_response.status_code)
         return
@@ -57,7 +58,10 @@ async def score(message):
         cover_url = cover + "3_" + score_data["song_id"] + ".jpg"
     else:
         cover_url = cover + score_data["song_id"] + ".jpg"
-    msg_emb = discord.Embed(title=f'{query_songname(score_data["song_id"])} <{diff[score_data["difficulty"]]} {get_diff(query_constant(score_data))}\>', type="rich", color=discord.Color.dark_teal())
+    msg_emb = discord.Embed(
+        title=f'{query_songname(score_data["song_id"])} <{diff[score_data["difficulty"]]} '
+              f'{get_diff(query_constant(score_data))} | {query_constant(score_data)}\>',
+        type="rich", color=discord.Color.dark_teal())
     msg_emb.set_thumbnail(url=cover_url)
     msg_emb.add_field(name=f'{format_score(score_data["score"])} [{clr[score_data["best_clear_type"]]}]',
                       value=f'> **Rating:** {round(score_data["rating"], 3)}\n'
