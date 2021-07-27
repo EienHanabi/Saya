@@ -134,12 +134,17 @@ async def add_scores(message, code):
                     f"SELECT * FROM scores WHERE username='{username}' AND song='{song}' AND diff={diff}") as c:
                 res = await c.fetchall()
             if len(res) != 0:
-                if res[0][4] == score:
+                if res[0][4] == score and len(res[0][5].split('-')) == 4:
                     pass
                 else:
+                    print(stats)
                     async with db.execute(
-                            f"UPDATE scores SET score={score}, stats={stats}, clear_type={clear_type}, date='{date}' WHERE id={res[0][0]}"):
+                            f"UPDATE scores SET score={score}, stats='{stats}', clear_type={clear_type}, date='{date}' WHERE id={res[0][0]}"):
                         await db.commit()
+                    async with db.execute(
+                            f"SELECT * FROM scores WHERE username='{username}' AND song='{song}' AND diff={diff}") as c:
+                        res = await c.fetchall()
+                        print(res)
             else:
                 params = (song, diff, username, score, stats, clear_type, date)
                 async with db.execute(f"INSERT INTO scores VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)", params):
