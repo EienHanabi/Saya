@@ -15,7 +15,8 @@ async def event(message):
         await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
 
-    response_info = response_info = requests.post(f"{api_url}/user/info?usercode={code}&recent=1", headers=headers)
+    response_info = response_info = requests.post(f"{api_url}/user/info", headers=headers,
+                                                  params={"usercode": code, "recent": 1}, timeout=180)
     if not response_info.ok:
         await send_back_http_error(message, response_info.status_code)
         return
