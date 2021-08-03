@@ -12,7 +12,8 @@ async def profile(message):
         await message.channel.send("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
 
-    response_best_30 = requests.post(f"{api_url}/user/best30?usercode={code}", headers=headers)
+    response_best_30 = requests.post(f"{api_url}/user/best30", headers=headers,
+                                     params={"usercode": code}, timeout=180)
     if not response_best_30.ok:
         best_30_str = "Unavailable"
         recent_10_str = "Unavailable"
@@ -37,7 +38,8 @@ async def profile(message):
             max_ptt = (best_30 * 30 + sum_top_10) / 40
             max_ptt_str = "{:.3f}".format(max_ptt)
 
-    response_info = requests.post(f"{api_url}/user/info?usercode={code}&recent=1", headers=headers)
+    response_info = requests.post(f"{api_url}/user/info", headers=headers,
+                                  params={"usercode": code, "recent": 1}, timeout=180)
     if not response_info.ok:
         await send_back_http_error(message, response_info.status_code)
         return

@@ -43,7 +43,8 @@ async def score(message):
         song = list(song[0].keys())[0]
 
     api_response = requests.post(
-        f"{api_url}/user/history?usercode={code}&quantity=1&songname={song}&difficulty={diff_asked}", headers=headers)
+        f"{api_url}/user/history", headers=headers,
+        params={"usercode": code, "quantity": 1, "songname": song, "difficulty": diff_asked}, timeout=180)
     if not api_response.ok:
         await send_back_http_error(message, api_response.status_code)
         return

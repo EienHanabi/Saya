@@ -19,7 +19,8 @@ async def ptt_recommendation(message):
             if 1 <= int(message.content.split(" ")[1]) <= 20:
                 nb_scores = int(message.content.split(" ")[1])
 
-    response_best_30 = requests.post(f"{api_url}/user/best30?usercode={code}&overflow=400", headers=headers)
+    response_best_30 = requests.post(f"{api_url}/user/best30", headers=headers,
+                                     params={"usercode": code, "overflow": 400}, timeout=180)
     if not response_best_30.ok:
         await send_back_http_error(message, response_best_30.status_code)
         return
@@ -28,7 +29,7 @@ async def ptt_recommendation(message):
         await send_back_error(message, best_30_json)
         return
 
-    response_info = requests.post(f"{api_url}/user/info?usercode={code}", headers=headers)
+    response_info = requests.post(f"{api_url}/user/info", headers=headers, params={"usercode": code}, timeout=180)
     if not response_info.ok:
         await send_back_http_error(message, response_info.status_code)
         return
