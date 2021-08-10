@@ -2,7 +2,9 @@
   "songs": [
     {
       "id": "sayonarahatsukoi",
-      "title_localized": { "en": "Sayonara Hatsukoi" },
+      "title_localized": {
+        "en": "Sayonara Hatsukoi"
+      },
       "artist": "REDSHiFT",
       "bpm": "178",
       "bpm_base": 178,
@@ -40,7 +42,9 @@
     },
     {
       "id": "lostcivilization",
-      "title_localized": { "en": "Lost Civilization" },
+      "title_localized": {
+        "en": "Lost Civilization"
+      },
       "artist": "Laur vs CK",
       "bpm": "75 - 210",
       "bpm_base": 210,
@@ -87,7 +91,9 @@
     },
     {
       "id": "goodtek",
-      "title_localized": { "en": "GOODTEK (Arcaea Edit)" },
+      "title_localized": {
+        "en": "GOODTEK (Arcaea Edit)"
+      },
       "artist": "EBIMAYO",
       "bpm": "190",
       "bpm_base": 190,
@@ -135,7 +141,9 @@
     },
     {
       "id": "viyella",
-      "title_localized": { "en": "cry of viyella" },
+      "title_localized": {
+        "en": "cry of viyella"
+      },
       "artist": "Laur",
       "bpm": "75 - 180",
       "bpm_base": 180,
@@ -174,7 +182,9 @@
     },
     {
       "id": "rise",
-      "title_localized": { "en": "Rise" },
+      "title_localized": {
+        "en": "Rise"
+      },
       "artist": "Combatplayer",
       "bpm": "140",
       "bpm_base": 140,
@@ -212,7 +222,9 @@
     },
     {
       "id": "lucifer",
-      "title_localized": { "en": "Lucifer" },
+      "title_localized": {
+        "en": "Lucifer"
+      },
       "artist": "chitose",
       "bpm": "165",
       "bpm_base": 165,
@@ -251,7 +263,9 @@
     },
     {
       "id": "fairytale",
-      "title_localized": { "en": "Fairytale" },
+      "title_localized": {
+        "en": "Fairytale"
+      },
       "artist": "chitose",
       "bpm": "189",
       "bpm_base": 189,
@@ -297,7 +311,9 @@
     },
     {
       "id": "hearditsaid",
-      "title_localized": { "en": "I've heard it said" },
+      "title_localized": {
+        "en": "I've heard it said"
+      },
       "artist": "Combatplayer",
       "bpm": "165",
       "bpm_base": 165,
@@ -336,7 +352,9 @@
     },
     {
       "id": "babaroque",
-      "title_localized": { "en": "Babaroque" },
+      "title_localized": {
+        "en": "Babaroque"
+      },
       "artist": "cYsmix",
       "bpm": "136",
       "bpm_base": 136,
@@ -375,7 +393,9 @@
     },
     {
       "id": "memoryfactory",
-      "title_localized": { "en": "memoryfactory.lzh" },
+      "title_localized": {
+        "en": "memoryfactory.lzh"
+      },
       "artist": "Frums",
       "bpm": "100",
       "bpm_base": 180,
@@ -414,7 +434,9 @@
     },
     {
       "id": "snowwhite",
-      "title_localized": { "en": "Snow White" },
+      "title_localized": {
+        "en": "Snow White"
+      },
       "artist": "Puru",
       "bpm": "150",
       "bpm_base": 150,
@@ -452,7 +474,9 @@
     },
     {
       "id": "relentless",
-      "title_localized": { "en": "Relentless" },
+      "title_localized": {
+        "en": "Relentless"
+      },
       "artist": "Akira Complex",
       "bpm": "174",
       "bpm_base": 174,
@@ -491,7 +515,9 @@
     },
     {
       "id": "shadesoflight",
-      "title_localized": { "en": "Shades of Light in a Transcendent Realm" },
+      "title_localized": {
+        "en": "Shades of Light in a Transcendent Realm"
+      },
       "artist": "ak+q",
       "bpm": "170",
       "bpm_base": 170,
@@ -530,7 +556,9 @@
     },
     {
       "id": "vexaria",
-      "title_localized": { "en": "Vexaria" },
+      "title_localized": {
+        "en": "Vexaria"
+      },
       "artist": "ak+q",
       "bpm": "180",
       "bpm_base": 180,
@@ -576,7 +604,9 @@
     },
     {
       "id": "essenceoftwilight",
-      "title_localized": { "en": "Essence of Twilight" },
+      "title_localized": {
+        "en": "Essence of Twilight"
+      },
       "artist": "ak+q",
       "bpm": "164",
       "bpm_base": 164,
@@ -616,7 +646,9 @@
     },
     {
       "id": "qualia",
-      "title_localized": { "en": "qualia -ideaesthesia-" },
+      "title_localized": {
+        "en": "qualia -ideaesthesia-"
+      },
       "artist": "nitro",
       "bpm": "144",
       "bpm_base": 144,
@@ -655,7 +687,9 @@
     },
     {
       "id": "pragmatism",
-      "title_localized": { "en": "PRAGMATISM" },
+      "title_localized": {
+        "en": "PRAGMATISM"
+      },
       "artist": "Laur",
       "bpm": "174",
       "bpm_base": 174,
@@ -695,7 +729,9 @@
     },
     {
       "id": "sheriruth",
-      "title_localized": { "en": "Sheriruth" },
+      "title_localized": {
+        "en": "Sheriruth"
+      },
       "artist": "Team Grimoire",
       "bpm": "185",
       "bpm_base": 185,
@@ -735,7 +771,9 @@
     },
     {
       "id": "lumia",
-      "title_localized": { "en": "Lumia" },
+      "title_localized": {
+        "en": "Lumia"
+      },
       "artist": "sky_delta",
       "bpm": "180",
       "bpm_base": 180,
@@ -782,7 +820,9 @@
     },
     {
       "id": "dement",
-      "title_localized": { "en": "Dement ~after legend~" },
+      "title_localized": {
+        "en": "Dement ~after legend~"
+      },
       "artist": "Cosmograph",
       "bpm": "210",
       "bpm_base": 210,
@@ -829,7 +869,9 @@
     },
     {
       "id": "dandelion",
-      "title_localized": { "en": "Dandelion" },
+      "title_localized": {
+        "en": "Dandelion"
+      },
       "artist": "Farhan",
       "bpm": "169",
       "bpm_base": 169,
@@ -911,7 +953,9 @@
     },
     {
       "id": "infinityheaven",
-      "title_localized": { "en": "Infinity Heaven" },
+      "title_localized": {
+        "en": "Infinity Heaven"
+      },
       "artist": "HyuN",
       "bpm": "160",
       "bpm_base": 160,
@@ -957,7 +1001,9 @@
     },
     {
       "id": "partyvinyl",
-      "title_localized": { "en": "Party Vinyl" },
+      "title_localized": {
+        "en": "Party Vinyl"
+      },
       "artist": "モリモリあつし",
       "bpm": "132",
       "bpm_base": 132,
@@ -996,7 +1042,9 @@
     },
     {
       "id": "flashback",
-      "title_localized": { "en": "Flashback" },
+      "title_localized": {
+        "en": "Flashback"
+      },
       "artist": "ARForest",
       "bpm": "195",
       "bpm_base": 195,
@@ -1077,7 +1125,9 @@
     },
     {
       "id": "nirvluce",
-      "title_localized": { "en": "Nirv lucE" },
+      "title_localized": {
+        "en": "Nirv lucE"
+      },
       "artist": "しーけー",
       "bpm": "260",
       "bpm_base": 260,
@@ -1116,7 +1166,9 @@
     },
     {
       "id": "paradise",
-      "title_localized": { "en": "Paradise" },
+      "title_localized": {
+        "en": "Paradise"
+      },
       "artist": "Sound Souler",
       "bpm": "126",
       "bpm_base": 126,
@@ -1155,7 +1207,9 @@
     },
     {
       "id": "brandnewworld",
-      "title_localized": { "en": "Brand new world" },
+      "title_localized": {
+        "en": "Brand new world"
+      },
       "artist": "U-ske",
       "bpm": "160",
       "bpm_base": 160,
@@ -1193,7 +1247,9 @@
     },
     {
       "id": "dataerror",
-      "title_localized": { "en": "DataErr0r" },
+      "title_localized": {
+        "en": "DataErr0r"
+      },
       "artist": "Cosmograph",
       "bpm": "180",
       "bpm_base": 180,
@@ -1233,7 +1289,9 @@
     },
     {
       "id": "crosssoul",
-      "title_localized": { "en": "CROSS†SOUL" },
+      "title_localized": {
+        "en": "CROSS†SOUL"
+      },
       "artist": "HyuN feat. Syepias",
       "bpm": "200",
       "bpm_base": 200,
@@ -1272,7 +1330,9 @@
     },
     {
       "id": "yourvoiceso",
-      "title_localized": { "en": "Your voice so... feat. Such" },
+      "title_localized": {
+        "en": "Your voice so... feat. Such"
+      },
       "artist": "PSYQUI",
       "bpm": "176",
       "bpm_base": 176,
@@ -1311,7 +1371,9 @@
     },
     {
       "id": "chronostasis",
-      "title_localized": { "en": "Chronostasis" },
+      "title_localized": {
+        "en": "Chronostasis"
+      },
       "artist": "黒皇帝",
       "bpm": "196",
       "bpm_base": 196,
@@ -1391,7 +1453,9 @@
     },
     {
       "id": "moonlightofsandcastle",
-      "title_localized": { "en": "Moonlight of Sand Castle" },
+      "title_localized": {
+        "en": "Moonlight of Sand Castle"
+      },
       "artist": "旅人E",
       "bpm": "160",
       "bpm_base": 160,
@@ -1402,7 +1466,9 @@
       "side": 0,
       "bg": "dynamix_light",
       "remote_dl": true,
-      "source_localized": { "en": "Dynamix" },
+      "source_localized": {
+        "en": "Dynamix"
+      },
       "source_copyright": "",
       "no_stream": true,
       "date": 1498176001,
@@ -1433,7 +1499,9 @@
     },
     {
       "id": "reconstruction",
-      "title_localized": { "en": "REconstruction" },
+      "title_localized": {
+        "en": "REconstruction"
+      },
       "artist": "Ryazan",
       "bpm": "180",
       "bpm_base": 180,
@@ -1444,7 +1512,9 @@
       "side": 0,
       "bg": "dynamix_light",
       "remote_dl": true,
-      "source_localized": { "en": "Dynamix" },
+      "source_localized": {
+        "en": "Dynamix"
+      },
       "source_copyright": "",
       "no_stream": true,
       "date": 1498176002,
@@ -1475,7 +1545,9 @@
     },
     {
       "id": "evoltex",
-      "title_localized": { "en": "Evoltex (poppi'n mix)" },
+      "title_localized": {
+        "en": "Evoltex (poppi'n mix)"
+      },
       "artist": "Arch vs n3pu",
       "bpm": "205",
       "bpm_base": 205,
@@ -1486,7 +1558,9 @@
       "side": 0,
       "bg": "dynamix_light",
       "remote_dl": true,
-      "source_localized": { "en": "Dynamix" },
+      "source_localized": {
+        "en": "Dynamix"
+      },
       "no_stream": true,
       "date": 1498176003,
       "version": "1.1",
@@ -1516,7 +1590,9 @@
     },
     {
       "id": "oracle",
-      "title_localized": { "en": "Oracle" },
+      "title_localized": {
+        "en": "Oracle"
+      },
       "artist": "TQ☆",
       "bpm": "152",
       "bpm_base": 152,
@@ -1527,7 +1603,9 @@
       "side": 1,
       "bg": "dynamix_conflict",
       "remote_dl": true,
-      "source_localized": { "en": "Dynamix" },
+      "source_localized": {
+        "en": "Dynamix"
+      },
       "source_copyright": "",
       "no_stream": true,
       "date": 1498176004,
@@ -1573,7 +1651,9 @@
       "side": 1,
       "bg": "dynamix_conflict",
       "remote_dl": true,
-      "source_localized": { "en": "Dynamix" },
+      "source_localized": {
+        "en": "Dynamix"
+      },
       "no_stream": true,
       "date": 1498176005,
       "version": "1.1",
@@ -1645,7 +1725,10 @@
     },
     {
       "id": "impurebird",
-      "title_localized": { "en": "Impure Bird", "ja": "不浄な白い鳥" },
+      "title_localized": {
+        "en": "Impure Bird",
+        "ja": "不浄な白い鳥"
+      },
       "artist": "MIssionary",
       "bpm": "184",
       "bpm_base": 184,
@@ -1684,7 +1767,9 @@
     },
     {
       "id": "ignotus",
-      "title_localized": { "en": "Ignotus" },
+      "title_localized": {
+        "en": "Ignotus"
+      },
       "artist": "ak+q",
       "bpm": "170",
       "bpm_base": 170,
@@ -1723,7 +1808,9 @@
     },
     {
       "id": "lethaeus",
-      "title_localized": { "en": "Lethaeus" },
+      "title_localized": {
+        "en": "Lethaeus"
+      },
       "artist": "Silentroom",
       "bpm": "155",
       "bpm_base": 155,
@@ -1763,7 +1850,10 @@
     },
     {
       "id": "romancewars",
-      "title_localized": { "en": "Romance Wars", "ja": "vsキミ戦争" },
+      "title_localized": {
+        "en": "Romance Wars",
+        "ja": "vsキミ戦争"
+      },
       "artist": "U-ske (feat. lueur)",
       "bpm": "187",
       "bpm_base": 187,
@@ -1802,7 +1892,9 @@
     },
     {
       "id": "blossoms",
-      "title_localized": { "en": "Blossoms" },
+      "title_localized": {
+        "en": "Blossoms"
+      },
       "artist": "T2Kazuya",
       "bpm": "138",
       "bpm_base": 138,
@@ -1841,7 +1933,9 @@
     },
     {
       "id": "moonheart",
-      "title_localized": { "en": "Moonheart" },
+      "title_localized": {
+        "en": "Moonheart"
+      },
       "artist": "翡乃イスカ",
       "bpm": "180",
       "bpm_base": 180,
@@ -1889,7 +1983,9 @@
     },
     {
       "id": "genesis",
-      "title_localized": { "en": "Genesis" },
+      "title_localized": {
+        "en": "Genesis"
+      },
       "artist": "Iris",
       "bpm": "132",
       "bpm_base": 132,
@@ -1970,7 +2066,9 @@
     },
     {
       "id": "auxesia",
-      "title_localized": { "en": "Auxesia" },
+      "title_localized": {
+        "en": "Auxesia"
+      },
       "artist": "ginkiha",
       "bpm": "183",
       "bpm_base": 183,
@@ -2009,7 +2107,9 @@
     },
     {
       "id": "rabbitintheblackroom",
-      "title_localized": { "en": "Rabbit In The Black Room" },
+      "title_localized": {
+        "en": "Rabbit In The Black Room"
+      },
       "artist": "Rabbit House",
       "bpm": "270",
       "bpm_base": 270,
@@ -2048,7 +2148,9 @@
     },
     {
       "id": "modelista",
-      "title_localized": { "en": "Modelista" },
+      "title_localized": {
+        "en": "Modelista"
+      },
       "artist": "HiTECH NINJA",
       "bpm": "165",
       "bpm_base": 165,
@@ -2087,7 +2189,9 @@
     },
     {
       "id": "soundwitch",
-      "title_localized": { "en": "SOUNDWiTCH" },
+      "title_localized": {
+        "en": "SOUNDWiTCH"
+      },
       "artist": "HATE",
       "bpm": "170",
       "bpm_base": 170,
@@ -2169,7 +2273,9 @@
     },
     {
       "id": "iconoclast",
-      "title_localized": { "en": "Iconoclast" },
+      "title_localized": {
+        "en": "Iconoclast"
+      },
       "artist": "Yamajet",
       "bpm": "140",
       "bpm_base": 140,
@@ -2208,7 +2314,9 @@
     },
     {
       "id": "conflict",
-      "title_localized": { "en": "conflict" },
+      "title_localized": {
+        "en": "conflict"
+      },
       "artist": "siromaru + cranky",
       "bpm": "160",
       "bpm_base": 160,
@@ -2247,7 +2355,9 @@
     },
     {
       "id": "axiumcrisis",
-      "title_localized": { "en": "Axium Crisis" },
+      "title_localized": {
+        "en": "Axium Crisis"
+      },
       "artist": "ak+q",
       "bpm": "170",
       "bpm_base": 170,
@@ -2288,7 +2398,9 @@
     },
     {
       "id": "grievouslady",
-      "title_localized": { "en": "Grievous Lady" },
+      "title_localized": {
+        "en": "Grievous Lady"
+      },
       "artist": "Team Grimoire vs Laur",
       "bpm": "210",
       "bpm_base": 210,
@@ -2329,7 +2441,9 @@
     },
     {
       "id": "dreaminattraction",
-      "title_localized": { "en": "Dreamin' Attraction!!" },
+      "title_localized": {
+        "en": "Dreamin' Attraction!!"
+      },
       "artist": "翡乃イスカ",
       "bpm": "205",
       "bpm_base": 205,
@@ -2368,7 +2482,9 @@
     },
     {
       "id": "redandblue",
-      "title_localized": { "en": "Red and Blue" },
+      "title_localized": {
+        "en": "Red and Blue"
+      },
       "artist": "Silentroom",
       "bpm": "150",
       "bpm_base": 150,
@@ -2407,7 +2523,9 @@
     },
     {
       "id": "onelastdrive",
-      "title_localized": { "en": "One Last Drive" },
+      "title_localized": {
+        "en": "One Last Drive"
+      },
       "artist": "REDSHiFT",
       "bpm": "154 - 175",
       "bpm_base": 175,
@@ -2445,7 +2563,9 @@
     },
     {
       "id": "surrender",
-      "title_localized": { "en": "Surrender" },
+      "title_localized": {
+        "en": "Surrender"
+      },
       "artist": "void",
       "bpm": "152",
       "bpm_base": 152,
@@ -2456,7 +2576,9 @@
       "side": 0,
       "remote_dl": true,
       "bg": "",
-      "source_localized": { "en": "STELLIGHTS" },
+      "source_localized": {
+        "en": "STELLIGHTS"
+      },
       "source_copyright": "",
       "no_stream": true,
       "date": 1511481600,
@@ -2487,7 +2609,10 @@
     },
     {
       "id": "yozakurafubuki",
-      "title_localized": { "en": "Yosakura Fubuki", "ja": "夜桜吹雪" },
+      "title_localized": {
+        "en": "Yosakura Fubuki",
+        "ja": "夜桜吹雪"
+      },
       "artist": "A.SAKA",
       "bpm": "172",
       "bpm_base": 172,
@@ -2526,7 +2651,9 @@
     },
     {
       "id": "cyanine",
-      "title_localized": { "en": "cyanine" },
+      "title_localized": {
+        "en": "cyanine"
+      },
       "artist": "jioyi",
       "bpm": "182",
       "bpm_base": 182,
@@ -2537,7 +2664,9 @@
       "side": 1,
       "bg": "lanota-conflict",
       "remote_dl": true,
-      "source_localized": { "en": "Lanota" },
+      "source_localized": {
+        "en": "Lanota"
+      },
       "source_copyright": "",
       "no_stream": true,
       "date": 1517443204,
@@ -2568,7 +2697,9 @@
     },
     {
       "id": "dreamgoeson",
-      "title_localized": { "en": "Dream goes on" },
+      "title_localized": {
+        "en": "Dream goes on"
+      },
       "artist": "Tiny Minim",
       "bpm": "174",
       "bpm_base": 174,
@@ -2579,7 +2710,9 @@
       "side": 0,
       "bg": "lanota-light",
       "remote_dl": true,
-      "source_localized": { "en": "Lanota" },
+      "source_localized": {
+        "en": "Lanota"
+      },
       "source_copyright": "",
       "no_stream": true,
       "date": 1517443200,
@@ -2610,7 +2743,9 @@
     },
     {
       "id": "journey",
-      "title_localized": { "en": "Journey" },
+      "title_localized": {
+        "en": "Journey"
+      },
       "artist": "ARForest",
       "bpm": "200",
       "bpm_base": 200,
@@ -2621,7 +2756,9 @@
       "side": 0,
       "bg": "lanota-light",
       "remote_dl": true,
-      "source_localized": { "en": "Lanota" },
+      "source_localized": {
+        "en": "Lanota"
+      },
       "source_copyright": "",
       "no_stream": true,
       "date": 1517443202,
@@ -2652,7 +2789,9 @@
     },
     {
       "id": "specta",
-      "title_localized": { "en": "Specta" },
+      "title_localized": {
+        "en": "Specta"
+      },
       "artist": "Junk",
       "bpm": "179",
       "bpm_base": 179,
@@ -2663,7 +2802,9 @@
       "side": 0,
       "bg": "lanota-light",
       "remote_dl": true,
-      "source_localized": { "en": "Lanota" },
+      "source_localized": {
+        "en": "Lanota"
+      },
       "source_copyright": "",
       "no_stream": true,
       "date": 1517443202,
@@ -2694,7 +2835,9 @@
     },
     {
       "id": "quon",
-      "title_localized": { "en": "Quon" },
+      "title_localized": {
+        "en": "Quon"
+      },
       "artist": "Feryquitous",
       "bpm": "189",
       "bpm_base": 189,
@@ -2735,7 +2878,9 @@
     },
     {
       "id": "syro",
-      "title_localized": { "en": "Syro" },
+      "title_localized": {
+        "en": "Syro"
+      },
       "artist": "Mitomoro",
       "bpm": "178",
       "bpm_base": 178,
@@ -2774,7 +2919,9 @@
     },
     {
       "id": "reinvent",
-      "title_localized": { "en": "Reinvent" },
+      "title_localized": {
+        "en": "Reinvent"
+      },
       "artist": "Sound Souler",
       "bpm": "174",
       "bpm_base": 174,
@@ -2812,7 +2959,9 @@
     },
     {
       "id": "silentrush",
-      "title_localized": { "en": "Silent Rush" },
+      "title_localized": {
+        "en": "Silent Rush"
+      },
       "artist": "Soleily",
       "bpm": "158",
       "bpm_base": 158,
@@ -2851,7 +3000,9 @@
     },
     {
       "id": "singularity",
-      "title_localized": { "en": "Singularity" },
+      "title_localized": {
+        "en": "Singularity"
+      },
       "artist": "ETIA.",
       "bpm": "175",
       "bpm_base": 175,
@@ -2891,7 +3042,9 @@
     },
     {
       "id": "memoryforest",
-      "title_localized": { "en": "Memory Forest" },
+      "title_localized": {
+        "en": "Memory Forest"
+      },
       "artist": "ETIA.",
       "bpm": "178",
       "bpm_base": 178,
@@ -2931,7 +3084,9 @@
     },
     {
       "id": "strongholds",
-      "title_localized": { "en": "Strongholds" },
+      "title_localized": {
+        "en": "Strongholds"
+      },
       "artist": "Yooh",
       "bpm": "105",
       "bpm_base": 210,
@@ -2970,7 +3125,9 @@
     },
     {
       "id": "nexttoyou",
-      "title_localized": { "en": "next to you" },
+      "title_localized": {
+        "en": "next to you"
+      },
       "artist": "uma feat. 橘花音",
       "bpm": "165",
       "bpm_base": 165,
@@ -3017,7 +3174,9 @@
     },
     {
       "id": "metallicpunisher",
-      "title_localized": { "en": "Metallic Punisher" },
+      "title_localized": {
+        "en": "Metallic Punisher"
+      },
       "artist": "INNOCENT NOIZE",
       "bpm": "165",
       "bpm_base": 165,
@@ -3056,7 +3215,9 @@
     },
     {
       "id": "blaster",
-      "title_localized": { "en": "Blaster" },
+      "title_localized": {
+        "en": "Blaster"
+      },
       "artist": "Massive New Krew",
       "bpm": "180",
       "bpm_base": 180,
@@ -3141,7 +3302,9 @@
     },
     {
       "id": "carminescythe",
-      "title_localized": { "en": "carmine:scythe" },
+      "title_localized": {
+        "en": "carmine:scythe"
+      },
       "artist": "かゆき",
       "bpm": "165",
       "bpm_base": 165,
@@ -3180,7 +3343,9 @@
     },
     {
       "id": "bethere",
-      "title_localized": { "en": "Be There" },
+      "title_localized": {
+        "en": "Be There"
+      },
       "artist": "PSYQUI",
       "bpm": "164",
       "bpm_base": 164,
@@ -3219,7 +3384,9 @@
     },
     {
       "id": "cyberneciacatharsis",
-      "title_localized": { "en": "Cybernecia Catharsis" },
+      "title_localized": {
+        "en": "Cybernecia Catharsis"
+      },
       "artist": "Tanchiky",
       "bpm": "184",
       "bpm_base": 184,
@@ -3258,7 +3425,9 @@
     },
     {
       "id": "callmyname",
-      "title_localized": { "en": "Call My Name feat. Yukacco" },
+      "title_localized": {
+        "en": "Call My Name feat. Yukacco"
+      },
       "artist": "Mameyudoufu",
       "bpm": "175",
       "bpm_base": 175,
@@ -3297,7 +3466,9 @@
     },
     {
       "id": "inkarusi",
-      "title_localized": { "en": "inkar-usi" },
+      "title_localized": {
+        "en": "inkar-usi"
+      },
       "artist": "DIA",
       "bpm": "102",
       "bpm_base": 102,
@@ -3335,7 +3506,10 @@
     },
     {
       "id": "mazenine",
-      "title_localized": { "en": "Maze No.9", "ja": "九番目の迷路" },
+      "title_localized": {
+        "en": "Maze No.9",
+        "ja": "九番目の迷路"
+      },
       "artist": "アリスシャッハと魔法の楽団",
       "bpm": "159",
       "bpm_base": 159,
@@ -3374,7 +3548,9 @@
     },
     {
       "id": "themessage",
-      "title_localized": { "en": "The Message" },
+      "title_localized": {
+        "en": "The Message"
+      },
       "artist": "Jun Kuroda",
       "bpm": "202",
       "bpm_base": 202,
@@ -3414,7 +3590,9 @@
     },
     {
       "id": "sulfur",
-      "title_localized": { "en": "Sulfur" },
+      "title_localized": {
+        "en": "Sulfur"
+      },
       "artist": "ぺのれり",
       "bpm": "182",
       "bpm_base": 182,
@@ -3454,7 +3632,9 @@
     },
     {
       "id": "halcyon",
-      "title_localized": { "en": "Halcyon" },
+      "title_localized": {
+        "en": "Halcyon"
+      },
       "artist": "xi",
       "bpm": "191",
       "bpm_base": 191,
@@ -3494,7 +3674,9 @@
     },
     {
       "id": "etherstrike",
-      "title_localized": { "en": "Ether Strike" },
+      "title_localized": {
+        "en": "Ether Strike"
+      },
       "artist": "Akira Complex",
       "bpm": "156",
       "bpm_base": 156,
@@ -3535,7 +3717,9 @@
     },
     {
       "id": "fractureray",
-      "title_localized": { "en": "Fracture Ray" },
+      "title_localized": {
+        "en": "Fracture Ray"
+      },
       "artist": "Sakuzyo",
       "bpm": "200",
       "bpm_base": 200,
@@ -3576,7 +3760,9 @@
     },
     {
       "id": "suomi",
-      "title_localized": { "en": "Suomi" },
+      "title_localized": {
+        "en": "Suomi"
+      },
       "artist": "Aire",
       "bpm": "125",
       "bpm_base": 125,
@@ -3615,7 +3801,9 @@
     },
     {
       "id": "bookmaker",
-      "title_localized": { "en": "Bookmaker (2D Version)" },
+      "title_localized": {
+        "en": "Bookmaker (2D Version)"
+      },
       "artist": "Kobaryo",
       "bpm": "175",
       "bpm_base": 175,
@@ -3650,12 +3838,19 @@
           "rating": 8,
           "fixedValue": 8.3
         },
-        { "ratingClass": 3, "rating": 10, "fixedValue": 10.0 }
+        {
+          "ratingClass": 3,
+          "rating": 10,
+          "fixedValue": 10.0
+        }
       ]
     },
     {
       "id": "darakunosono",
-      "title_localized": { "ja": "堕楽の園", "en": "Illegal Paradise" },
+      "title_localized": {
+        "ja": "堕楽の園",
+        "en": "Illegal Paradise"
+      },
       "artist": "gmtn. (witch's slave)",
       "bpm": "168",
       "bpm_base": 168,
@@ -3694,7 +3889,9 @@
     },
     {
       "id": "dropdead",
-      "title_localized": { "en": "dropdead" },
+      "title_localized": {
+        "en": "dropdead"
+      },
       "artist": "Frums",
       "bpm": "50",
       "bpm_base": 200,
@@ -3733,7 +3930,9 @@
     },
     {
       "id": "fallensquare",
-      "title_localized": { "en": "Fallensquare" },
+      "title_localized": {
+        "en": "Fallensquare"
+      },
       "artist": "Silentroom",
       "bpm": "99",
       "bpm_base": 180,
@@ -3772,7 +3971,9 @@
     },
     {
       "id": "nhelv",
-      "title_localized": { "en": "Nhelv" },
+      "title_localized": {
+        "en": "Nhelv"
+      },
       "artist": "Silentroom",
       "bpm": "174.59",
       "bpm_base": 174.59,
@@ -3854,7 +4055,9 @@
     },
     {
       "id": "purgatorium",
-      "title_localized": { "en": "Purgatorium" },
+      "title_localized": {
+        "en": "Purgatorium"
+      },
       "artist": "お月さま交響曲",
       "bpm": "150",
       "bpm_base": 150,
@@ -3900,7 +4103,10 @@
     },
     {
       "id": "hikari",
-      "title_localized": { "ja": "光", "en": "Hikari" },
+      "title_localized": {
+        "ja": "光",
+        "en": "Hikari"
+      },
       "artist": "THB",
       "bpm": "130",
       "bpm_base": 130,
@@ -3911,7 +4117,9 @@
       "side": 1,
       "bg": "tonesphere-darksphere",
       "remote_dl": true,
-      "source_localized": { "en": "Tone Sphere" },
+      "source_localized": {
+        "en": "Tone Sphere"
+      },
       "no_stream": true,
       "date": 1538870400,
       "version": "1.8",
@@ -3941,7 +4149,9 @@
     },
     {
       "id": "stager",
-      "title_localized": { "en": "STAGER (ALL STAGE CLEAR)" },
+      "title_localized": {
+        "en": "STAGER (ALL STAGE CLEAR)"
+      },
       "artist": "Ras",
       "bpm": "145",
       "bpm_base": 145,
@@ -3952,7 +4162,9 @@
       "side": 0,
       "bg": "tonesphere-solarsphere",
       "remote_dl": true,
-      "source_localized": { "en": "Tone Sphere" },
+      "source_localized": {
+        "en": "Tone Sphere"
+      },
       "no_stream": true,
       "date": 1538870402,
       "version": "1.8",
@@ -3984,7 +4196,9 @@
     },
     {
       "id": "hallofmirrors",
-      "title_localized": { "en": "Hall of Mirrors" },
+      "title_localized": {
+        "en": "Hall of Mirrors"
+      },
       "artist": "Sta",
       "bpm": "147",
       "bpm_base": 147.01,
@@ -3995,7 +4209,9 @@
       "side": 1,
       "bg": "tonesphere-darksphere",
       "remote_dl": true,
-      "source_localized": { "en": "Tone Sphere" },
+      "source_localized": {
+        "en": "Tone Sphere"
+      },
       "no_stream": true,
       "date": 1538870401,
       "version": "1.8",
@@ -4025,7 +4241,9 @@
     },
     {
       "id": "linearaccelerator",
-      "title_localized": { "en": "Linear Accelerator" },
+      "title_localized": {
+        "en": "Linear Accelerator"
+      },
       "artist": "THE SHAFT",
       "bpm": "200 - 211.9",
       "bpm_base": 200,
@@ -4036,7 +4254,9 @@
       "side": 0,
       "bg": "tonesphere-solarsphere",
       "remote_dl": true,
-      "source_localized": { "en": "Tone Sphere" },
+      "source_localized": {
+        "en": "Tone Sphere"
+      },
       "no_stream": true,
       "date": 1538870403,
       "version": "1.8",
@@ -4067,7 +4287,9 @@
     },
     {
       "id": "tiferet",
-      "title_localized": { "en": "Tiferet" },
+      "title_localized": {
+        "en": "Tiferet"
+      },
       "artist": "xi + Sta",
       "bpm": "140?",
       "bpm_base": 140,
@@ -4078,7 +4300,9 @@
       "side": 1,
       "bg": "tiferet",
       "remote_dl": true,
-      "source_localized": { "en": "Tone Sphere" },
+      "source_localized": {
+        "en": "Tone Sphere"
+      },
       "no_stream": true,
       "date": 1538870404,
       "version": "1.8",
@@ -4108,7 +4332,9 @@
     },
     {
       "id": "alexandrite",
-      "title_localized": { "en": "Alexandrite" },
+      "title_localized": {
+        "en": "Alexandrite"
+      },
       "artist": "WAiKURO",
       "bpm": "146",
       "bpm_base": 146,
@@ -4147,7 +4373,9 @@
     },
     {
       "id": "rugie",
-      "title_localized": { "en": "Rugie" },
+      "title_localized": {
+        "en": "Rugie"
+      },
       "artist": "Feryquitous feat.Sennzai",
       "bpm": "191",
       "bpm_base": 191,
@@ -4186,7 +4414,9 @@
     },
     {
       "id": "astraltale",
-      "title_localized": { "en": "Astral tale" },
+      "title_localized": {
+        "en": "Astral tale"
+      },
       "artist": "Noah",
       "bpm": "134",
       "bpm_base": 134,
@@ -4226,7 +4456,9 @@
     },
     {
       "id": "phantasia",
-      "title_localized": { "en": "Phantasia" },
+      "title_localized": {
+        "en": "Phantasia"
+      },
       "artist": "Yunosuke",
       "bpm": "153",
       "bpm_base": 153,
@@ -4266,7 +4498,9 @@
     },
     {
       "id": "empireofwinter",
-      "title_localized": { "en": "Empire of Winter" },
+      "title_localized": {
+        "en": "Empire of Winter"
+      },
       "artist": "Street",
       "bpm": "175",
       "bpm_base": 175,
@@ -4306,7 +4540,9 @@
     },
     {
       "id": "merlin",
-      "title_localized": { "en": "MERLIN" },
+      "title_localized": {
+        "en": "MERLIN"
+      },
       "artist": "REDALiCE",
       "bpm": "180",
       "bpm_base": 180,
@@ -4404,7 +4640,9 @@
     },
     {
       "id": "omakeno",
-      "title_localized": { "en": "OMAKENO Stroke" },
+      "title_localized": {
+        "en": "OMAKENO Stroke"
+      },
       "artist": "t+pazolite",
       "bpm": "240",
       "bpm_base": 240,
@@ -4451,7 +4689,9 @@
     },
     {
       "id": "scarletlance",
-      "title_localized": { "en": "Scarlet Lance" },
+      "title_localized": {
+        "en": "Scarlet Lance"
+      },
       "artist": "MASAKI (ZUNTATA)",
       "bpm": "185",
       "bpm_base": 185,
@@ -4498,7 +4738,9 @@
     },
     {
       "id": "ouroboros",
-      "title_localized": { "en": "ouroboros -twin stroke of the end-" },
+      "title_localized": {
+        "en": "ouroboros -twin stroke of the end-"
+      },
       "artist": "Cranky VS MASAKI",
       "bpm": "188",
       "bpm_base": 188,
@@ -4546,7 +4788,9 @@
     },
     {
       "id": "libertas",
-      "title_localized": { "en": "Libertas" },
+      "title_localized": {
+        "en": "Libertas"
+      },
       "artist": "Zekk",
       "bpm": "160",
       "bpm_base": 160,
@@ -4586,8 +4830,13 @@
     },
     {
       "id": "solitarydream",
-      "title_localized": { "en": "Solitary Dream", "ja": "虚空の夢" },
-      "jacket_localized": { "ja": true },
+      "title_localized": {
+        "en": "Solitary Dream",
+        "ja": "虚空の夢"
+      },
+      "jacket_localized": {
+        "ja": true
+      },
       "artist": "ak+q feat. Sennzai",
       "bpm": "162",
       "bpm_base": 162,
@@ -4627,7 +4876,9 @@
     },
     {
       "id": "antithese",
-      "title_localized": { "en": "Antithese" },
+      "title_localized": {
+        "en": "Antithese"
+      },
       "artist": "Blacklolita",
       "bpm": "172",
       "bpm_base": 172,
@@ -4667,7 +4918,9 @@
     },
     {
       "id": "corruption",
-      "title_localized": { "en": "Corruption" },
+      "title_localized": {
+        "en": "Corruption"
+      },
       "artist": "3R2",
       "bpm": "170",
       "bpm_base": 170,
@@ -4708,7 +4961,9 @@
     },
     {
       "id": "blackterritory",
-      "title_localized": { "en": "Black Territory" },
+      "title_localized": {
+        "en": "Black Territory"
+      },
       "artist": "DJ Myosuke",
       "bpm": "200",
       "bpm_base": 200,
@@ -4749,7 +5004,9 @@
     },
     {
       "id": "viciousheroism",
-      "title_localized": { "en": "Vicious Heroism" },
+      "title_localized": {
+        "en": "Vicious Heroism"
+      },
       "artist": "Kobaryo",
       "bpm": "256",
       "bpm_base": 256,
@@ -4789,7 +5046,9 @@
     },
     {
       "id": "cyaegha",
-      "title_localized": { "en": "Cyaegha" },
+      "title_localized": {
+        "en": "Cyaegha"
+      },
       "artist": "USAO",
       "bpm": "200",
       "bpm_base": 200,
@@ -4830,7 +5089,9 @@
     },
     {
       "id": "revixy",
-      "title_localized": { "en": "ReviXy" },
+      "title_localized": {
+        "en": "ReviXy"
+      },
       "artist": "ikaruga_nex",
       "bpm": "115-185",
       "bpm_base": 185,
@@ -4869,7 +5130,9 @@
     },
     {
       "id": "grimheart",
-      "title_localized": { "en": "Grimheart" },
+      "title_localized": {
+        "en": "Grimheart"
+      },
       "artist": "Puru",
       "bpm": "170",
       "bpm_base": 170,
@@ -4908,7 +5171,9 @@
     },
     {
       "id": "vector",
-      "title_localized": { "en": "VECTOЯ" },
+      "title_localized": {
+        "en": "VECTOЯ"
+      },
       "artist": "WHITEFISTS",
       "bpm": "200",
       "bpm_base": 200,
@@ -4947,7 +5212,9 @@
     },
     {
       "id": "supernova",
-      "title_localized": { "en": "SUPERNOVA" },
+      "title_localized": {
+        "en": "SUPERNOVA"
+      },
       "artist": "BACO",
       "bpm": "150",
       "bpm_base": 150,
@@ -4987,7 +5254,9 @@
     },
     {
       "id": "dottodot",
-      "title_localized": { "en": "Dot to Dot feat. shully" },
+      "title_localized": {
+        "en": "Dot to Dot feat. shully"
+      },
       "artist": "Mameyudoufu",
       "bpm": "174",
       "bpm_base": 174,
@@ -5027,7 +5296,9 @@
     },
     {
       "id": "garakuta",
-      "title_localized": { "en": "Garakuta Doll Play" },
+      "title_localized": {
+        "en": "Garakuta Doll Play"
+      },
       "artist": "t+pazolite",
       "bpm": "256",
       "bpm_base": 256,
@@ -5038,7 +5309,9 @@
       "side": 1,
       "bg": "chuni-garakuta",
       "remote_dl": true,
-      "source_localized": { "en": "maimai" },
+      "source_localized": {
+        "en": "maimai"
+      },
       "source_copyright": "©SEGA",
       "world_unlock": false,
       "no_pp": true,
@@ -5071,7 +5344,10 @@
     },
     {
       "id": "ikazuchi",
-      "title_localized": { "en": "Ikazuchi", "ja": "怒槌" },
+      "title_localized": {
+        "en": "Ikazuchi",
+        "ja": "怒槌"
+      },
       "artist": "光吉猛修",
       "bpm": "200",
       "bpm_base": 200,
@@ -5082,7 +5358,9 @@
       "side": 1,
       "bg": "chuni-ikazuchi",
       "remote_dl": true,
-      "source_localized": { "en": "CHUNITHM" },
+      "source_localized": {
+        "en": "CHUNITHM"
+      },
       "source_copyright": "©SEGA",
       "world_unlock": false,
       "no_pp": true,
@@ -5115,7 +5393,9 @@
     },
     {
       "id": "worldvanquisher",
-      "title_localized": { "en": "World Vanquisher" },
+      "title_localized": {
+        "en": "World Vanquisher"
+      },
       "artist": "void (Mournfinale)",
       "bpm": "170",
       "bpm_base": 170,
@@ -5126,7 +5406,9 @@
       "side": 0,
       "bg": "chuni-worldvanquisher",
       "remote_dl": true,
-      "source_localized": { "en": "CHUNITHM" },
+      "source_localized": {
+        "en": "CHUNITHM"
+      },
       "source_copyright": "©SEGA",
       "world_unlock": true,
       "no_pp": true,
@@ -5160,7 +5442,9 @@
     },
     {
       "id": "dreadnought",
-      "title_localized": { "en": "Dreadnought" },
+      "title_localized": {
+        "en": "Dreadnought"
+      },
       "artist": "Mastermind (xi + nora2r)",
       "bpm": "96-384",
       "bpm_base": 192,
@@ -5201,7 +5485,9 @@
     },
     {
       "id": "particlearts",
-      "title_localized": { "en": "Particle Arts" },
+      "title_localized": {
+        "en": "Particle Arts"
+      },
       "artist": "Virtual Self",
       "bpm": "162-175",
       "bpm_base": 175,
@@ -5242,7 +5528,9 @@
     },
     {
       "id": "vindication",
-      "title_localized": { "en": "Vindication" },
+      "title_localized": {
+        "en": "Vindication"
+      },
       "artist": "Laur",
       "bpm": "174",
       "bpm_base": 174,
@@ -5282,7 +5570,9 @@
     },
     {
       "id": "heavensdoor",
-      "title_localized": { "en": "Heavensdoor" },
+      "title_localized": {
+        "en": "Heavensdoor"
+      },
       "artist": "LeaF",
       "bpm": "240",
       "bpm_base": 240,
@@ -5323,7 +5613,9 @@
     },
     {
       "id": "ringedgenesis",
-      "title_localized": { "en": "Ringed Genesis" },
+      "title_localized": {
+        "en": "Ringed Genesis"
+      },
       "artist": "Edelritter",
       "bpm": "160",
       "bpm_base": 160,
@@ -5364,7 +5656,9 @@
     },
     {
       "id": "chelsea",
-      "title_localized": { "en": "Chelsea" },
+      "title_localized": {
+        "en": "Chelsea"
+      },
       "artist": "7mai",
       "bpm": "174",
       "bpm_base": 174,
@@ -5374,7 +5668,10 @@
       "audioPreviewEnd": 0,
       "side": 0,
       "bg": "omatsuri_light",
-      "bg_daynight": { "day": "omatsuri_light", "night": "omatsuri_conflict" },
+      "bg_daynight": {
+        "day": "omatsuri_light",
+        "night": "omatsuri_conflict"
+      },
       "remote_dl": true,
       "world_unlock": false,
       "date": 1566432000,
@@ -5405,7 +5702,9 @@
     },
     {
       "id": "aiueoon",
-      "title_localized": { "en": "AI[UE]OON" },
+      "title_localized": {
+        "en": "AI[UE]OON"
+      },
       "artist": "MYUKKE.",
       "bpm": "145",
       "bpm_base": 145,
@@ -5415,7 +5714,10 @@
       "audioPreviewEnd": 0,
       "side": 0,
       "bg": "omatsuri_light",
-      "bg_daynight": { "day": "omatsuri_light", "night": "omatsuri_conflict" },
+      "bg_daynight": {
+        "day": "omatsuri_light",
+        "night": "omatsuri_conflict"
+      },
       "remote_dl": true,
       "world_unlock": false,
       "date": 1566432001,
@@ -5459,7 +5761,10 @@
       "audioPreviewEnd": 0,
       "side": 0,
       "bg": "omatsuri_light",
-      "bg_daynight": { "day": "omatsuri_light", "night": "omatsuri_conflict" },
+      "bg_daynight": {
+        "day": "omatsuri_light",
+        "night": "omatsuri_conflict"
+      },
       "remote_dl": true,
       "world_unlock": false,
       "date": 1566432002,
@@ -5494,7 +5799,9 @@
     },
     {
       "id": "tiemedowngently",
-      "title_localized": { "en": "Tie me down gently" },
+      "title_localized": {
+        "en": "Tie me down gently"
+      },
       "artist": "溝口ゆうま feat. 大瀬良あい",
       "bpm": "191",
       "bpm_base": 191,
@@ -5504,7 +5811,10 @@
       "audioPreviewEnd": 0,
       "side": 1,
       "bg": "omatsuri_conflict",
-      "bg_daynight": { "day": "omatsuri_light", "night": "omatsuri_conflict" },
+      "bg_daynight": {
+        "day": "omatsuri_light",
+        "night": "omatsuri_conflict"
+      },
       "remote_dl": true,
       "world_unlock": false,
       "date": 1566432003,
@@ -5535,7 +5845,9 @@
     },
     {
       "id": "valhallazero",
-      "title_localized": { "en": "Valhalla:0" },
+      "title_localized": {
+        "en": "Valhalla:0"
+      },
       "artist": "Juggernaut.",
       "bpm": "200",
       "bpm_base": 200,
@@ -5545,7 +5857,10 @@
       "audioPreviewEnd": 0,
       "side": 1,
       "bg": "omatsuri_conflict",
-      "bg_daynight": { "day": "omatsuri_light", "night": "omatsuri_conflict" },
+      "bg_daynight": {
+        "day": "omatsuri_light",
+        "night": "omatsuri_conflict"
+      },
       "remote_dl": true,
       "world_unlock": false,
       "date": 1566432004,
@@ -5576,7 +5891,9 @@
     },
     {
       "id": "mirzam",
-      "title_localized": { "en": "Mirzam" },
+      "title_localized": {
+        "en": "Mirzam"
+      },
       "artist": "Aoi vs. siqlo",
       "bpm": "201",
       "bpm_base": 201,
@@ -5616,7 +5933,9 @@
     },
     {
       "id": "diode",
-      "title_localized": { "en": "Diode" },
+      "title_localized": {
+        "en": "Diode"
+      },
       "artist": "Kolaa",
       "bpm": "132",
       "bpm_base": 132,
@@ -5656,7 +5975,9 @@
     },
     {
       "id": "freefall",
-      "title_localized": { "en": "FREEF4LL" },
+      "title_localized": {
+        "en": "FREEF4LL"
+      },
       "artist": "YUKIYANAGI",
       "bpm": "170",
       "bpm_base": 170,
@@ -5696,7 +6017,9 @@
     },
     {
       "id": "gloryroad",
-      "title_localized": { "en": "GLORY：ROAD" },
+      "title_localized": {
+        "en": "GLORY：ROAD"
+      },
       "artist": "uma vs. モリモリあつし",
       "bpm": "250",
       "bpm_base": 250,
@@ -5736,7 +6059,9 @@
     },
     {
       "id": "monochromeprincess",
-      "title_localized": { "en": "Monochrome Princess" },
+      "title_localized": {
+        "en": "Monochrome Princess"
+      },
       "artist": "polysha",
       "bpm": "160",
       "bpm_base": 160,
@@ -5776,7 +6101,9 @@
     },
     {
       "id": "heavenlycaress",
-      "title_localized": { "en": "Heavenly caress" },
+      "title_localized": {
+        "en": "Heavenly caress"
+      },
       "artist": "Noah",
       "bpm": "241",
       "bpm_base": 241,
@@ -5817,7 +6144,9 @@
     },
     {
       "id": "senkyou",
-      "title_localized": { "en": "Senkyou" },
+      "title_localized": {
+        "en": "Senkyou"
+      },
       "artist": "MYTK",
       "bpm": "90",
       "bpm_base": 180,
@@ -5857,7 +6186,9 @@
     },
     {
       "id": "filament",
-      "title_localized": { "en": "Filament" },
+      "title_localized": {
+        "en": "Filament"
+      },
       "artist": "Puru",
       "bpm": "170",
       "bpm_base": 170,
@@ -5898,7 +6229,9 @@
     },
     {
       "id": "avantraze",
-      "title_localized": { "en": "Avant Raze" },
+      "title_localized": {
+        "en": "Avant Raze"
+      },
       "artist": "Sampling Masters MEGA",
       "bpm": "200",
       "bpm_base": 200,
@@ -5938,7 +6271,9 @@
     },
     {
       "id": "battlenoone",
-      "title_localized": { "en": "BATTLE NO.1" },
+      "title_localized": {
+        "en": "BATTLE NO.1"
+      },
       "artist": "TANO*C Sound Team",
       "bpm": "200",
       "bpm_base": 200,
@@ -5979,7 +6314,9 @@
     },
     {
       "id": "laqryma",
-      "title_localized": { "en": "La'qryma of the Wasteland" },
+      "title_localized": {
+        "en": "La'qryma of the Wasteland"
+      },
       "artist": "DJ Noriken",
       "bpm": "168",
       "bpm_base": 168,
@@ -6015,12 +6352,19 @@
           "rating": 9,
           "fixedValue": 9.1
         },
-        { "ratingClass": 3, "rating": 9, "ratingPlus": true, "fixedValue": 9.9 }
+        {
+          "ratingClass": 3,
+          "rating": 9,
+          "ratingPlus": true,
+          "fixedValue": 9.9
+        }
       ]
     },
     {
       "id": "einherjar",
-      "title_localized": { "en": "Einherjar Joker" },
+      "title_localized": {
+        "en": "Einherjar Joker"
+      },
       "artist": "DJ Genki vs Gram",
       "bpm": "222",
       "bpm_base": 222,
@@ -6061,7 +6405,9 @@
     },
     {
       "id": "izana",
-      "title_localized": { "en": "IZANA" },
+      "title_localized": {
+        "en": "IZANA"
+      },
       "artist": "t+pazolite vs P*Light",
       "bpm": "222",
       "bpm_base": 222,
@@ -6101,7 +6447,10 @@
     },
     {
       "id": "saikyostronger",
-      "title_localized": { "en": "SAIKYO STRONGER", "ja": "最強STRONGER" },
+      "title_localized": {
+        "en": "SAIKYO STRONGER",
+        "ja": "最強STRONGER"
+      },
       "artist": "REDALiCE vs USAO",
       "bpm": "205",
       "bpm_base": 205,
@@ -6141,7 +6490,9 @@
     },
     {
       "id": "worldexecuteme",
-      "title_localized": { "en": "world.execute(me);" },
+      "title_localized": {
+        "en": "world.execute(me);"
+      },
       "artist": "Mili",
       "bpm": "130",
       "bpm_base": 130,
@@ -6181,7 +6532,9 @@
     },
     {
       "id": "blrink",
-      "title_localized": { "en": "BLRINK" },
+      "title_localized": {
+        "en": "BLRINK"
+      },
       "artist": "Sta",
       "bpm": "115",
       "bpm_base": 115,
@@ -6222,7 +6575,9 @@
     },
     {
       "id": "oblivia",
-      "title_localized": { "en": "Oblivia" },
+      "title_localized": {
+        "en": "Oblivia"
+      },
       "artist": "Saiph",
       "bpm": "180",
       "bpm_base": 180,
@@ -6262,7 +6617,9 @@
     },
     {
       "id": "amygdata",
-      "title_localized": { "en": "amygdata" },
+      "title_localized": {
+        "en": "amygdata"
+      },
       "artist": "nitro",
       "bpm": "154",
       "bpm_base": 154,
@@ -6302,7 +6659,9 @@
     },
     {
       "id": "corpssansorganes",
-      "title_localized": { "en": "corps-sans-organes" },
+      "title_localized": {
+        "en": "corps-sans-organes"
+      },
       "artist": "cybermiso",
       "bpm": "105",
       "bpm_base": 105,
@@ -6342,7 +6701,9 @@
     },
     {
       "id": "equilibrium",
-      "title_localized": { "en": "Equilibrium" },
+      "title_localized": {
+        "en": "Equilibrium"
+      },
       "artist": "Maozon",
       "bpm": "180",
       "bpm_base": 180,
@@ -6382,7 +6743,9 @@
     },
     {
       "id": "antagonism",
-      "title_localized": { "en": "Antagonism" },
+      "title_localized": {
+        "en": "Antagonism"
+      },
       "artist": "Yooh vs. siromaru",
       "bpm": "160",
       "bpm_base": 160,
@@ -6423,7 +6786,9 @@
     },
     {
       "id": "lostdesire",
-      "title_localized": { "en": "Lost Desire" },
+      "title_localized": {
+        "en": "Lost Desire"
+      },
       "artist": "Powerless feat. Sennzai",
       "bpm": "170",
       "bpm_base": 170,
@@ -6464,7 +6829,9 @@
     },
     {
       "id": "dantalion",
-      "title_localized": { "en": "Dantalion" },
+      "title_localized": {
+        "en": "Dantalion"
+      },
       "artist": "Team Grimoire",
       "bpm": "186",
       "bpm_base": 186,
@@ -6505,7 +6872,9 @@
     },
     {
       "id": "ifi",
-      "title_localized": { "en": "#1f1e33" },
+      "title_localized": {
+        "en": "#1f1e33"
+      },
       "artist": "かめりあ(EDP)",
       "bpm": "181",
       "bpm_base": 181,
@@ -6546,7 +6915,9 @@
     },
     {
       "id": "tempestissimo",
-      "title_localized": { "en": "Tempestissimo" },
+      "title_localized": {
+        "en": "Tempestissimo"
+      },
       "artist": "t+pazolite",
       "bpm": "231",
       "bpm_base": 231,
@@ -6596,7 +6967,9 @@
     },
     {
       "id": "arcahv",
-      "title_localized": { "en": "Arcahv" },
+      "title_localized": {
+        "en": "Arcahv"
+      },
       "artist": "Feryquitous",
       "bpm": "191",
       "bpm_base": 191,
@@ -6641,7 +7014,9 @@
     },
     {
       "id": "altale",
-      "title_localized": { "en": "Altale" },
+      "title_localized": {
+        "en": "Altale"
+      },
       "artist": "Sakuzyo",
       "bpm": "83-90",
       "bpm_base": 180,
@@ -6682,7 +7057,9 @@
     },
     {
       "id": "givemeanightmare",
-      "title_localized": { "en": "Give Me a Nightmare" },
+      "title_localized": {
+        "en": "Give Me a Nightmare"
+      },
       "artist": "アリスシャッハと魔法の楽団",
       "bpm": "95-190",
       "bpm_base": 190,
@@ -6722,7 +7099,9 @@
     },
     {
       "id": "blacklotus",
-      "title_localized": { "en": "Black Lotus" },
+      "title_localized": {
+        "en": "Black Lotus"
+      },
       "artist": "wa.",
       "bpm": "200",
       "bpm_base": 200,
@@ -6763,7 +7142,9 @@
     },
     {
       "id": "gekka",
-      "title_localized": { "en": "Gekka (Short Version)" },
+      "title_localized": {
+        "en": "Gekka (Short Version)"
+      },
       "artist": "Nhato",
       "bpm": "132",
       "bpm_base": 132,
@@ -6803,7 +7184,9 @@
     },
     {
       "id": "vividtheory",
-      "title_localized": { "en": "Vivid Theory" },
+      "title_localized": {
+        "en": "Vivid Theory"
+      },
       "artist": "ak+q",
       "bpm": "178",
       "bpm_base": 178,
@@ -6843,7 +7226,9 @@
     },
     {
       "id": "onefr",
-      "title_localized": { "en": "1F√" },
+      "title_localized": {
+        "en": "1F√"
+      },
       "artist": "WHITEFISTS",
       "bpm": "130",
       "bpm_base": 130,
@@ -6883,7 +7268,9 @@
     },
     {
       "id": "scarletcage",
-      "title_localized": { "en": "Scarlet Cage" },
+      "title_localized": {
+        "en": "Scarlet Cage"
+      },
       "artist": "Daisuke Kurosawa",
       "bpm": "166",
       "bpm_base": 166,
@@ -6924,7 +7311,9 @@
     },
     {
       "id": "faintlight",
-      "title_localized": { "en": "Faint Light (Arcaea Edit)" },
+      "title_localized": {
+        "en": "Faint Light (Arcaea Edit)"
+      },
       "artist": "Taishi",
       "bpm": "133",
       "bpm_base": 133,
@@ -6964,7 +7353,9 @@
     },
     {
       "id": "feelssoright",
-      "title_localized": { "en": "Feels So Right feat. Renko" },
+      "title_localized": {
+        "en": "Feels So Right feat. Renko"
+      },
       "artist": "Mysteka",
       "bpm": "180",
       "bpm_base": 180,
@@ -7004,7 +7395,9 @@
     },
     {
       "id": "teriqma",
-      "title_localized": { "en": "Teriqma" },
+      "title_localized": {
+        "en": "Teriqma"
+      },
       "artist": "owl*tree",
       "bpm": "128",
       "bpm_base": 128,
@@ -7015,7 +7408,9 @@
       "side": 1,
       "bg": "chuni-ikazuchi",
       "remote_dl": true,
-      "source_localized": { "en": "CHUNITHM" },
+      "source_localized": {
+        "en": "CHUNITHM"
+      },
       "source_copyright": "©SEGA",
       "world_unlock": false,
       "no_stream": true,
@@ -7047,7 +7442,9 @@
     },
     {
       "id": "mahoroba",
-      "title_localized": { "en": "MAHOROBA" },
+      "title_localized": {
+        "en": "MAHOROBA"
+      },
       "artist": "Zekk",
       "bpm": "195",
       "bpm_base": 195,
@@ -7087,7 +7484,9 @@
     },
     {
       "id": "badtek",
-      "title_localized": { "en": "BADTEK" },
+      "title_localized": {
+        "en": "BADTEK"
+      },
       "artist": "EBIMAYO",
       "bpm": "190",
       "bpm_base": 190,
@@ -7128,7 +7527,9 @@
     },
     {
       "id": "maliciousmischance",
-      "title_localized": { "en": "Malicious Mischance" },
+      "title_localized": {
+        "en": "Malicious Mischance"
+      },
       "artist": "s-don",
       "bpm": "155",
       "bpm_base": 155,
@@ -7168,7 +7569,9 @@
     },
     {
       "id": "gothiveofra",
-      "title_localized": { "en": "Got hive of Ra" },
+      "title_localized": {
+        "en": "Got hive of Ra"
+      },
       "artist": "E.G.G.",
       "bpm": "268",
       "bpm_base": 268,
@@ -7215,7 +7618,9 @@
     },
     {
       "id": "buchigireberserker",
-      "title_localized": { "en": "BUCHiGiRE Berserker" },
+      "title_localized": {
+        "en": "BUCHiGiRE Berserker"
+      },
       "artist": "REDALiCE vs MASAKI",
       "bpm": "200",
       "bpm_base": 200,
@@ -7262,7 +7667,9 @@
     },
     {
       "id": "galaxyfriends",
-      "title_localized": { "en": "Galaxy Friends" },
+      "title_localized": {
+        "en": "Galaxy Friends"
+      },
       "artist": "Kobaryo",
       "bpm": "300",
       "bpm_base": 300,
@@ -7303,7 +7710,9 @@
     },
     {
       "id": "crossover",
-      "title_localized": { "en": "CROSS†OVER" },
+      "title_localized": {
+        "en": "CROSS†OVER"
+      },
       "artist": "HyuN feat. LyuU",
       "bpm": "200",
       "bpm_base": 200,
@@ -7343,7 +7752,9 @@
     },
     {
       "id": "xeraphinite",
-      "title_localized": { "en": "Xeraphinite" },
+      "title_localized": {
+        "en": "Xeraphinite"
+      },
       "artist": "BlackY",
       "bpm": "146",
       "bpm_base": 146,
@@ -7384,7 +7795,9 @@
     },
     {
       "id": "lapis",
-      "title_localized": { "en": "Lapis" },
+      "title_localized": {
+        "en": "Lapis"
+      },
       "artist": "SHIKI",
       "bpm": "146",
       "bpm_base": 146,
@@ -7424,7 +7837,9 @@
     },
     {
       "id": "xanatos",
-      "title_localized": { "en": "Xanatos" },
+      "title_localized": {
+        "en": "Xanatos"
+      },
       "artist": "Tatsh",
       "bpm": "170",
       "bpm_base": 170,
@@ -7464,7 +7879,9 @@
     },
     {
       "id": "purpleverse",
-      "title_localized": { "en": "Purple Verse" },
+      "title_localized": {
+        "en": "Purple Verse"
+      },
       "artist": "Hommarju",
       "bpm": "170",
       "bpm_base": 170,
@@ -7504,7 +7921,10 @@
     },
     {
       "id": "alicealamode",
-      "title_localized": { "en": "Alice à la mode", "ko": "Alice a la mode" },
+      "title_localized": {
+        "en": "Alice à la mode",
+        "ko": "Alice a la mode"
+      },
       "artist": "Masanori Akita",
       "bpm": "80-134",
       "bpm_base": 134,
@@ -7544,7 +7964,9 @@
     },
     {
       "id": "eccentrictale",
-      "title_localized": { "en": "Eccentric Tale" },
+      "title_localized": {
+        "en": "Eccentric Tale"
+      },
       "artist": "Yamajet",
       "bpm": "132",
       "bpm_base": 132,
@@ -7584,7 +8006,9 @@
     },
     {
       "id": "alicessuitcase",
-      "title_localized": { "en": "Alice's Suitcase" },
+      "title_localized": {
+        "en": "Alice's Suitcase"
+      },
       "artist": "Endorfin.",
       "bpm": "190",
       "bpm_base": 190,
@@ -7624,7 +8048,9 @@
     },
     {
       "id": "jump",
-      "title_localized": { "en": "Jump" },
+      "title_localized": {
+        "en": "Jump"
+      },
       "artist": "Rasmus Faber",
       "bpm": "133",
       "bpm_base": 133,
@@ -7664,7 +8090,9 @@
     },
     {
       "id": "felis",
-      "title_localized": { "en": "Felis" },
+      "title_localized": {
+        "en": "Felis"
+      },
       "artist": "M2U",
       "bpm": "155",
       "bpm_base": 155,
@@ -7704,7 +8132,9 @@
     },
     {
       "id": "besideyou",
-      "title_localized": { "en": "Beside You" },
+      "title_localized": {
+        "en": "Beside You"
+      },
       "artist": "江口孝宏",
       "bpm": "181",
       "bpm_base": 181,
@@ -7744,7 +8174,9 @@
     },
     {
       "id": "heartjackin",
-      "title_localized": { "en": "Heart Jackin'" },
+      "title_localized": {
+        "en": "Heart Jackin'"
+      },
       "artist": "Yu_Asahina",
       "bpm": "160",
       "bpm_base": 160,
@@ -7828,7 +8260,9 @@
     },
     {
       "id": "lazyaddiction",
-      "title_localized": { "en": "Lazy Addiction" },
+      "title_localized": {
+        "en": "Lazy Addiction"
+      },
       "artist": "sky_delta",
       "bpm": "185",
       "bpm_base": 185,
@@ -7839,7 +8273,10 @@
       "side": 0,
       "bg": "ongeki_light",
       "remote_dl": true,
-      "source_localized": { "ja": "オンゲキ", "en": "O.N.G.E.K.I." },
+      "source_localized": {
+        "ja": "オンゲキ",
+        "en": "O.N.G.E.K.I."
+      },
       "source_copyright": "©SEGA",
       "world_unlock": false,
       "no_stream": true,
@@ -7871,7 +8308,9 @@
     },
     {
       "id": "dazzlehop",
-      "title_localized": { "en": "Dazzle hop" },
+      "title_localized": {
+        "en": "Dazzle hop"
+      },
       "artist": "Sampling Masters MEGA",
       "bpm": "220",
       "bpm_base": 220,
@@ -7882,7 +8321,10 @@
       "side": 1,
       "bg": "ongeki_conflict",
       "remote_dl": true,
-      "source_localized": { "ja": "オンゲキ", "en": "O.N.G.E.K.I." },
+      "source_localized": {
+        "ja": "オンゲキ",
+        "en": "O.N.G.E.K.I."
+      },
       "source_copyright": "©SEGA",
       "world_unlock": false,
       "no_stream": true,
@@ -7915,7 +8357,9 @@
     },
     {
       "id": "viyellastears",
-      "title_localized": { "en": "Viyella's Tears" },
+      "title_localized": {
+        "en": "Viyella's Tears"
+      },
       "artist": "Laur",
       "bpm": "218",
       "bpm_base": 218,
@@ -7926,7 +8370,10 @@
       "side": 1,
       "bg": "ongeki_conflict",
       "remote_dl": true,
-      "source_localized": { "ja": "オンゲキ", "en": "O.N.G.E.K.I." },
+      "source_localized": {
+        "ja": "オンゲキ",
+        "en": "O.N.G.E.K.I."
+      },
       "source_copyright": "©SEGA",
       "world_unlock": false,
       "no_stream": true,
@@ -7958,7 +8405,11 @@
     },
     {
       "id": "omegafour",
-      "title_localized": { "en": "ω4", "zh-Hant": "w4", "zh-Hans": "w4" },
+      "title_localized": {
+        "en": "ω4",
+        "zh-Hant": "w4",
+        "zh-Hans": "w4"
+      },
       "artist": "穴山大輔 VS 光吉猛修 VS Kai",
       "bpm": "71-192",
       "bpm_base": 192,
@@ -7969,7 +8420,10 @@
       "side": 0,
       "bg": "omegafour",
       "remote_dl": true,
-      "source_localized": { "ja": "オンゲキ", "en": "O.N.G.E.K.I." },
+      "source_localized": {
+        "ja": "オンゲキ",
+        "en": "O.N.G.E.K.I."
+      },
       "source_copyright": "©SEGA",
       "world_unlock": false,
       "no_stream": true,
@@ -8002,7 +8456,10 @@
     },
     {
       "id": "aprilshowers",
-      "title_localized": { "en": "April showers", "ja": "四月の雨" },
+      "title_localized": {
+        "en": "April showers",
+        "ja": "四月の雨"
+      },
       "artist": "cubesato",
       "bpm": "79",
       "bpm_base": 79,
@@ -8013,7 +8470,9 @@
       "side": 0,
       "bg": "maimai_light",
       "remote_dl": true,
-      "source_localized": { "en": "maimai" },
+      "source_localized": {
+        "en": "maimai"
+      },
       "source_copyright": "©SEGA",
       "world_unlock": false,
       "no_stream": true,
@@ -8045,7 +8504,9 @@
     },
     {
       "id": "seventhsense",
-      "title_localized": { "en": "7thSense" },
+      "title_localized": {
+        "en": "7thSense"
+      },
       "artist": "削除",
       "bpm": "150",
       "bpm_base": 150,
@@ -8056,7 +8517,9 @@
       "side": 1,
       "bg": "maimai_conflict",
       "remote_dl": true,
-      "source_localized": { "en": "maimai" },
+      "source_localized": {
+        "en": "maimai"
+      },
       "source_copyright": "©SEGA",
       "world_unlock": false,
       "no_stream": true,
@@ -8089,7 +8552,9 @@
     },
     {
       "id": "oshamascramble",
-      "title_localized": { "en": "Oshama Scramble!" },
+      "title_localized": {
+        "en": "Oshama Scramble!"
+      },
       "artist": "t+pazolite",
       "bpm": "190",
       "bpm_base": 190,
@@ -8100,7 +8565,9 @@
       "side": 0,
       "bg": "maimai_light",
       "remote_dl": true,
-      "source_localized": { "en": "maimai" },
+      "source_localized": {
+        "en": "maimai"
+      },
       "source_copyright": "©SEGA",
       "world_unlock": false,
       "no_stream": true,
@@ -8132,7 +8599,9 @@
     },
     {
       "id": "amazingmightyyyy",
-      "title_localized": { "en": "AMAZING MIGHTYYYY!!!!" },
+      "title_localized": {
+        "en": "AMAZING MIGHTYYYY!!!!"
+      },
       "artist": "WAiKURO",
       "bpm": "185",
       "bpm_base": 185,
@@ -8143,7 +8612,9 @@
       "side": 1,
       "bg": "maimai_boss",
       "remote_dl": true,
-      "source_localized": { "en": "maimai" },
+      "source_localized": {
+        "en": "maimai"
+      },
       "source_copyright": "©SEGA",
       "world_unlock": false,
       "no_stream": true,
@@ -8176,7 +8647,9 @@
     },
     {
       "id": "climax",
-      "title_localized": { "en": "Climax" },
+      "title_localized": {
+        "en": "Climax"
+      },
       "artist": "USAO",
       "bpm": "190",
       "bpm_base": 190,
@@ -8187,7 +8660,9 @@
       "side": 1,
       "bg": "chunithmthird_conflict",
       "remote_dl": true,
-      "source_localized": { "en": "CHUNITHM" },
+      "source_localized": {
+        "en": "CHUNITHM"
+      },
       "source_copyright": "©SEGA",
       "world_unlock": false,
       "no_stream": true,
@@ -8219,7 +8694,9 @@
     },
     {
       "id": "lastcelebration",
-      "title_localized": { "en": "Last Celebration" },
+      "title_localized": {
+        "en": "Last Celebration"
+      },
       "artist": "Laur vs CK",
       "bpm": "238",
       "bpm_base": 238,
@@ -8230,7 +8707,9 @@
       "side": 1,
       "bg": "chunithmthird_conflict",
       "remote_dl": true,
-      "source_localized": { "en": "CHUNITHM" },
+      "source_localized": {
+        "en": "CHUNITHM"
+      },
       "source_copyright": "©SEGA",
       "world_unlock": false,
       "no_stream": true,
@@ -8276,7 +8755,9 @@
       "side": 0,
       "bg": "gou",
       "remote_dl": true,
-      "source_localized": { "en": "CHUNITHM" },
+      "source_localized": {
+        "en": "CHUNITHM"
+      },
       "source_copyright": "©SEGA",
       "world_unlock": false,
       "no_stream": true,
@@ -8309,7 +8790,9 @@
     },
     {
       "id": "glow",
-      "title_localized": { "en": "Glow" },
+      "title_localized": {
+        "en": "Glow"
+      },
       "artist": "SPACELECTRO",
       "bpm": "165",
       "bpm_base": 165,
@@ -8349,7 +8832,9 @@
     },
     {
       "id": "attraqtia",
-      "title_localized": { "en": "AttraqtiA" },
+      "title_localized": {
+        "en": "AttraqtiA"
+      },
       "artist": "かめりあ",
       "bpm": "202",
       "bpm_base": 202,
@@ -8389,7 +8874,9 @@
     },
     {
       "id": "enchantedlove",
-      "title_localized": { "en": "enchanted love" },
+      "title_localized": {
+        "en": "enchanted love"
+      },
       "artist": "linear ring",
       "bpm": "95",
       "bpm_base": 190,
@@ -8429,7 +8916,10 @@
     },
     {
       "id": "take",
-      "title_localized": { "en": "Bamboo", "ja": "竹" },
+      "title_localized": {
+        "en": "Bamboo",
+        "ja": "竹"
+      },
       "artist": "立秋 feat.ちょこ",
       "bpm": "5-315",
       "bpm_base": 219,
@@ -8470,7 +8960,9 @@
     },
     {
       "id": "gimmedablood",
-      "title_localized": { "en": "GIMME DA BLOOD" },
+      "title_localized": {
+        "en": "GIMME DA BLOOD"
+      },
       "artist": "C-Show",
       "bpm": "87-110",
       "bpm_base": 110,
@@ -8553,7 +9045,9 @@
     },
     {
       "id": "lifeispiano",
-      "title_localized": { "en": "Life is PIANO" },
+      "title_localized": {
+        "en": "Life is PIANO"
+      },
       "artist": "Junk",
       "bpm": "133",
       "bpm_base": 133,
@@ -8593,7 +9087,9 @@
     },
     {
       "id": "paperwitch",
-      "title_localized": { "en": "Paper Witch" },
+      "title_localized": {
+        "en": "Paper Witch"
+      },
       "artist": "Yu-dachi",
       "bpm": "130",
       "bpm_base": 130,
@@ -8633,7 +9129,9 @@
     },
     {
       "id": "crystalgravity",
-      "title_localized": { "en": "Crystal Gravity" },
+      "title_localized": {
+        "en": "Crystal Gravity"
+      },
       "artist": "Tanchiky vs. siromaru",
       "bpm": "178",
       "bpm_base": 178,
@@ -8673,7 +9171,9 @@
     },
     {
       "id": "farawaylight",
-      "title_localized": { "en": "Far Away Light" },
+      "title_localized": {
+        "en": "Far Away Light"
+      },
       "artist": "technoplanet feat. はるの & 黒沢ダイスケ",
       "bpm": "180-216",
       "bpm_base": 216,
@@ -8714,7 +9214,9 @@
     },
     {
       "id": "loschen",
-      "title_localized": { "en": "Löschen" },
+      "title_localized": {
+        "en": "Löschen"
+      },
       "artist": "BlackY feat. Risa Yuzuki",
       "bpm": "181",
       "bpm_base": 181,
@@ -8754,7 +9256,9 @@
     },
     {
       "id": "aegleseeker",
-      "title_localized": { "en": "Aegleseeker" },
+      "title_localized": {
+        "en": "Aegleseeker"
+      },
       "artist": "Silentroom vs Frums",
       "bpm": "234",
       "bpm_base": 234,
@@ -8794,7 +9298,9 @@
     },
     {
       "id": "coastalhighway",
-      "title_localized": { "en": "Coastal Highway" },
+      "title_localized": {
+        "en": "Coastal Highway"
+      },
       "artist": "Glitch Droids",
       "bpm": "110",
       "bpm_base": 110,
@@ -8834,7 +9340,9 @@
     },
     {
       "id": "odysseia",
-      "title_localized": { "en": "ΟΔΥΣΣΕΙΑ" },
+      "title_localized": {
+        "en": "ΟΔΥΣΣΕΙΑ"
+      },
       "artist": "Sober Bear",
       "bpm": "174",
       "bpm_base": 174,
@@ -8874,7 +9382,9 @@
     },
     {
       "id": "overwhelm",
-      "title_localized": { "en": "Overwhelm" },
+      "title_localized": {
+        "en": "Overwhelm"
+      },
       "artist": "xi",
       "bpm": "200",
       "bpm_base": 200,
@@ -8914,7 +9424,9 @@
     },
     {
       "id": "vandalism",
-      "title_localized": { "en": "Vandalism" },
+      "title_localized": {
+        "en": "Vandalism"
+      },
       "artist": "Ashrount",
       "bpm": "194",
       "bpm_base": 194,
@@ -8955,7 +9467,9 @@
     },
     {
       "id": "turbocharger",
-      "title_localized": { "en": "Turbocharger" },
+      "title_localized": {
+        "en": "Turbocharger"
+      },
       "artist": "A/I",
       "bpm": "128-170",
       "bpm_base": 170,
@@ -9334,6 +9848,268 @@
           "fixedValue": 9.9,
           "ratingPlus": true,
           "totalNotes": 1252
+        }
+      ]
+    },
+    {
+      "id": "sheriruthrmx",
+      "title_localized": {
+        "en": "Sheriruth (Laur Remix)"
+      },
+      "artist": "Laur",
+      "bpm": "200",
+      "bpm_base": 200,
+      "set": "single",
+      "audioTimeSec": 0,
+      "side": 1,
+      "remote_dl": "True",
+      "world_unlock": "False",
+      "date": 1628553605,
+      "version": "3.8",
+      "difficulties": [
+        {
+          "ratingClass": 0,
+          "chartDesigner": "Nitro",
+          "jacketDesigner": "",
+          "rating": 4,
+          "fixedValue": 4,
+          "totalNotes": 0
+        },
+        {
+          "ratingClass": 1,
+          "chartDesigner": "Nitro",
+          "jacketDesigner": "",
+          "rating": 7,
+          "fixedValue": 7.5,
+          "totalNotes": 0
+        },
+        {
+          "ratingClass": 2,
+          "chartDesigner": "東星※恣意",
+          "jacketDesigner": "",
+          "rating": 10,
+          "fixedValue": 10.5,
+          "totalNotes": 0
+        }
+      ]
+    },
+    {
+      "id": "withu",
+      "title_localized": {
+        "en": "with U"
+      },
+      "artist": "t+pazolite & Massive New Krew feat. リリィ(CV:青木志貴)",
+      "bpm": "155",
+      "bpm_base": 155,
+      "set": "wacca",
+      "audioTimeSec": 0,
+      "side": 0,
+      "remote_dl": "True",
+      "world_unlock": "False",
+      "date": 1628553601,
+      "version": "3.8",
+      "difficulties": [
+        {
+          "ratingClass": 0,
+          "chartDesigner": "én",
+          "jacketDesigner": "",
+          "rating": 2,
+          "fixedValue": 2.5,
+          "totalNotes": 0
+        },
+        {
+          "ratingClass": 1,
+          "chartDesigner": "én",
+          "jacketDesigner": "",
+          "rating": 6,
+          "fixedValue": 6.5,
+          "totalNotes": 0
+        },
+        {
+          "ratingClass": 2,
+          "chartDesigner": "én",
+          "jacketDesigner": "",
+          "rating": 9,
+          "fixedValue": 9.4,
+          "totalNotes": 0
+        }
+      ]
+    },
+    {
+      "id": "letyoudivermx",
+      "title_localized": {
+        "en": "Let you DIVE! (nitro rmx)"
+      },
+      "artist": "nitro (lowiro)",
+      "bpm": "185",
+      "bpm_base": 185,
+      "set": "wacca",
+      "audioTimeSec": 0,
+      "side": 0,
+      "remote_dl": "True",
+      "world_unlock": "False",
+      "date": 1628553602,
+      "version": "3.8",
+      "difficulties": [
+        {
+          "ratingClass": 0,
+          "chartDesigner": "Nitro",
+          "jacketDesigner": "",
+          "rating": 3,
+          "fixedValue": 3,
+          "totalNotes": 0
+        },
+        {
+          "ratingClass": 1,
+          "chartDesigner": "Nitro",
+          "jacketDesigner": "",
+          "rating": 6,
+          "fixedValue": 6.5,
+          "totalNotes": 0
+        },
+        {
+          "ratingClass": 2,
+          "chartDesigner": "Nitro",
+          "jacketDesigner": "",
+          "rating": 9,
+          "fixedValue": 9.2,
+          "totalNotes": 0
+        }
+      ]
+    },
+    {
+      "id": "mazymetroplex",
+      "title_localized": {
+        "en": "Mazy Metroplex"
+      },
+      "artist": "aran",
+      "bpm": "155",
+      "bpm_base": 155,
+      "set": "wacca",
+      "audioTimeSec": 0,
+      "side": 0,
+      "remote_dl": "True",
+      "world_unlock": "False",
+      "date": 1628553603,
+      "version": "3.8",
+      "difficulties": [
+        {
+          "ratingClass": 0,
+          "chartDesigner": "Exschwasion",
+          "jacketDesigner": "",
+          "rating": 3,
+          "fixedValue": 3,
+          "totalNotes": 0
+        },
+        {
+          "ratingClass": 1,
+          "chartDesigner": "Exschwasion",
+          "jacketDesigner": "",
+          "rating": 7,
+          "fixedValue": 7.5,
+          "totalNotes": 0
+        },
+        {
+          "ratingClass": 2,
+          "chartDesigner": "Exschwasion",
+          "jacketDesigner": "",
+          "rating": 9,
+          "fixedValue": 9.7,
+          "ratingPlus": "True",
+          "totalNotes": 0
+        }
+      ]
+    },
+    {
+      "id": "genocider",
+      "title_localized": {
+        "en": "GENOCIDER"
+      },
+      "artist": "DJ Myosuke",
+      "bpm": "250-390",
+      "bpm_base": 250,
+      "set": "wacca",
+      "audioTimeSec": 0,
+      "side": 1,
+      "remote_dl": "True",
+      "world_unlock": "False",
+      "date": 1628553604,
+      "version": "3.8",
+      "difficulties": [
+        {
+          "ratingClass": 0,
+          "chartDesigner": "Toaster",
+          "jacketDesigner": "Taiyo Yamamoto",
+          "rating": 4,
+          "fixedValue": 4.5,
+          "totalNotes": 0
+        },
+        {
+          "ratingClass": 1,
+          "chartDesigner": "Toaster",
+          "jacketDesigner": "Taiyo Yamamoto",
+          "rating": 8,
+          "fixedValue": 7.5,
+          "totalNotes": 0
+        },
+        {
+          "ratingClass": 2,
+          "chartDesigner": "Toaster",
+          "jacketDesigner": "Taiyo Yamamoto",
+          "rating": 10,
+          "fixedValue": 10.7,
+          "ratingPlus": "True",
+          "totalNotes": 0
+        }
+      ]
+    },
+    {
+      "id": "quonwacca",
+      "title_localized": {
+        "en": "Quon"
+      },
+      "artist": "DJ Noriken",
+      "bpm": "170",
+      "bpm_base": 170,
+      "set": "wacca",
+      "audioTimeSec": 0,
+      "side": 1,
+      "remote_dl": "True",
+      "world_unlock": "False",
+      "date": 1628553600,
+      "version": "3.8",
+      "difficulties": [
+        {
+          "ratingClass": 0,
+          "chartDesigner": "CERiNG",
+          "jacketDesigner": "",
+          "rating": 2,
+          "fixedValue": 2.5,
+          "totalNotes": 0
+        },
+        {
+          "ratingClass": 1,
+          "chartDesigner": "CERiNG",
+          "jacketDesigner": "",
+          "rating": 5,
+          "fixedValue": 5.5,
+          "totalNotes": 0
+        },
+        {
+          "ratingClass": 2,
+          "chartDesigner": "CERiNG",
+          "jacketDesigner": "",
+          "rating": 8,
+          "fixedValue": 8.7,
+          "totalNotes": 0
+        },
+        {
+          "ratingClass": 3,
+          "chartDesigner": "XIII: The Journey/Nitro",
+          "jacketDesigner": "",
+          "rating": 10,
+          "fixedValue": 0,
+          "totalNotes": 0
         }
       ]
     }

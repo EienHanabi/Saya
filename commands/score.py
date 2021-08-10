@@ -53,6 +53,9 @@ async def score(message):
         await send_back_error(message, history_json)
         return
 
+    if len(history_json['content']['history']) == 0:
+        await message.reply("You did not play this song or the API is not aware you played it :C")
+        return
     score_data = history_json['content']['history'][0]
 
     if score_data["difficulty"] == 3:
