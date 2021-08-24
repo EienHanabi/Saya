@@ -10112,6 +10112,91 @@
           "totalNotes": 0
         }
       ]
+    },
+    {
+      "id": "bluecomet",
+      "title_localized": {
+        "en": "blue comet"
+      },
+      "artist": "ああああ",
+      "bpm": "100-172",
+      "bpm_base": 172,
+      "set": "extend",
+      "audioTimeSec": 144,
+      "side": 0,
+      "remote_dl": "True",
+      "world_unlock": "True",
+      "date": 1629849601,
+      "version": "3.8",
+      "difficulties": [
+        {
+          "ratingClass": 0,
+          "chartDesigner": "Toaster",
+          "jacketDesigner": "Bison",
+          "rating": 3,
+          "fixedValue": 3.5,
+          "totalNotes": 494
+        },
+        {
+          "ratingClass": 1,
+          "chartDesigner": "Toaster",
+          "jacketDesigner": "Bison",
+          "rating": 5,
+          "fixedValue": 5,
+          "totalNotes": 645
+        },
+        {
+          "ratingClass": 2,
+          "chartDesigner": "Toaster",
+          "jacketDesigner": "Bison",
+          "rating": 8,
+          "fixedValue": 8.2,
+          "totalNotes": 776
+        }
+      ]
+    },
+    {
+      "id": "eveninginscarlet",
+      "title_localized": {
+        "en": "Evening in Scarlet",
+        "ja": "緋纏いの宵"
+      },
+      "artist": "Freezer feat.妃苺",
+      "bpm": "170",
+      "bpm_base": 170,
+      "set": "single",
+      "audioTimeSec": 128,
+      "side": 1,
+      "remote_dl": "True",
+      "world_unlock": "False",
+      "date": 1629849600,
+      "version": "3.8",
+      "difficulties": [
+        {
+          "ratingClass": 0,
+          "chartDesigner": "Nitroだー！",
+          "jacketDesigner": "シエラ + yusi.",
+          "rating": 4,
+          "fixedValue": 4,
+          "totalNotes": 530
+        },
+        {
+          "ratingClass": 1,
+          "chartDesigner": "Nitroだー！",
+          "jacketDesigner": "シエラ + yusi.",
+          "rating": 7,
+          "fixedValue": 7,
+          "totalNotes": 638
+        },
+        {
+          "ratingClass": 2,
+          "chartDesigner": "Nitroだー！",
+          "jacketDesigner": "シエラ + yusi.",
+          "rating": 9,
+          "fixedValue": 9.5,
+          "totalNotes": 922
+        }
+      ]
     }
   ]
 }
