@@ -97,8 +97,8 @@ async def forceupdate(message):
     if not code:
         await message.reply("> Erreur: Aucun code Arcaea n'est lié a ce compte Discord (*!register*)")
         return
-    await add_scores(message, code)
-    await message.reply("> Mise à jour effectuée.")
+    if await add_scores(message, code) != -1:
+        await message.reply("> Mise à jour effectuée.")
 
 
 async def add_scores(message, code):
@@ -106,21 +106,21 @@ async def add_scores(message, code):
                                      params={"usercode": code, "overflow": 400}, timeout=180)
     if not response_best_30.ok:
         await send_back_http_error(message, response_best_30.status_code)
-        return
+        return -1
     best_30_json = response_best_30.json()
     if best_30_json['status'] != 0:
         await send_back_error(message, best_30_json)
-        return
+        return -1
 
     response_info = requests.post(f"{api_url}/user/info", headers=headers,
                                   params={"usercode": code}, timeout=180)
     if not response_info.ok:
         await send_back_http_error(message, response_info.status_code)
-        return
+        return -1
     info_json = response_info.json()
     if info_json['status'] != 0:
         await send_back_error(message, info_json)
-        return
+        return -1
 
     username = info_json['content']['name']
 
