@@ -65,7 +65,7 @@ class MyClient(discord.Client):
             msg_emb.add_field(name="Exception", value="La websocket ArcAPI a l'air d'être indisponible!")
             await message.reply(embed=msg_emb)
         except Exception as e:
-            traceback.print_exc()
+            traceback.print_exc(file=sys.stderr)
             msg_emb = discord.Embed(title="Erreur", type="rich", color=discord.Color.dark_red())
             msg_emb.add_field(name="Exception :", value=str(e))
             await message.reply(embed=msg_emb)
