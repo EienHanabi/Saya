@@ -11,7 +11,8 @@ partners_names = ["Hikari", "Tairitsu", "Kou", "Sapphire", "Lethe", "unknown_ico
                   "Chuni Pinguin", "Haruna", "Nono", "[MTA-XXX] Pandora Nemesis", "[MDA-21] Regulus", "Kanae",
                   "[Fantasia] Hikari", "[Sonata] Tairitsu", "Sia", "DORO*C", "[Tempest] Tairitsu",
                   "[E/S Primera] Brillante", "[Summer] Ilith", "[Etude] Saya", "Alice & Tenniel", "Luna & Mia",
-                  "Areus", "Seele", "Isabelle", "Mir", "Lagrange", "Nami", "Saya & Elizabeth", "Lily"]
+                  "Areus", "Seele", "Isabelle", "Mir", "Lagrange", "Nami", "Saya & Elizabeth", "Lily",
+                  "[Midsummer] Kanae"]
 
 # Asset links
 partners = "http://119.23.30.103:8080/ArcAssets/icon/"
@@ -27,9 +28,11 @@ def get_ua():
     with open("config.yaml", "r", encoding="UTF-8") as f:
         return yaml.load("".join(f.readlines()), Loader=yaml.FullLoader)["api"]["user-agent"]
 
+
 def get_gsheet_webhook_url():
     with open("config.yaml", "r", encoding="UTF-8") as f:
         return yaml.load("".join(f.readlines()), Loader=yaml.FullLoader)["gsheet"]["webhook_url"]
+
 
 def get_songlist():
     with open("ArcSongList.json", "r", encoding="UTF-8") as f:
